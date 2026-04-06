@@ -11,6 +11,7 @@ const navKeys = [
   { href: "#group", key: "group" as const },
   { href: "#import-export", key: "importExport" as const },
   { href: "#developer", key: "developer" as const },
+  { href: "#enterprise-solution", key: "enterpriseSolution" as const },
   { href: "#integration", key: "integration" as const },
   { href: "#vision", key: "vision" as const },
   { href: "#contact", key: "contact" as const },

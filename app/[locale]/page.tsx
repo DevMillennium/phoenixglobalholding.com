@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { AboutSection } from "@/components/sections/about-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { DeveloperSection } from "@/components/sections/developer-section";
+import { EnterpriseSolutionSection } from "@/components/sections/enterprise-solution-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ImportExportSection } from "@/components/sections/import-export-section";
 import { IntegrationSection } from "@/components/sections/integration-section";
@@ -64,7 +65,7 @@ export default async function HomePage({ params }: Props) {
     "@type": "Organization",
     name: "Phoenix Global Holding",
     description:
-      "Grupo empresarial internacional en comercio internacional, tecnología e innovación digital.",
+      "Grupo empresarial internacional: comercio internacional, tecnología, innovación digital y estructuración corporativa en Paraguay.",
     url: getSiteUrl(),
     address: {
       "@type": "PostalAddress",
@@ -78,6 +79,10 @@ export default async function HomePage({ params }: Props) {
       {
         "@type": "Organization",
         name: "Phoenix Global Developer",
+      },
+      {
+        "@type": "Organization",
+        name: "Phoenix Global Enterprise Solution",
       },
     ],
   };
@@ -94,6 +99,7 @@ export default async function HomePage({ params }: Props) {
         <AboutSection />
         <ImportExportSection />
         <DeveloperSection />
+        <EnterpriseSolutionSection />
         <IntegrationSection />
         <VisionSection />
         <ContactSection />

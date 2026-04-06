@@ -1,13 +1,14 @@
 {
   "Metadata": {
     "title": "Phoenix Global Holding | Comercio internacional, tecnología e innovación",
-    "description": "Grupo empresarial internacional con base en Paraguay. Phoenix Global Import and Export y Phoenix Global Developer: comercio global, IA y plataformas digitales.",
-    "keywords": "holding, Paraguay, importación, exportación, tecnología, inteligencia artificial, comercio internacional"
+    "description": "Grupo empresarial con base en Paraguay: comercio internacional (Import and Export), tecnología (Developer) y estructuración corporativa para inversores extranjeros (Enterprise Solution).",
+    "keywords": "holding, Paraguay, importación, exportación, tecnología, inteligencia artificial, EAS, estructuración corporativa, inversión extranjera, RUC, comercio internacional"
   },
   "Nav": {
     "group": "Grupo",
     "importExport": "Import & Export",
     "developer": "Developer",
+    "enterpriseSolution": "Enterprise Solution",
     "integration": "Integración",
     "vision": "Visión",
     "contact": "Contacto",
@@ -17,22 +18,22 @@
   "Hero": {
     "eyebrow": "Base estratégica · Paraguay · Alcance global",
     "title": "Ecología empresarial para escalar comercio y tecnología",
-    "subtitle": "Phoenix Global Holding integra operaciones de comercio internacional con desarrollo tecnológico avanzado, creando sinergia entre distribución global e innovación digital.",
+    "subtitle": "Phoenix Global Holding integra comercio internacional, tecnología y estructuración corporativa en Paraguay para inversores globales, con sinergia entre operación, innovación y eficiencia jurídico-fiscal.",
     "ctaPrimary": "Explorar divisiones",
     "ctaSecondary": "Contactar al grupo"
   },
   "About": {
     "eyebrow": "Quiénes somos",
     "title": "Una holding diseñada para crecimiento sostenible y eficiencia",
-    "p1": "Phoenix Global Holding es un grupo empresarial internacional dedicado al desarrollo de negocios en comercio internacional, tecnología e innovación digital. Con sede estratégica en Paraguay, coordina empresas complementarias que comparten infraestructura, visión de largo plazo y estándares de excelencia operativa.",
-    "p2": "La estructura del grupo centraliza la gestión estratégica, el desarrollo tecnológico y la expansión de mercados, permitiendo que cada división opere con alto nivel de especialización.",
+    "p1": "Phoenix Global Holding es un grupo empresarial internacional dedicado al desarrollo de negocios en comercio internacional, tecnología, innovación digital y estructuración corporativa internacional. Con sede estratégica en Paraguay, coordina empresas complementarias que comparten infraestructura, visión de largo plazo y estándares de excelencia operativa.",
+    "p2": "La estructura del grupo centraliza la gestión estratégica, el desarrollo tecnológico, la expansión de mercados y el acceso a jurisdicción paraguaya para inversores extranjeros, permitiendo que cada división opere con alto nivel de especialización.",
     "stats": {
       "divisions": "Divisiones principales",
       "focus": "Focos de negocio",
       "reach": "Enfoque territorial"
     },
-    "statDivisionsValue": "2",
-    "statFocusValue": "Comercio + Tech",
+    "statDivisionsValue": "3",
+    "statFocusValue": "Comercio + Tech + Corporate",
     "statReachValue": "LatAm y global"
   },
   "ImportExport": {
@@ -57,27 +58,95 @@
     "infraTitle": "Sistemas e infraestructura",
     "infraDesc": "Sistemas empresariales, plataformas digitales, infraestructura para marketplaces, automatización operativa e integración de APIs y servicios."
   },
+  "EnterpriseSolution": {
+    "eyebrow": "Phoenix Global Enterprise Solution",
+    "title": "Estructuración corporativa internacional vía Paraguay, sin necesidad de residir en el país",
+    "subtitle": "Creamos y activamos empresas en Paraguay para inversores y empresarios extranjeros, con gestión integral remota y foco en eficiencia jurídica, fiscal y operativa.",
+    "positioningEn": "Corporate structuring and business gateway to Paraguay.",
+    "positioningCaption": "Puerta de entrada para empresarios internacionales que desean operar en Sudamérica con estructura eficiente.",
+    "valueTitle": "Propuesta de valor",
+    "valueProps": [
+      "Operar internacionalmente desde una jurisdicción ágil y predecible.",
+      "Reducir la burocracia operativa con procesos acompañados de punta a punta.",
+      "Acceder a un entorno tributario competitivo, alineado con la normativa local.",
+      "Estructurar negocios con alta margen y eficiencia fiscal.",
+      "Sin residir en Paraguay ni gestionar trámites presenciales: acompañamiento completo por nuestro equipo."
+    ],
+    "servicesTitle": "Servicios principales",
+    "serviceBlocks": [
+      {
+        "title": "Estructuración de empresa",
+        "items": [
+          "Constitución de EAS (Empresa por Acciones Simplificada).",
+          "Registro de accionistas y estructura societaria.",
+          "Estatuto y documentación corporativa."
+        ]
+      },
+      {
+        "title": "Activación operacional",
+        "items": [
+          "Registro fiscal (RUC – DNIT).",
+          "Habilitación para facturación electrónica.",
+          "Registro para importación/exportación (Aduana).",
+          "Estructuración contable y fiscal."
+        ]
+      },
+      {
+        "title": "Estructura administrativa",
+        "items": [
+          "Representación legal local.",
+          "Domicilio fiscal y corporativo.",
+          "Apoyo para apertura de cuenta empresarial."
+        ]
+      },
+      {
+        "title": "Operación remota",
+        "items": [
+          "Gestión documental digital.",
+          "Poderes y representación local.",
+          "Soporte continuo en compliance y operación."
+        ]
+      }
+    ],
+    "audiencesTitle": "Público objetivo",
+    "audiences": [
+      "Empresarios brasileños y latinoamericanos que buscan optimizar carga tributaria con estructura lícita.",
+      "Empresas de tecnología y servicios digitales con operación regional o global.",
+      "Importadores y exportadores que requieren vehículo societario en Paraguay.",
+      "E-commerce internacional y operadores de marketplace.",
+      "Consultores e inversores extranjeros que estructuran vehículos en la región."
+    ],
+    "diffTitle": "Diferencial estratégico",
+    "diffItems": {
+      "remote": "Proceso 100 % remoto, sin necesidad de mudanza.",
+      "speed": "Constitución y activación en plazos competitivos (según complejidad del caso).",
+      "jurisdiction": "Jurisdicción estable y marco societario moderno.",
+      "tax": "Tributación competitiva dentro del ordenamiento legal aplicable.",
+      "eas": "Estructura empresarial moderna: EAS y gobierno corporativo claro."
+    },
+    "institutional": "Phoenix Global Enterprise Solution acompaña a emprendedores e inversores internacionales a constituir y operar empresas en Paraguay de forma remota. Con un proceso jurídico y operativo ordenado, facilitamos el acceso a un entorno de negocios eficiente, estructura fiscal competitiva y menores fricciones burocráticas, sin requerir reubicación personal ni gestionar en solitario trámites locales complejos. Nuestra misión es ofrecer un acceso directo y seguro para negocios globales que buscan expansión estratégica en Sudamérica, en articulación con el ecosistema Phoenix Global Holding."
+  },
   "Integration": {
     "eyebrow": "Diferencial Phoenix",
-    "title": "Tecnología aplicada al comercio internacional",
-    "subtitle": "Las soluciones de Phoenix Global Developer se aplican directamente en las operaciones de Import and Export: mayor automatización, plataformas propias, optimización logística y expansión digital.",
+    "title": "Integración entre comercio, tecnología y estructura corporativa",
+    "subtitle": "Las capacidades de Developer y Enterprise Solution potencian a Import and Export y al resto del grupo: automatización, plataformas, vehículos societarios en Paraguay y expansión regional con menos fricción.",
     "items": {
-      "automation": "Automatización operacional de punta a punta",
-      "platforms": "Plataformas digitales y e-commerce propios",
-      "logistics": "Optimización logística y comercial integrada",
-      "expansion": "Expansión digital de nuevos negocios"
+      "automation": "Automatización operacional y digital de punta a punta",
+      "platforms": "Plataformas digitales, e-commerce y sistemas propios",
+      "logistics": "Optimización logística, comercial y fiscal integrada",
+      "expansion": "Expansión en Sudamérica con estructura societaria y tecnología alineadas"
     }
   },
   "Vision": {
     "eyebrow": "Visión",
     "title": "Ecología moderna, escalable y conectada al mundo",
-    "text": "Construir un ecosistema empresarial capaz de conectar comercio internacional, tecnología e innovación digital, expandiendo operaciones en América Latina y desarrollando soluciones que unan infraestructura avanzada con operaciones comerciales globales.",
+    "text": "Construir un ecosistema empresarial capaz de conectar comercio internacional, tecnología, innovación digital y estructuración corporativa internacional, expandiendo operaciones en América Latina y ofreciendo a inversores globales un punto de acceso eficiente vía Paraguay.",
     "cta": "Hablemos de partnership"
   },
   "Contact": {
     "eyebrow": "Contacto",
     "title": "Paraguay como hub. Relación con el mundo.",
-    "subtitle": "Para alianzas comerciales, proyectos tecnológicos o consultas institucionales, nuestro equipo analiza cada oportunidad con enfoque estratégico.",
+    "subtitle": "Para alianzas comerciales, proyectos tecnológicos, estructuración societaria en Paraguay o consultas institucionales, nuestro equipo analiza cada oportunidad con enfoque estratégico.",
     "emailLabel": "Correo",
     "locationLabel": "Sede",
     "locationValue": "Paraguay — operaciones con alcance regional e internacional",
@@ -85,7 +154,7 @@
   },
   "Footer": {
     "rights": "Todos los derechos reservados.",
-    "tagline": "Comercio internacional · Tecnología · Innovación",
+    "tagline": "Comercio internacional · Tecnología · Estructuración corporativa",
     "legal": "Información corporativa",
     "privacy": "Privacidad",
     "terms": "Términos de uso"

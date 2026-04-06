@@ -1,13 +1,14 @@
 {
   "Metadata": {
     "title": "Phoenix Global Holding | International trade, technology and innovation",
-    "description": "International business group based in Paraguay. Phoenix Global Import and Export and Phoenix Global Developer: global trade, AI and digital platforms.",
-    "keywords": "holding, Paraguay, import, export, technology, artificial intelligence, international trade"
+    "description": "Paraguay-based group: international trade (Import and Export), technology (Developer) and corporate structuring for foreign investors (Enterprise Solution).",
+    "keywords": "holding, Paraguay, import, export, technology, AI, EAS, corporate structuring, foreign investment, RUC, international trade"
   },
   "Nav": {
     "group": "Group",
     "importExport": "Import & Export",
     "developer": "Developer",
+    "enterpriseSolution": "Enterprise Solution",
     "integration": "Integration",
     "vision": "Vision",
     "contact": "Contact",
@@ -17,22 +18,22 @@
   "Hero": {
     "eyebrow": "Strategic hub · Paraguay · Global reach",
     "title": "A business ecosystem built to scale trade and technology",
-    "subtitle": "Phoenix Global Holding integrates international trade operations with advanced technology development, aligning global distribution with digital innovation.",
+    "subtitle": "Phoenix Global Holding integrates international trade, technology and Paraguay-based corporate structuring for global investors—aligning operations, innovation and legal-tax efficiency.",
     "ctaPrimary": "Explore divisions",
     "ctaSecondary": "Contact the group"
   },
   "About": {
     "eyebrow": "Who we are",
     "title": "A holding structured for sustainable growth and efficiency",
-    "p1": "Phoenix Global Holding is an international business group focused on international trade, technology and digital innovation. Headquartered in Paraguay, it coordinates complementary companies that share infrastructure, long-term vision and operational excellence.",
-    "p2": "The group’s structure centralizes strategic management, technology development and market expansion, enabling each division to operate with deep specialization.",
+    "p1": "Phoenix Global Holding is an international business group focused on international trade, technology, digital innovation and international corporate structuring. Headquartered in Paraguay, it coordinates complementary companies that share infrastructure, long-term vision and operational excellence.",
+    "p2": "The group’s structure centralizes strategic management, technology development, market expansion and access to Paraguayan jurisdiction for foreign investors, enabling each division to operate with deep specialization.",
     "stats": {
       "divisions": "Core divisions",
       "focus": "Business focus",
       "reach": "Geographic scope"
     },
-    "statDivisionsValue": "2",
-    "statFocusValue": "Trade + Tech",
+    "statDivisionsValue": "3",
+    "statFocusValue": "Trade + Tech + Corporate",
     "statReachValue": "LatAm & global"
   },
   "ImportExport": {
@@ -57,27 +58,95 @@
     "infraTitle": "Systems & infrastructure",
     "infraDesc": "Enterprise systems, digital platforms, marketplace infrastructure, operational automation and API/service integration."
   },
+  "EnterpriseSolution": {
+    "eyebrow": "Phoenix Global Enterprise Solution",
+    "title": "International corporate structuring through Paraguay—without relocating",
+    "subtitle": "We incorporate and activate companies in Paraguay for foreign investors and entrepreneurs, with fully remote management and a sharp focus on legal, tax and operational efficiency.",
+    "positioningEn": "Corporate structuring and business gateway to Paraguay.",
+    "positioningCaption": "Market positioning—a gateway for international operators seeking efficient South American expansion.",
+    "valueTitle": "Value proposition",
+    "valueProps": [
+      "Operate internationally from a streamlined, predictable jurisdiction.",
+      "Reduce operational bureaucracy with end-to-end guided processes.",
+      "Access a competitive tax environment aligned with local regulations.",
+      "Structure high-margin businesses with tax efficiency.",
+      "No Paraguay residency or in-person handling required—full support from our team."
+    ],
+    "servicesTitle": "Core services",
+    "serviceBlocks": [
+      {
+        "title": "Company structuring",
+        "items": [
+          "Incorporation of an EAS (Empresa por Acciones Simplificada).",
+          "Shareholder registration and corporate structure.",
+          "Bylaws and corporate documentation."
+        ]
+      },
+      {
+        "title": "Operational activation",
+        "items": [
+          "Tax registration (RUC – DNIT).",
+          "Electronic invoicing enablement.",
+          "Import/export registration (Customs).",
+          "Accounting and tax structuring."
+        ]
+      },
+      {
+        "title": "Administrative backbone",
+        "items": [
+          "Local legal representation.",
+          "Registered fiscal and corporate address.",
+          "Support for corporate bank account opening."
+        ]
+      },
+      {
+        "title": "Remote operation",
+        "items": [
+          "Digital document management.",
+          "Powers of attorney and local representation.",
+          "Ongoing compliance and operations support."
+        ]
+      }
+    ],
+    "audiencesTitle": "Who we serve",
+    "audiences": [
+      "Brazilian and Latin American entrepreneurs optimizing tax burden through lawful structures.",
+      "Technology and digital services companies with regional or global operations.",
+      "Importers and exporters requiring a Paraguayan corporate vehicle.",
+      "International e-commerce and marketplace operators.",
+      "Consultants and foreign investors structuring regional vehicles."
+    ],
+    "diffTitle": "Strategic edge",
+    "diffItems": {
+      "remote": "Fully remote process—no need to relocate.",
+      "speed": "Incorporation and activation on competitive timelines (subject to case complexity).",
+      "jurisdiction": "Stable jurisdiction and a modern corporate framework.",
+      "tax": "Competitive taxation within the applicable legal order.",
+      "eas": "Modern vehicle: EAS with clear corporate governance."
+    },
+    "institutional": "Phoenix Global Enterprise Solution is a corporate structuring firm specialized in helping international entrepreneurs establish and operate companies in Paraguay remotely. Through a streamlined legal and operational process, we enable foreign investors to access Paraguay’s efficient business environment, competitive tax structure and low bureaucratic barriers—without the need to relocate or manage complex local procedures alone. Our mission is to provide a seamless gateway for global businesses seeking strategic expansion in South America, in coordination with the broader Phoenix Global Holding ecosystem."
+  },
   "Integration": {
     "eyebrow": "The Phoenix edge",
-    "title": "Technology applied to international trade",
-    "subtitle": "Phoenix Global Developer solutions are deployed directly inside Import and Export operations—driving automation, proprietary platforms, logistics optimization and digital expansion.",
+    "title": "Integrating trade, technology and corporate structure",
+    "subtitle": "Developer and Enterprise Solution capabilities strengthen Import and Export and the wider group—automation, platforms, Paraguayan vehicles and smoother regional scale-up.",
     "items": {
-      "automation": "End-to-end operational automation",
-      "platforms": "Proprietary digital platforms and e-commerce",
-      "logistics": "Integrated logistics and commercial optimization",
-      "expansion": "Digital expansion for new ventures"
+      "automation": "End-to-end operational and digital automation",
+      "platforms": "Digital platforms, e-commerce and proprietary systems",
+      "logistics": "Integrated logistics, commercial and tax optimisation",
+      "expansion": "South American expansion with aligned corporate and technology rails"
     }
   },
   "Vision": {
     "eyebrow": "Vision",
     "title": "A modern, scalable ecosystem connected to the world",
-    "text": "Build a business ecosystem that connects international trade, technology and digital innovation—expanding across Latin America with solutions that pair advanced infrastructure with global commercial execution.",
+    "text": "Build a business ecosystem that connects international trade, technology, digital innovation and international corporate structuring—expanding across Latin America while offering global investors an efficient Paraguay gateway.",
     "cta": "Discuss partnerships"
   },
   "Contact": {
     "eyebrow": "Contact",
     "title": "Paraguay as a hub. Connected globally.",
-    "subtitle": "For commercial alliances, technology projects or institutional inquiries, our team evaluates each opportunity with a strategic lens.",
+    "subtitle": "For commercial alliances, technology projects, Paraguay corporate structuring or institutional inquiries, our team evaluates each opportunity with a strategic lens.",
     "emailLabel": "Email",
     "locationLabel": "Headquarters",
     "locationValue": "Paraguay — operations with regional and international reach",
@@ -85,7 +154,7 @@
   },
   "Footer": {
     "rights": "All rights reserved.",
-    "tagline": "International trade · Technology · Innovation",
+    "tagline": "International trade · Technology · Corporate structuring",
     "legal": "Corporate information",
     "privacy": "Privacy",
     "terms": "Terms of use"

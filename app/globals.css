@@ -10,6 +10,8 @@
   --accent: #e8b44f;
   --accent-dim: rgba(232, 180, 79, 0.15);
   --accent-blue: #4a9eff;
+  --accent-jade: #2dd4bf;
+  --accent-jade-dim: rgba(45, 212, 191, 0.14);
   --ring: rgba(232, 180, 79, 0.45);
 }
 
@@ -23,6 +25,8 @@
   --color-accent: var(--accent);
   --color-accent-dim: var(--accent-dim);
   --color-accent-blue: var(--accent-blue);
+  --color-accent-jade: var(--accent-jade);
+  --color-accent-jade-dim: var(--accent-jade-dim);
   --color-ring: var(--ring);
   --font-sans: var(--font-outfit);
   --font-display: var(--font-playfair);
