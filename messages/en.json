@@ -12,6 +12,12 @@
     "integration": "Integration",
     "vision": "Vision",
     "contact": "Contact",
+    "contactPage": "Contact",
+    "divisionsMenu": "Divisions",
+    "divisionImport": "Import & Export",
+    "divisionDeveloper": "Developer",
+    "divisionEnterprise": "Enterprise",
+    "mainNavAria": "Main navigation",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -150,7 +156,10 @@
     "emailLabel": "Email",
     "locationLabel": "Headquarters",
     "locationValue": "Paraguay — operations with regional and international reach",
-    "disclaimer": "Responses are intended for business and partnerships. We do not serve end consumers through this institutional channel."
+    "disclaimer": "Responses are intended for business and partnerships. We do not serve end consumers through this institutional channel.",
+    "formCta": "Structured form with validation",
+    "formCtaSub": "Prefer the form to speed up internal routing and follow-up.",
+    "formButton": "Open contact form"
   },
   "Footer": {
     "rights": "All rights reserved.",

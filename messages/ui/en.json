@@ -1,0 +1,68 @@
+{
+  "SkipLink": {
+    "label": "Skip to main content"
+  },
+  "StickyCta": {
+    "label": "Business contact",
+    "aria": "Quick access to contact"
+  },
+  "CookieBanner": {
+    "title": "Cookies and analytics",
+    "description": "We use strictly necessary cookies and, if you accept, measurement tools to improve the experience. You may reject non-essential cookies.",
+    "privacyLink": "Privacy policy",
+    "accept": "Accept",
+    "reject": "Essential only"
+  },
+  "ContactPage": {
+    "metaTitle": "Contact | Phoenix Global Holding",
+    "metaDescription": "Institutional form for commercial alliances, technology, Paraguay corporate structuring and group enquiries.",
+    "title": "Let’s discuss your next move",
+    "subtitle": "Business-oriented responses. Share your intent and a concise project summary; our team reviews each request strategically.",
+    "sla": "Target first response: 2 business days (subject to volume and complexity).",
+    "mailtoSubject": "Phoenix Global Holding enquiry",
+    "mailtoBody": "Name:\nCompany:\nDetails:\n"
+  },
+  "ContactForm": {
+    "name": "Full name",
+    "email": "Email",
+    "company": "Company / organization",
+    "phone": "Phone (optional)",
+    "intent": "Reason for contact",
+    "intentCommerce": "International trade / Import & Export",
+    "intentTech": "Technology / AI / platforms",
+    "intentCorporate": "Paraguay corporate structuring",
+    "intentInstitutional": "Institutional / media / partnerships",
+    "intentOther": "Other",
+    "message": "Message",
+    "consentLabel": "I have read and accept the processing of my data under the",
+    "privacyLink": "privacy policy",
+    "submit": "Submit request",
+    "sending": "Sending…",
+    "success": "Thank you. We have received your message and will be in touch.",
+    "notConfigured": "Form email delivery is not configured in this environment. Please use the institutional email or the link below.",
+    "sendFailed": "We could not send right now. Please retry or email us directly.",
+    "mailtoCta": "Open email with template",
+    "errors": {
+      "name": "Please enter at least 2 characters.",
+      "email": "Please enter a valid email.",
+      "company": "Please enter your company or organization.",
+      "intent": "Please select a reason.",
+      "message": "Message must be at least 20 characters.",
+      "consent": "You must accept the privacy policy to continue."
+    }
+  },
+  "Breadcrumb": {
+    "home": "Home"
+  },
+  "EnterpriseDisclaimer": {
+    "title": "Legal notice",
+    "body": "Information on corporate and tax structuring is general and informational only and does not constitute legal, tax or accounting advice. Each matter should be reviewed by qualified professionals in Paraguay and other relevant jurisdictions."
+  },
+  "Partners": {
+    "title": "Trust and relationships",
+    "subtitle": "We work with partners and corporate clients under strong compliance standards. Published logos are used with explicit authorization."
+  },
+  "LanguageSwitcher": {
+    "aria": "Choose site language"
+  }
+}

@@ -146,7 +146,28 @@ export async function EnterpriseSolutionSection() {
             {t("institutional")}
           </p>
         </Reveal>
+
+        <EnterpriseLegalDisclaimer />
       </div>
     </section>
+  );
+}
+
+async function EnterpriseLegalDisclaimer() {
+  const d = await getTranslations("EnterpriseDisclaimer");
+
+  return (
+    <aside
+      className="mt-10 rounded-2xl border border-amber-500/25 bg-amber-500/5 px-5 py-4 sm:px-6"
+      aria-labelledby="enterprise-disclaimer-title"
+    >
+      <h3
+        id="enterprise-disclaimer-title"
+        className="font-display text-sm font-semibold uppercase tracking-wider text-amber-200/90"
+      >
+        {d("title")}
+      </h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted">{d("body")}</p>
+    </aside>
   );
 }

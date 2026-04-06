@@ -10,9 +10,11 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   const common = (await import(`../messages/${locale}.json`)).default;
   const legal = (await import(`../messages/legal/${locale}.json`)).default;
+  const ui = (await import(`../messages/ui/${locale}.json`)).default;
+  const divisions = (await import(`../messages/divisions/${locale}.json`)).default;
 
   return {
     locale,
-    messages: { ...common, ...legal },
+    messages: { ...common, ...legal, ...ui, ...divisions },
   };
 });

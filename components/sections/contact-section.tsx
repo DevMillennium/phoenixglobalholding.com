@@ -1,5 +1,6 @@
 import { Mail, MapPin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/reveal";
 import { getContactEmail } from "@/lib/site-config";
 
@@ -52,6 +53,16 @@ export async function ContactSection() {
                 </p>
               </div>
             </div>
+          </div>
+          <div className="mt-10 rounded-2xl border border-accent/30 bg-accent-dim/30 p-6 sm:p-8">
+            <p className="font-medium text-foreground">{t("formCta")}</p>
+            <p className="mt-2 text-sm text-muted">{t("formCtaSub")}</p>
+            <Link
+              href="/contact"
+              className="focus-ring mt-5 inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#07080c] transition hover:bg-[#f0c65c]"
+            >
+              {t("formButton")}
+            </Link>
           </div>
           <p className="mt-6 text-sm text-muted">{t("disclaimer")}</p>
         </Reveal>

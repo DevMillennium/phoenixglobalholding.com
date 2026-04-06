@@ -1,0 +1,137 @@
+{
+  "DivisionImportExport": {
+    "metaTitle": "Phoenix Global Import and Export | Phoenix Global Holding",
+    "metaDescription": "Importación, exportación y venta directa en Paraguay con integración regional y logística optimizada.",
+    "title": "Phoenix Global Import and Export",
+    "subtitle": "Comercio internacional con base en Paraguay para conectar mercados globales con la región.",
+    "intro": "La división de comercio internacional del grupo articula importación de alto valor agregado, exportación y redistribución regional, y canales de venta directa. La operación está diseñada para eficiencia logística, cumplimiento y escalabilidad.",
+    "processTitle": "Cómo trabajamos",
+    "processSteps": [
+      {
+        "title": "Origen y abastecimiento",
+        "body": "Selección de categorías y proveedores alineados con demanda regional: tecnología, lifestyle, cosmética y consumo."
+      },
+      {
+        "title": "Integración logística",
+        "body": "Coordinación de flujos transfronterizos y redistribución en Sudamérica con foco en tiempos y costos."
+      },
+      {
+        "title": "Canales de salida",
+        "body": "Distribución local, DTC, e-commerce y marketplaces según la estrategia de cada línea."
+      },
+      {
+        "title": "Soporte al crecimiento",
+        "body": "Escalado de operaciones con apoyo tecnológico del grupo (Developer) cuando el volumen y la complejidad lo requieren."
+      }
+    ],
+    "faqTitle": "Preguntas frecuentes",
+    "faqs": [
+      {
+        "q": "¿En qué categorías se enfoca la importación?",
+        "a": "Priorizamos electrónica y tecnología, dispositivos digitales, cosméticos y dermocosméticos, y productos de consumo y lifestyle con demanda regional comprobada."
+      },
+      {
+        "q": "¿Operan exportación fuera del Paraguay?",
+        "a": "Sí: exportación, redistribución regional e integración logística entre países de Sudamérica forman parte del modelo."
+      },
+      {
+        "q": "¿Cómo se relaciona esta división con el resto del grupo?",
+        "a": "Trabaja de forma integrada con Phoenix Global Developer (plataformas, datos, automatización) y puede alinearse con vehículos societarios estructurados vía Enterprise Solution según el caso."
+      },
+      {
+        "q": "¿Atienden al consumidor final?",
+        "a": "Hay canales de venta directa y marketplace; las consultas institucionales del sitio están orientadas a negocios, distribuidores y partners."
+      }
+    ]
+  },
+  "DivisionDeveloper": {
+    "metaTitle": "Phoenix Global Developer | Phoenix Global Holding",
+    "metaDescription": "IA, aplicaciones, plataformas web e infraestructura digital para el grupo y para clientes corporativos.",
+    "title": "Phoenix Global Developer",
+    "subtitle": "Tecnología de producto e infraestructura digital con estándar internacional.",
+    "intro": "Construimos capacidades en inteligencia artificial, aplicaciones móviles y web, sistemas empresariales e integración de APIs. Los entregables se aplican tanto a operaciones internas del grupo como a proyectos de clientes.",
+    "processTitle": "Enfoque de entrega",
+    "processSteps": [
+      {
+        "title": "Descubrimiento y arquitectura",
+        "body": "Alineación de requisitos, riesgos, integraciones y modelo de datos antes de escribir código de producción."
+      },
+      {
+        "title": "Construcción iterativa",
+        "body": "Ciclos cortos con validación continua, pruebas y observabilidad desde etapas tempranas."
+      },
+      {
+        "title": "Seguridad y cumplimiento",
+        "body": "Controles de acceso, manejo de secretos y prácticas de despliegue acordes a entornos empresariales."
+      },
+      {
+        "title": "Operación y evolución",
+        "body": "Soporte post-lanzamiento, mejoras de performance y evolución funcional según métricas de negocio."
+      }
+    ],
+    "faqTitle": "Preguntas frecuentes",
+    "faqs": [
+      {
+        "q": "¿Desarrollan productos con IA generativa?",
+        "a": "Sí, integrando modelos avanzados donde aporta valor real: automatización, análisis de datos y sistemas asistidos, siempre con gobierno de datos y políticas claras."
+      },
+      {
+        "q": "¿Trabajan solo para el grupo o también para terceros?",
+        "a": "Ambos: potenciamos la operación de la holding y desarrollamos soluciones para empresas y proyectos externos alineados con nuestro perfil."
+      },
+      {
+        "q": "¿Qué stack tecnológico utilizan?",
+        "a": "Elegimos stack según caso; en proyectos web modernos solemos trabajar con TypeScript, entornos cloud y buenas prácticas de CI/CD."
+      },
+      {
+        "q": "¿Cómo se conecta con Import and Export?",
+        "a": "Automatización de procesos, plataformas de comercio digital y analítica operacional son ejemplos típicos de sinergia."
+      }
+    ]
+  },
+  "DivisionEnterprise": {
+    "metaTitle": "Phoenix Global Enterprise Solution | Phoenix Global Holding",
+    "metaDescription": "Estructuración societaria en Paraguay para inversores extranjeros: EAS, RUC, activación operacional y soporte remoto.",
+    "title": "Phoenix Global Enterprise Solution",
+    "subtitle": "Puerta de entrada corporativa a Paraguay — sin necesidad de residir en el país.",
+    "intro": "Acompañamos a inversores y empresarios internacionales en la constitución y activación de empresas en Paraguay, con gestión remota y foco en eficiencia jurídica y operativa. El contenido de esta página es informativo; cada caso requiere análisis profesional.",
+    "processTitle": "Flujo típico (referencial)",
+    "processSteps": [
+      {
+        "title": "Diagnóstico y plan",
+        "body": "Entendimiento del objeto social, socios, necesidades fiscales y operativas antes de constituir."
+      },
+      {
+        "title": "Constitución EAS",
+        "body": "Estatuto, registro de accionistas y documentación societaria conforme el marco paraguayo."
+      },
+      {
+        "title": "Activación fiscal y operativa",
+        "body": "RUC (DNIT), facturación electrónica cuando aplique, registros aduaneros si el negocio lo requiere, y base contable."
+      },
+      {
+        "title": "Soporte continuo",
+        "body": "Representación local, documentación digital, compliance operacional y coordinación con otros brazos del grupo cuando corresponda."
+      }
+    ],
+    "faqTitle": "Preguntas frecuentes",
+    "faqs": [
+      {
+        "q": "¿Es obligatorio vivir en Paraguay?",
+        "a": "No: el modelo está pensado para operación y constitución con acompañamiento remoto y representación local, dentro del marco legal aplicable."
+      },
+      {
+        "q": "¿Cuánto tarda el proceso?",
+        "a": "Depende de la complejidad del caso, documentación y trámites ante organismos. Indicamos plazos realistas tras el diagnóstico inicial."
+      },
+      {
+        "q": "¿Ofrecen asesoramiento fiscal definitivo?",
+        "a": "Publicamos información general. Las opiniones vinculantes las emiten profesionales matriculados según el caso concreto."
+      },
+      {
+        "q": "¿Se integra con Import and Export o Developer?",
+        "a": "Sí: una vez constituido el vehículo, las otras divisiones pueden apoyar operación comercial, plataformas y automatización."
+      }
+    ]
+  }
+}

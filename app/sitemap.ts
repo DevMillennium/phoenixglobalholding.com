@@ -1,8 +1,15 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
+import { DIVISION_SLUGS } from "@/lib/divisions";
 import { getSiteUrl, localizedPath } from "@/lib/site-config";
 
-const staticPaths = ["/", "/privacy", "/terms"] as const;
+const staticPaths = [
+  "/",
+  "/privacy",
+  "/terms",
+  "/contact",
+  ...DIVISION_SLUGS.map((slug) => `/divisions/${slug}`),
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getSiteUrl();
@@ -14,8 +21,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push({
         url: `${baseUrl}${locPath === "/" ? "/" : locPath}`,
         lastModified: new Date(),
-        changeFrequency: path === "/" ? "monthly" : "yearly",
-        priority: path === "/" ? 1 : 0.5,
+        changeFrequency: path === "/" ? "monthly" : "weekly",
+        priority:
+          path === "/"
+            ? 1
+            : path === "/contact"
+              ? 0.9
+              : path.startsWith("/divisions/")
+                ? 0.85
+                : 0.5,
       });
     }
   }

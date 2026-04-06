@@ -1,0 +1,68 @@
+{
+  "SkipLink": {
+    "label": "Ir al contenido principal"
+  },
+  "StickyCta": {
+    "label": "Contacto comercial",
+    "aria": "Acceso rápido a contacto"
+  },
+  "CookieBanner": {
+    "title": "Cookies y analítica",
+    "description": "Usamos cookies técnicas necesarias y, si acepta, herramientas de medición para mejorar la experiencia. Puede rechazar las no esenciales.",
+    "privacyLink": "Política de privacidad",
+    "accept": "Aceptar",
+    "reject": "Solo esenciales"
+  },
+  "ContactPage": {
+    "metaTitle": "Contacto | Phoenix Global Holding",
+    "metaDescription": "Formulario institucional para alianzas comerciales, tecnología, estructuración corporativa en Paraguay y consultas del grupo.",
+    "title": "Hablemos de su próximo paso",
+    "subtitle": "Respuesta orientada a negocios. Indique su intención y un resumen del proyecto; nuestro equipo evalúa cada solicitud con criterio estratégico.",
+    "sla": "Objetivo de primera respuesta: 2 días hábiles (sujeto a volumen y complejidad).",
+    "mailtoSubject": "Consulta Phoenix Global Holding",
+    "mailtoBody": "Nombre:\nEmpresa:\nDetalle de la consulta:\n"
+  },
+  "ContactForm": {
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "company": "Empresa / organización",
+    "phone": "Teléfono (opcional)",
+    "intent": "Motivo del contacto",
+    "intentCommerce": "Comercio internacional / Import & Export",
+    "intentTech": "Tecnología / IA / plataformas",
+    "intentCorporate": "Estructuración societaria en Paraguay",
+    "intentInstitutional": "Institucional / prensa / alianzas",
+    "intentOther": "Otro",
+    "message": "Mensaje",
+    "consentLabel": "He leído y acepto el tratamiento de mis datos según la",
+    "privacyLink": "política de privacidad",
+    "submit": "Enviar solicitud",
+    "sending": "Enviando…",
+    "success": "Gracias. Hemos recibido su mensaje y nos pondremos en contacto.",
+    "notConfigured": "El envío automático por formulario no está configurado en este entorno. Use el correo institucional o el enlace siguiente.",
+    "sendFailed": "No se pudo enviar en este momento. Intente de nuevo o escríbanos por correo.",
+    "mailtoCta": "Abrir correo con plantilla",
+    "errors": {
+      "name": "Indique al menos 2 caracteres.",
+      "email": "Introduzca un correo válido.",
+      "company": "Indique la empresa u organización.",
+      "intent": "Seleccione un motivo.",
+      "message": "El mensaje debe tener al menos 20 caracteres.",
+      "consent": "Debe aceptar la política de privacidad para continuar."
+    }
+  },
+  "Breadcrumb": {
+    "home": "Inicio"
+  },
+  "EnterpriseDisclaimer": {
+    "title": "Aviso legal",
+    "body": "La información sobre estructuración societaria y fiscal tiene carácter general e informativo y no constituye asesoramiento jurídico, tributario ni contable. Cada caso debe ser evaluado por profesionales habilitados en Paraguay y en las jurisdicciones aplicables."
+  },
+  "Partners": {
+    "title": "Confianza y relaciones",
+    "subtitle": "Trabajamos con socios y clientes corporativos con altos estándares de compliance. Los logotipos publicados cuentan con autorización explícita."
+  },
+  "LanguageSwitcher": {
+    "aria": "Seleccionar idioma del sitio"
+  }
+}

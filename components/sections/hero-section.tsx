@@ -4,9 +4,21 @@ import { Reveal } from "@/components/reveal";
 
 export async function HeroSection() {
   const t = await getTranslations("Hero");
+  const videoUrl = process.env.NEXT_PUBLIC_HERO_VIDEO_URL?.trim();
 
   return (
     <section className="relative overflow-hidden radial-glow">
+      {videoUrl ? (
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-25"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden
+          src={videoUrl}
+        />
+      ) : null}
       <div
         className="pointer-events-none absolute inset-0 grid-phoenix opacity-60"
         aria-hidden
@@ -24,17 +36,17 @@ export async function HeroSection() {
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
-              href="/#import-export"
+              href="/divisions/import-export"
               className="focus-ring inline-flex items-center justify-center rounded-full bg-accent px-8 py-3.5 text-center text-sm font-semibold text-[#07080c] shadow-lg shadow-accent/20 transition hover:bg-[#f0c65c]"
             >
               {t("ctaPrimary")}
             </Link>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="focus-ring inline-flex items-center justify-center rounded-full border border-border bg-surface-elevated px-8 py-3.5 text-sm font-semibold text-foreground transition hover:border-accent/40 hover:bg-white/5"
             >
               {t("ctaSecondary")}
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

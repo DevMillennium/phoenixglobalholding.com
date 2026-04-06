@@ -1,0 +1,137 @@
+{
+  "DivisionImportExport": {
+    "metaTitle": "Phoenix Global Import and Export | Phoenix Global Holding",
+    "metaDescription": "Import, export and direct retail from Paraguay with regional integration and optimised logistics.",
+    "title": "Phoenix Global Import and Export",
+    "subtitle": "International trade anchored in Paraguay to connect global markets with the region.",
+    "intro": "The group’s international trade division orchestrates high value-added imports, exports and regional redistribution, plus direct sales channels. Operations are designed for logistics efficiency, compliance and scale.",
+    "processTitle": "How we work",
+    "processSteps": [
+      {
+        "title": "Sourcing and supply",
+        "body": "Category and supplier selection aligned with regional demand: technology, lifestyle, cosmetics and consumer goods."
+      },
+      {
+        "title": "Logistics integration",
+        "body": "Cross-border flows and South American redistribution with focus on time and cost."
+      },
+      {
+        "title": "Go-to-market channels",
+        "body": "Local distribution, DTC, e-commerce and marketplaces according to each line’s strategy."
+      },
+      {
+        "title": "Growth support",
+        "body": "Scaling with group technology (Developer) when volume and complexity require it."
+      }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faqs": [
+      {
+        "q": "Which import categories do you prioritise?",
+        "a": "Electronics and technology, digital devices, cosmetics and dermocosmetics, and consumer & lifestyle with proven regional demand."
+      },
+      {
+        "q": "Do you export beyond Paraguay?",
+        "a": "Yes—exports, regional redistribution and logistics integration across South America are part of the model."
+      },
+      {
+        "q": "How does this division connect to the rest of the group?",
+        "a": "It works tightly with Phoenix Global Developer (platforms, data, automation) and can align with corporate vehicles structured via Enterprise Solution when relevant."
+      },
+      {
+        "q": "Do you serve end consumers?",
+        "a": "Direct and marketplace channels exist; institutional enquiries on this site target businesses, distributors and partners."
+      }
+    ]
+  },
+  "DivisionDeveloper": {
+    "metaTitle": "Phoenix Global Developer | Phoenix Global Holding",
+    "metaDescription": "AI, applications, web platforms and digital infrastructure for the group and corporate clients.",
+    "title": "Phoenix Global Developer",
+    "subtitle": "Product technology and digital infrastructure at international standard.",
+    "intro": "We build capabilities in artificial intelligence, mobile and web applications, enterprise systems and API integration. Deliverables power internal group operations and client projects.",
+    "processTitle": "Delivery approach",
+    "processSteps": [
+      {
+        "title": "Discovery and architecture",
+        "body": "Requirements, risks, integrations and data model alignment before production code."
+      },
+      {
+        "title": "Iterative build",
+        "body": "Short cycles with continuous validation, testing and observability from early stages."
+      },
+      {
+        "title": "Security and compliance",
+        "body": "Access controls, secret management and deployment practices suited to enterprise environments."
+      },
+      {
+        "title": "Run and evolve",
+        "body": "Post-launch support, performance improvements and feature evolution driven by business metrics."
+      }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faqs": [
+      {
+        "q": "Do you build with generative AI?",
+        "a": "Yes—integrating advanced models where they add real value: automation, analytics and assisted systems, with clear data governance."
+      },
+      {
+        "q": "Do you work only for the group?",
+        "a": "Both—we strengthen the holding and deliver for external enterprises and digital initiatives that fit our profile."
+      },
+      {
+        "q": "What is your typical stack?",
+        "a": "We choose per engagement; modern web work often uses TypeScript, cloud-native patterns and solid CI/CD."
+      },
+      {
+        "q": "How does this connect to Import and Export?",
+        "a": "Operational automation, digital commerce platforms and analytics are typical synergy areas."
+      }
+    ]
+  },
+  "DivisionEnterprise": {
+    "metaTitle": "Phoenix Global Enterprise Solution | Phoenix Global Holding",
+    "metaDescription": "Paraguay corporate structuring for foreign investors: EAS, RUC, operational activation and remote support.",
+    "title": "Phoenix Global Enterprise Solution",
+    "subtitle": "Corporate gateway to Paraguay—without relocating.",
+    "intro": "We support international investors and entrepreneurs in incorporating and activating companies in Paraguay, with remote-first management and focus on legal and operational efficiency. This page is informational; each matter needs professional review.",
+    "processTitle": "Typical flow (indicative)",
+    "processSteps": [
+      {
+        "title": "Diagnosis and plan",
+        "body": "Corporate purpose, shareholders, tax and operational needs before incorporation."
+      },
+      {
+        "title": "EAS incorporation",
+        "body": "Bylaws, shareholder registry and corporate documentation under Paraguayan law."
+      },
+      {
+        "title": "Tax and operational activation",
+        "body": "RUC (DNIT), electronic invoicing where applicable, customs registrations if required, and accounting baseline."
+      },
+      {
+        "title": "Ongoing support",
+        "body": "Local representation, digital documentation, operational compliance and coordination with other group divisions when appropriate."
+      }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faqs": [
+      {
+        "q": "Is Paraguay residency mandatory?",
+        "a": "No—the model is designed for remote execution and local representation within applicable law."
+      },
+      {
+        "q": "How long does it take?",
+        "a": "It depends on complexity, documentation and agency timelines. We share realistic estimates after initial diagnosis."
+      },
+      {
+        "q": "Do you provide binding tax advice?",
+        "a": "We publish general information; binding opinions come from licensed professionals for each case."
+      },
+      {
+        "q": "Does this integrate with Import and Export or Developer?",
+        "a": "Yes—once the vehicle exists, other divisions can support trade operations, platforms and automation."
+      }
+    ]
+  }
+}

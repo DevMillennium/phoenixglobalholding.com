@@ -2,20 +2,18 @@ import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { LegalDocument } from "@/components/legal-document";
+import { ContactForm } from "@/components/contact-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getSiteUrl, localizedPath } from "@/lib/site-config";
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
+type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "LegalPrivacy" });
+  const t = await getTranslations({ locale, namespace: "ContactPage" });
   const baseUrl = getSiteUrl();
-  const path = localizedPath(locale, "/privacy");
+  const path = localizedPath(locale, "/contact");
 
   return {
     title: t("metaTitle"),
@@ -24,26 +22,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: path,
       languages: {
-        es: "/privacy",
-        pt: "/pt/privacy",
-        en: "/en/privacy",
+        es: "/contact",
+        pt: "/pt/contact",
+        en: "/en/contact",
       },
     },
     robots: { index: true, follow: true },
-    openGraph: {
-      title: t("metaTitle"),
-      description: t("metaDescription"),
-      type: "website",
-      url: `${baseUrl}${path === "/" ? "" : path}`,
-    },
   };
 }
 
-export default async function PrivacyPage({ params }: Props) {
+export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("ContactPage");
   const b = await getTranslations("Breadcrumb");
-  const f = await getTranslations("Footer");
+  const nav = await getTranslations("Nav");
 
   return (
     <>
@@ -51,7 +44,7 @@ export default async function PrivacyPage({ params }: Props) {
       <Breadcrumbs
         items={[
           { label: b("home"), href: "/" },
-          { label: f("privacy") },
+          { label: nav("contactPage") },
         ]}
       />
       <main
@@ -59,7 +52,16 @@ export default async function PrivacyPage({ params }: Props) {
         tabIndex={-1}
         className="flex-1 scroll-mt-20 outline-none"
       >
-        <LegalDocument namespace="LegalPrivacy" />
+        <div className="mx-auto max-w-6xl px-4 pb-24 pt-6 sm:px-6 lg:px-8 lg:pb-32">
+          <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            {t("title")}
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-muted">{t("subtitle")}</p>
+          <p className="mt-3 text-sm text-muted">{t("sla")}</p>
+          <div className="mt-10 max-w-xl">
+            <ContactForm />
+          </div>
+        </div>
       </main>
       <SiteFooter />
     </>

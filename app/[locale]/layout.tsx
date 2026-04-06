@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { Outfit, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { AppShell } from "@/components/app-shell";
 import type { Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -48,10 +49,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       suppressHydrationWarning
     >
       <body
-        className={`${outfit.className} min-h-full flex flex-col bg-background text-foreground`}
+        className={`${outfit.className} min-h-full flex flex-col bg-background pb-24 text-foreground md:pb-0`}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <AppShell>{children}</AppShell>
         </NextIntlClientProvider>
       </body>
     </html>

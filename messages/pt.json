@@ -12,6 +12,12 @@
     "integration": "Integração",
     "vision": "Visão",
     "contact": "Contato",
+    "contactPage": "Contato",
+    "divisionsMenu": "Divisões",
+    "divisionImport": "Import & Export",
+    "divisionDeveloper": "Developer",
+    "divisionEnterprise": "Enterprise",
+    "mainNavAria": "Navegação principal",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu"
   },
@@ -150,7 +156,10 @@
     "emailLabel": "E-mail",
     "locationLabel": "Sede",
     "locationValue": "Paraguai — operações com alcance regional e internacional",
-    "disclaimer": "Resposta voltada a negócios e parcerias. Não vendemos ao consumidor final por este canal institucional."
+    "disclaimer": "Resposta voltada a negócios e parcerias. Não vendemos ao consumidor final por este canal institucional.",
+    "formCta": "Formulário estruturado com validação",
+    "formCtaSub": "Prefira o formulário para agilizar o roteamento interno e o acompanhamento.",
+    "formButton": "Abrir formulário de contato"
   },
   "Footer": {
     "rights": "Todos os direitos reservados.",

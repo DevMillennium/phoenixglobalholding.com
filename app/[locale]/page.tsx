@@ -11,6 +11,8 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { ImportExportSection } from "@/components/sections/import-export-section";
 import { IntegrationSection } from "@/components/sections/integration-section";
 import { VisionSection } from "@/components/sections/vision-section";
+import { PartnersStrip } from "@/components/partners-strip";
+import { WebsiteJsonLd } from "@/components/website-jsonld";
 import { routing } from "@/i18n/routing";
 import { getSiteUrl } from "@/lib/site-config";
 
@@ -93,8 +95,13 @@ export default async function HomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
+      <WebsiteJsonLd />
       <SiteHeader />
-      <main className="flex-1">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 scroll-mt-20 outline-none"
+      >
         <HeroSection />
         <AboutSection />
         <ImportExportSection />
@@ -102,6 +109,7 @@ export default async function HomePage({ params }: Props) {
         <EnterpriseSolutionSection />
         <IntegrationSection />
         <VisionSection />
+        <PartnersStrip />
         <ContactSection />
       </main>
       <SiteFooter />

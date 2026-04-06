@@ -9,7 +9,8 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const t = useTranslations("Languages");
+  const tLang = useTranslations("Languages");
+  const tA11y = useTranslations("LanguageSwitcher");
 
   return (
     <div
@@ -18,7 +19,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         className,
       )}
       role="group"
-      aria-label="Idioma"
+      aria-label={tA11y("aria")}
     >
       {routing.locales.map((l) => (
         <button
@@ -32,7 +33,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
               : "text-muted hover:bg-white/5 hover:text-foreground",
           )}
         >
-          {t(l)}
+          {tLang(l)}
         </button>
       ))}
     </div>
