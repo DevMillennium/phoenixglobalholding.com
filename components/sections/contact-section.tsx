@@ -1,12 +1,18 @@
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/reveal";
-import { getContactEmail } from "@/lib/site-config";
+import {
+  getContactEmail,
+  getWhatsAppDisplayNumber,
+  getWhatsAppHref,
+} from "@/lib/site-config";
 
 export async function ContactSection() {
   const t = await getTranslations("Contact");
   const contactEmail = getContactEmail();
+  const whatsappHref = getWhatsAppHref();
+  const whatsappDisplay = getWhatsAppDisplayNumber();
 
   return (
     <section
@@ -23,7 +29,7 @@ export async function ContactSection() {
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-muted">{t("subtitle")}</p>
 
-          <div className="mt-12 grid gap-6 rounded-2xl border border-border bg-surface-elevated p-6 sm:grid-cols-2 sm:p-8">
+          <div className="mt-12 grid gap-6 rounded-2xl border border-border bg-surface-elevated p-6 sm:grid-cols-2 lg:grid-cols-3 sm:p-8">
             <div className="flex gap-4">
               <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-accent-dim text-accent">
                 <Mail className="size-5" aria-hidden />
@@ -34,6 +40,7 @@ export async function ContactSection() {
                 </p>
                 <a
                   href={`mailto:${contactEmail}`}
+                  aria-label={t("emailAria")}
                   className="focus-ring mt-1 inline-block text-base font-medium text-foreground underline-offset-4 hover:text-accent hover:underline"
                 >
                   {contactEmail}
@@ -41,6 +48,28 @@ export async function ContactSection() {
               </div>
             </div>
             <div className="flex gap-4">
+              <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
+                <MessageCircle className="size-5" aria-hidden />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+                  {t("whatsappLabel")}
+                </p>
+                <p className="mt-1 text-base font-medium tabular-nums text-foreground">
+                  {whatsappDisplay}
+                </p>
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t("whatsappAria")}
+                  className="focus-ring mt-2 inline-block text-sm font-semibold text-emerald-400 underline-offset-4 hover:text-emerald-300 hover:underline"
+                >
+                  {t("whatsappAction")}
+                </a>
+              </div>
+            </div>
+            <div className="flex gap-4 sm:col-span-2 lg:col-span-1">
               <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-accent-blue/15 text-accent-blue">
                 <MapPin className="size-5" aria-hidden />
               </div>

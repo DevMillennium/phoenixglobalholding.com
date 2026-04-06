@@ -6,7 +6,12 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { localizedPath } from "@/lib/site-config";
+import {
+  getContactEmail,
+  getWhatsAppDisplayNumber,
+  getWhatsAppHref,
+  localizedPath,
+} from "@/lib/site-config";
 import { hreflangAlternates, socialMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -39,8 +44,12 @@ export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("ContactPage");
+  const tContact = await getTranslations("Contact");
   const b = await getTranslations("Breadcrumb");
   const nav = await getTranslations("Nav");
+  const contactEmail = getContactEmail();
+  const whatsappHref = getWhatsAppHref();
+  const whatsappDisplay = getWhatsAppDisplayNumber();
 
   const homePath = localizedPath(locale, "/");
   const contactPath = localizedPath(locale, "/contact");
@@ -71,6 +80,30 @@ export default async function ContactPage({ params }: Props) {
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted">{t("subtitle")}</p>
           <p className="mt-3 text-sm text-muted">{t("sla")}</p>
+          <div className="mt-8 max-w-2xl rounded-xl border border-border bg-surface-elevated/60 px-4 py-4 sm:px-5">
+            <p className="text-sm font-medium text-foreground">
+              {t("directChannelsTitle")}
+            </p>
+            <div className="mt-3 flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+              <a
+                href={`mailto:${contactEmail}`}
+                aria-label={tContact("emailAria")}
+                className="focus-ring font-medium text-accent underline-offset-4 hover:underline"
+              >
+                {contactEmail}
+              </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={tContact("whatsappAria")}
+                className="focus-ring font-medium text-emerald-400 underline-offset-4 hover:text-emerald-300 hover:underline"
+              >
+                {tContact("whatsappAction")} ·{" "}
+                <span className="tabular-nums">{whatsappDisplay}</span>
+              </a>
+            </div>
+          </div>
           <div className="mt-10 max-w-xl">
             <ContactForm />
           </div>

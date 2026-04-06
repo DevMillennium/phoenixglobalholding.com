@@ -157,7 +157,11 @@
     "eyebrow": "Contato",
     "title": "Paraguai como hub. Relação com o mundo.",
     "subtitle": "Para alianças comerciais, projetos tecnológicos, estruturação societária no Paraguai ou consultas institucionais, nossa equipe analisa cada oportunidade com foco estratégico.",
-    "emailLabel": "E-mail",
+    "emailLabel": "Diretoria (e-mail)",
+    "emailAria": "Enviar e-mail para a diretoria",
+    "whatsappLabel": "WhatsApp",
+    "whatsappAction": "Conversar agora",
+    "whatsappAria": "Abrir conversa no WhatsApp com a Phoenix Global Holding",
     "locationLabel": "Sede",
     "locationValue": "Paraguai — operações com alcance regional e internacional",
     "disclaimer": "Resposta voltada a negócios e parcerias. Não vendemos ao consumidor final por este canal institucional.",
@@ -168,6 +172,9 @@
   "Footer": {
     "rights": "Todos os direitos reservados.",
     "tagline": "Comércio internacional · Tecnologia · Estruturação corporativa",
+    "contactQuick": "Contacto direto",
+    "emailAria": "Enviar e-mail para a diretoria",
+    "whatsappAria": "Abrir WhatsApp da Phoenix Global Holding",
     "legal": "Informação corporativa",
     "privacy": "Privacidade",
     "terms": "Termos de uso"
