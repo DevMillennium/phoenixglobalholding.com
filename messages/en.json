@@ -1,0 +1,103 @@
+{
+  "Metadata": {
+    "title": "Phoenix Global Holding | International trade, technology and innovation",
+    "description": "International business group based in Paraguay. Phoenix Global Import and Export and Phoenix Global Developer: global trade, AI and digital platforms.",
+    "keywords": "holding, Paraguay, import, export, technology, artificial intelligence, international trade"
+  },
+  "Nav": {
+    "group": "Group",
+    "importExport": "Import & Export",
+    "developer": "Developer",
+    "integration": "Integration",
+    "vision": "Vision",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "Hero": {
+    "eyebrow": "Strategic hub · Paraguay · Global reach",
+    "title": "A business ecosystem built to scale trade and technology",
+    "subtitle": "Phoenix Global Holding integrates international trade operations with advanced technology development, aligning global distribution with digital innovation.",
+    "ctaPrimary": "Explore divisions",
+    "ctaSecondary": "Contact the group"
+  },
+  "About": {
+    "eyebrow": "Who we are",
+    "title": "A holding structured for sustainable growth and efficiency",
+    "p1": "Phoenix Global Holding is an international business group focused on international trade, technology and digital innovation. Headquartered in Paraguay, it coordinates complementary companies that share infrastructure, long-term vision and operational excellence.",
+    "p2": "The group’s structure centralizes strategic management, technology development and market expansion, enabling each division to operate with deep specialization.",
+    "stats": {
+      "divisions": "Core divisions",
+      "focus": "Business focus",
+      "reach": "Geographic scope"
+    },
+    "statDivisionsValue": "2",
+    "statFocusValue": "Trade + Tech",
+    "statReachValue": "LatAm & global"
+  },
+  "ImportExport": {
+    "eyebrow": "Phoenix Global Import and Export",
+    "title": "International trade anchored in Paraguay’s competitive base",
+    "subtitle": "Import, export and direct retail—connecting markets while optimizing logistics and commercial efficiency across the region.",
+    "importTitle": "International import",
+    "importDesc": "Imports from global markets with emphasis on high value-added categories: electronics and technology, digital devices and accessories, cosmetics and dermocosmetics, consumer and lifestyle products.",
+    "exportTitle": "Export & redistribution",
+    "exportDesc": "Export, regional redistribution and logistics integration across South America, including cross-border trade and support for international operations.",
+    "localTitle": "Direct sales in Paraguay",
+    "localDesc": "Local go-to-market through distribution, DTC, e-commerce and marketplaces—with speed and competitive positioning."
+  },
+  "Developer": {
+    "eyebrow": "Phoenix Global Developer",
+    "title": "World-class technology, AI and digital infrastructure",
+    "subtitle": "The group’s technology division builds platforms, applications and systems that power businesses and the holding’s own operations.",
+    "aiTitle": "Artificial intelligence",
+    "aiDesc": "Process automation, data intelligence, enterprise AI systems and integration of advanced models.",
+    "appsTitle": "Applications & platforms",
+    "appsDesc": "Mobile apps, web platforms and tailored digital systems for consumers, enterprises and digital initiatives.",
+    "infraTitle": "Systems & infrastructure",
+    "infraDesc": "Enterprise systems, digital platforms, marketplace infrastructure, operational automation and API/service integration."
+  },
+  "Integration": {
+    "eyebrow": "The Phoenix edge",
+    "title": "Technology applied to international trade",
+    "subtitle": "Phoenix Global Developer solutions are deployed directly inside Import and Export operations—driving automation, proprietary platforms, logistics optimization and digital expansion.",
+    "items": {
+      "automation": "End-to-end operational automation",
+      "platforms": "Proprietary digital platforms and e-commerce",
+      "logistics": "Integrated logistics and commercial optimization",
+      "expansion": "Digital expansion for new ventures"
+    }
+  },
+  "Vision": {
+    "eyebrow": "Vision",
+    "title": "A modern, scalable ecosystem connected to the world",
+    "text": "Build a business ecosystem that connects international trade, technology and digital innovation—expanding across Latin America with solutions that pair advanced infrastructure with global commercial execution.",
+    "cta": "Discuss partnerships"
+  },
+  "Contact": {
+    "eyebrow": "Contact",
+    "title": "Paraguay as a hub. Connected globally.",
+    "subtitle": "For commercial alliances, technology projects or institutional inquiries, our team evaluates each opportunity with a strategic lens.",
+    "emailLabel": "Email",
+    "locationLabel": "Headquarters",
+    "locationValue": "Paraguay — operations with regional and international reach",
+    "disclaimer": "Responses are intended for business and partnerships. We do not serve end consumers through this institutional channel."
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "tagline": "International trade · Technology · Innovation",
+    "legal": "Corporate information",
+    "privacy": "Privacy",
+    "terms": "Terms of use"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "home": "Back to home"
+  },
+  "Languages": {
+    "es": "Español",
+    "pt": "Português",
+    "en": "English"
+  }
+}

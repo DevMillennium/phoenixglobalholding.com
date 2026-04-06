@@ -1,0 +1,103 @@
+{
+  "Metadata": {
+    "title": "Phoenix Global Holding | Comercio internacional, tecnología e innovación",
+    "description": "Grupo empresarial internacional con base en Paraguay. Phoenix Global Import and Export y Phoenix Global Developer: comercio global, IA y plataformas digitales.",
+    "keywords": "holding, Paraguay, importación, exportación, tecnología, inteligencia artificial, comercio internacional"
+  },
+  "Nav": {
+    "group": "Grupo",
+    "importExport": "Import & Export",
+    "developer": "Developer",
+    "integration": "Integración",
+    "vision": "Visión",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "Hero": {
+    "eyebrow": "Base estratégica · Paraguay · Alcance global",
+    "title": "Ecología empresarial para escalar comercio y tecnología",
+    "subtitle": "Phoenix Global Holding integra operaciones de comercio internacional con desarrollo tecnológico avanzado, creando sinergia entre distribución global e innovación digital.",
+    "ctaPrimary": "Explorar divisiones",
+    "ctaSecondary": "Contactar al grupo"
+  },
+  "About": {
+    "eyebrow": "Quiénes somos",
+    "title": "Una holding diseñada para crecimiento sostenible y eficiencia",
+    "p1": "Phoenix Global Holding es un grupo empresarial internacional dedicado al desarrollo de negocios en comercio internacional, tecnología e innovación digital. Con sede estratégica en Paraguay, coordina empresas complementarias que comparten infraestructura, visión de largo plazo y estándares de excelencia operativa.",
+    "p2": "La estructura del grupo centraliza la gestión estratégica, el desarrollo tecnológico y la expansión de mercados, permitiendo que cada división opere con alto nivel de especialización.",
+    "stats": {
+      "divisions": "Divisiones principales",
+      "focus": "Focos de negocio",
+      "reach": "Enfoque territorial"
+    },
+    "statDivisionsValue": "2",
+    "statFocusValue": "Comercio + Tech",
+    "statReachValue": "LatAm y global"
+  },
+  "ImportExport": {
+    "eyebrow": "Phoenix Global Import and Export",
+    "title": "Comercio internacional con base competitiva en Paraguay",
+    "subtitle": "Importación, exportación y venta directa, conectando mercados y optimizando logística y eficiencia comercial en la región.",
+    "importTitle": "Importación internacional",
+    "importDesc": "Importación de productos de diversos mercados globales, con foco en alto valor agregado y demanda regional: electrónica y tecnología, dispositivos digitales, cosméticos y dermocosméticos, consumo y lifestyle.",
+    "exportTitle": "Exportación y redistribución",
+    "exportDesc": "Exportación, redistribución regional e integración logística entre países de América del Sur, incluyendo comercio transfronterizo y soporte a operaciones internacionales.",
+    "localTitle": "Venta directa en Paraguay",
+    "localDesc": "Comercialización local mediante distribución, ventas directas al consumidor, e-commerce y marketplaces, con agilidad y precios competitivos."
+  },
+  "Developer": {
+    "eyebrow": "Phoenix Global Developer",
+    "title": "Tecnología, IA e infraestructura digital de clase mundial",
+    "subtitle": "La división tecnológica del grupo construye plataformas, aplicaciones y sistemas que potencian negocios y la propia operación de la holding.",
+    "aiTitle": "Inteligencia artificial",
+    "aiDesc": "Automatización de procesos, análisis de datos, sistemas inteligentes para empresas e integración de modelos avanzados de IA.",
+    "appsTitle": "Aplicaciones y plataformas",
+    "appsDesc": "Desarrollo de apps móviles, plataformas web y sistemas digitales a medida para consumidores, empresas y proyectos digitales.",
+    "infraTitle": "Sistemas e infraestructura",
+    "infraDesc": "Sistemas empresariales, plataformas digitales, infraestructura para marketplaces, automatización operativa e integración de APIs y servicios."
+  },
+  "Integration": {
+    "eyebrow": "Diferencial Phoenix",
+    "title": "Tecnología aplicada al comercio internacional",
+    "subtitle": "Las soluciones de Phoenix Global Developer se aplican directamente en las operaciones de Import and Export: mayor automatización, plataformas propias, optimización logística y expansión digital.",
+    "items": {
+      "automation": "Automatización operacional de punta a punta",
+      "platforms": "Plataformas digitales y e-commerce propios",
+      "logistics": "Optimización logística y comercial integrada",
+      "expansion": "Expansión digital de nuevos negocios"
+    }
+  },
+  "Vision": {
+    "eyebrow": "Visión",
+    "title": "Ecología moderna, escalable y conectada al mundo",
+    "text": "Construir un ecosistema empresarial capaz de conectar comercio internacional, tecnología e innovación digital, expandiendo operaciones en América Latina y desarrollando soluciones que unan infraestructura avanzada con operaciones comerciales globales.",
+    "cta": "Hablemos de partnership"
+  },
+  "Contact": {
+    "eyebrow": "Contacto",
+    "title": "Paraguay como hub. Relación con el mundo.",
+    "subtitle": "Para alianzas comerciales, proyectos tecnológicos o consultas institucionales, nuestro equipo analiza cada oportunidad con enfoque estratégico.",
+    "emailLabel": "Correo",
+    "locationLabel": "Sede",
+    "locationValue": "Paraguay — operaciones con alcance regional e internacional",
+    "disclaimer": "Respuesta orientada a negocios y partnerships. No vendemos al público final a través de este canal institucional."
+  },
+  "Footer": {
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Comercio internacional · Tecnología · Innovación",
+    "legal": "Información corporativa",
+    "privacy": "Privacidad",
+    "terms": "Términos de uso"
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "description": "El contenido que buscás no existe o fue movido.",
+    "home": "Volver al inicio"
+  },
+  "Languages": {
+    "es": "Español",
+    "pt": "Português",
+    "en": "English"
+  }
+}
