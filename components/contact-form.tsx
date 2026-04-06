@@ -2,7 +2,7 @@
 
 import { useActionState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getContactEmail } from "@/lib/site-config";
 import { contactInitialState, submitContact } from "@/app/actions/contact";
@@ -28,18 +28,25 @@ function SubmitButton() {
 export function ContactForm() {
   const t = useTranslations("ContactForm");
   const tPage = useTranslations("ContactPage");
+  const locale = useLocale();
   const [state, formAction] = useActionState(submitContact, contactInitialState);
   const didTrackSuccess = useRef(false);
 
   useEffect(() => {
     if (state.ok && !didTrackSuccess.current) {
       didTrackSuccess.current = true;
-      trackEvent("contact_form_success", {
+      const base = {
         funnel_step: "lead",
+        page_locale: locale,
         ...(state.intent ? { intent: state.intent } : {}),
+      };
+      trackEvent("contact_form_success", base);
+      trackEvent("generate_lead", {
+        lead_source: "contact_form",
+        ...base,
       });
     }
-  }, [state.ok, state.intent]);
+  }, [state.ok, state.intent, locale]);
 
   const mailtoHref = (() => {
     const subject = encodeURIComponent(tPage("mailtoSubject"));

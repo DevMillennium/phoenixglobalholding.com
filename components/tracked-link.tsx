@@ -1,6 +1,7 @@
 "use client";
 
 import type { ComponentProps } from "react";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/gtag";
 
@@ -17,11 +18,15 @@ export function TrackedLink({
   onClick,
   ...rest
 }: Props) {
+  const locale = useLocale();
   return (
     <Link
       {...rest}
       onClick={(e) => {
-        trackEvent(eventName, eventParams);
+        trackEvent(eventName, {
+          ...eventParams,
+          page_locale: locale,
+        });
         onClick?.(e);
       }}
     />
