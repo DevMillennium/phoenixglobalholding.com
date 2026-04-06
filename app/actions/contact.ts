@@ -8,6 +8,8 @@ export type ContactActionState = {
   ok: boolean;
   errorKey?: string;
   fieldErrors?: Record<string, string[]>;
+  /** Preenchido em `ok: true` para analytics no cliente. */
+  intent?: "commerce" | "tech" | "corporate" | "institutional" | "other";
 };
 
 export async function submitContact(
@@ -66,7 +68,7 @@ export async function submitContact(
         console.error("[contact] Resend:", error);
         return { ok: false, errorKey: "sendFailed" };
       }
-      return { ok: true };
+      return { ok: true, intent: data.intent };
     } catch (e) {
       console.error("[contact]", e);
       return { ok: false, errorKey: "sendFailed" };

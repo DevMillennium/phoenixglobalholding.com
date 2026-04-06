@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/reveal";
+import { TrackedLink } from "@/components/tracked-link";
 import { divisionNamespace, type DivisionSlug } from "@/lib/divisions";
 
 type DivisionNs = (typeof divisionNamespace)[DivisionSlug];
@@ -68,12 +68,13 @@ export async function DivisionDetail({ namespace }: { namespace: DivisionNs }) {
             Phoenix Global Holding
           </p>
           <p className="mt-3">
-            <Link
+            <TrackedLink
               href="/contact"
+              eventName="division_footer_contact"
               className="inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#07080c] transition hover:bg-[#f0c65c]"
             >
               {nav("contactPage")}
-            </Link>
+            </TrackedLink>
           </p>
         </div>
       </Reveal>

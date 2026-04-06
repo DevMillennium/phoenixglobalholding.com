@@ -1,14 +1,15 @@
+import { getTranslations } from "next-intl/server";
 import { getSiteUrl } from "@/lib/site-config";
 
-export function WebsiteJsonLd() {
+export async function WebsiteJsonLd({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "JsonLd" });
   const url = getSiteUrl();
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Phoenix Global Holding",
     url,
-    description:
-      "Grupo empresarial internacional con sede en Paraguay: comercio internacional, tecnología y estructuración corporativa.",
+    description: t("webSiteDescription"),
     publisher: {
       "@type": "Organization",
       name: "Phoenix Global Holding",

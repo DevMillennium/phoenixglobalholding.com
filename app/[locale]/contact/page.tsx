@@ -1,32 +1,36 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ContactForm } from "@/components/contact-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { getSiteUrl, localizedPath } from "@/lib/site-config";
+import { localizedPath } from "@/lib/site-config";
+import { hreflangAlternates, socialMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ContactPage" });
-  const baseUrl = getSiteUrl();
   const path = localizedPath(locale, "/contact");
+  const title = t("metaTitle");
+  const description = t("metaDescription");
 
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
-    metadataBase: new URL(baseUrl),
+    title,
+    description,
     alternates: {
       canonical: path,
-      languages: {
-        es: "/contact",
-        pt: "/pt/contact",
-        en: "/en/contact",
-      },
+      languages: hreflangAlternates("/contact"),
     },
+    ...socialMetadata({
+      title,
+      description,
+      locale,
+      path: "/contact",
+    }),
     robots: { index: true, follow: true },
   };
 }
@@ -38,8 +42,17 @@ export default async function ContactPage({ params }: Props) {
   const b = await getTranslations("Breadcrumb");
   const nav = await getTranslations("Nav");
 
+  const homePath = localizedPath(locale, "/");
+  const contactPath = localizedPath(locale, "/contact");
+
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: b("home"), path: homePath },
+          { name: nav("contactPage"), path: contactPath },
+        ]}
+      />
       <SiteHeader />
       <Breadcrumbs
         items={[

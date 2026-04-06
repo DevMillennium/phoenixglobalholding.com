@@ -2,9 +2,15 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { Outfit, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { AppShell } from "@/components/app-shell";
+import { getSiteUrl } from "@/lib/site-config";
 import type { Viewport } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
+};
 
 export const viewport: Viewport = {
   themeColor: "#07080c",

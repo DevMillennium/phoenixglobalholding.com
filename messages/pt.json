@@ -4,6 +4,10 @@
     "description": "Grupo com base no Paraguai: comércio internacional (Import and Export), tecnologia (Developer) e estruturação societária para investidores estrangeiros (Enterprise Solution).",
     "keywords": "holding, Paraguai, importação, exportação, tecnologia, inteligência artificial, EAS, estruturação corporativa, investidor estrangeiro, RUC, comércio internacional"
   },
+  "JsonLd": {
+    "organizationDescription": "Grupo empresarial internacional com sede no Paraguai: comércio internacional (Import and Export), tecnologia e inovação digital (Developer) e estruturação societária para investidores estrangeiros (Enterprise Solution).",
+    "webSiteDescription": "Site oficial da Phoenix Global Holding: comércio internacional, tecnologia e estruturação corporativa no Paraguai para investidores e empresas globais."
+  },
   "Nav": {
     "group": "Grupo",
     "importExport": "Import & Export",

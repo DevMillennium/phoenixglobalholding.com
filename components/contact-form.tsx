@@ -1,11 +1,12 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getContactEmail } from "@/lib/site-config";
 import { contactInitialState, submitContact } from "@/app/actions/contact";
+import { trackEvent } from "@/lib/gtag";
 
 type FieldKey = "name" | "email" | "company" | "intent" | "message" | "consent";
 
@@ -28,6 +29,17 @@ export function ContactForm() {
   const t = useTranslations("ContactForm");
   const tPage = useTranslations("ContactPage");
   const [state, formAction] = useActionState(submitContact, contactInitialState);
+  const didTrackSuccess = useRef(false);
+
+  useEffect(() => {
+    if (state.ok && !didTrackSuccess.current) {
+      didTrackSuccess.current = true;
+      trackEvent("contact_form_success", {
+        funnel_step: "lead",
+        ...(state.intent ? { intent: state.intent } : {}),
+      });
+    }
+  }, [state.ok, state.intent]);
 
   const mailtoHref = (() => {
     const subject = encodeURIComponent(tPage("mailtoSubject"));

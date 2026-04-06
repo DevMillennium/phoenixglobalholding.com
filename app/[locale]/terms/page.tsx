@@ -1,11 +1,13 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { LegalDocument } from "@/components/legal-document";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { getSiteUrl, localizedPath } from "@/lib/site-config";
+import { localizedPath } from "@/lib/site-config";
+import { hreflangAlternates, socialMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -14,28 +16,24 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "LegalTerms" });
-  const baseUrl = getSiteUrl();
   const path = localizedPath(locale, "/terms");
+  const title = t("metaTitle");
+  const description = t("metaDescription");
 
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
-    metadataBase: new URL(baseUrl),
+    title,
+    description,
     alternates: {
       canonical: path,
-      languages: {
-        es: "/terms",
-        pt: "/pt/terms",
-        en: "/en/terms",
-      },
+      languages: hreflangAlternates("/terms"),
     },
     robots: { index: true, follow: true },
-    openGraph: {
-      title: t("metaTitle"),
-      description: t("metaDescription"),
-      type: "website",
-      url: `${baseUrl}${path === "/" ? "" : path}`,
-    },
+    ...socialMetadata({
+      title,
+      description,
+      locale,
+      path: "/terms",
+    }),
   };
 }
 
@@ -44,9 +42,17 @@ export default async function TermsPage({ params }: Props) {
   setRequestLocale(locale);
   const b = await getTranslations("Breadcrumb");
   const f = await getTranslations("Footer");
+  const homePath = localizedPath(locale, "/");
+  const termsPath = localizedPath(locale, "/terms");
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: b("home"), path: homePath },
+          { name: f("terms"), path: termsPath },
+        ]}
+      />
       <SiteHeader />
       <Breadcrumbs
         items={[

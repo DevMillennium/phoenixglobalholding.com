@@ -4,6 +4,10 @@
     "description": "Paraguay-based group: international trade (Import and Export), technology (Developer) and corporate structuring for foreign investors (Enterprise Solution).",
     "keywords": "holding, Paraguay, import, export, technology, AI, EAS, corporate structuring, foreign investment, RUC, international trade"
   },
+  "JsonLd": {
+    "organizationDescription": "International business group based in Paraguay: international trade (Import and Export), digital technology and innovation (Developer), and corporate structuring for foreign investors (Enterprise Solution).",
+    "webSiteDescription": "Official Phoenix Global Holding website: international trade, technology and corporate structuring in Paraguay for global investors and companies."
+  },
   "Nav": {
     "group": "Group",
     "importExport": "Import & Export",

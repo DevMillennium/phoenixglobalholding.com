@@ -11,10 +11,11 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { ImportExportSection } from "@/components/sections/import-export-section";
 import { IntegrationSection } from "@/components/sections/integration-section";
 import { VisionSection } from "@/components/sections/vision-section";
+import { JsonLdOrganization } from "@/components/jsonld-organization";
 import { PartnersStrip } from "@/components/partners-strip";
 import { WebsiteJsonLd } from "@/components/website-jsonld";
 import { routing } from "@/i18n/routing";
-import { getSiteUrl } from "@/lib/site-config";
+import { hreflangAlternates, socialMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -23,34 +24,25 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
-  const baseUrl = getSiteUrl();
+
+  const path = locale === routing.defaultLocale ? "/" : `/${locale}`;
+  const title = t("title");
+  const description = t("description");
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title,
+    description,
     keywords: t("keywords"),
-    metadataBase: new URL(baseUrl),
     alternates: {
-      canonical:
-        locale === routing.defaultLocale ? "/" : `/${locale}`,
-      languages: {
-        es: "/",
-        pt: "/pt",
-        en: "/en",
-      },
+      canonical: path,
+      languages: hreflangAlternates("/"),
     },
-    openGraph: {
-      title: t("title"),
-      description: t("description"),
+    ...socialMetadata({
+      title,
+      description,
       locale,
-      type: "website",
-      url: baseUrl,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
-    },
+      path: "/",
+    }),
     robots: {
       index: true,
       follow: true,
@@ -62,40 +54,10 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Phoenix Global Holding",
-    description:
-      "Grupo empresarial internacional: comercio internacional, tecnología, innovación digital y estructuración corporativa en Paraguay.",
-    url: getSiteUrl(),
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "PY",
-    },
-    subOrganization: [
-      {
-        "@type": "Organization",
-        name: "Phoenix Global Import and Export",
-      },
-      {
-        "@type": "Organization",
-        name: "Phoenix Global Developer",
-      },
-      {
-        "@type": "Organization",
-        name: "Phoenix Global Enterprise Solution",
-      },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-      />
-      <WebsiteJsonLd />
+      <JsonLdOrganization locale={locale} />
+      <WebsiteJsonLd locale={locale} />
       <SiteHeader />
       <main
         id="main-content"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { TrackedLink } from "@/components/tracked-link";
 
 /** Barra fixa em mobile com CTA principal para página de contacto. */
 export function StickyCta() {
@@ -13,12 +13,14 @@ export function StickyCta() {
       role="region"
       aria-label={t("aria")}
     >
-      <Link
+      <TrackedLink
         href="/contact"
+        eventName="sticky_cta_contact"
+        eventParams={{ placement: "mobile_footer" }}
         className="focus-ring flex w-full items-center justify-center rounded-full bg-accent py-3.5 text-center text-sm font-semibold text-[#07080c] shadow-lg shadow-accent/25"
       >
         {t("label")}
-      </Link>
+      </TrackedLink>
     </div>
   );
 }

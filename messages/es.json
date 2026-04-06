@@ -4,6 +4,10 @@
     "description": "Grupo empresarial con base en Paraguay: comercio internacional (Import and Export), tecnología (Developer) y estructuración corporativa para inversores extranjeros (Enterprise Solution).",
     "keywords": "holding, Paraguay, importación, exportación, tecnología, inteligencia artificial, EAS, estructuración corporativa, inversión extranjera, RUC, comercio internacional"
   },
+  "JsonLd": {
+    "organizationDescription": "Grupo empresarial internacional con sede en Paraguay: comercio internacional (Import and Export), tecnología e innovación digital (Developer) y estructuración societaria para inversores extranjeros (Enterprise Solution).",
+    "webSiteDescription": "Sitio oficial de Phoenix Global Holding: comercio internacional, tecnología y estructuración corporativa en Paraguay para inversores y empresas globales."
+  },
   "Nav": {
     "group": "Grupo",
     "importExport": "Import & Export",
