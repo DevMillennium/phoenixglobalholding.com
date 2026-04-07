@@ -25,20 +25,41 @@ type LeadAssessment = {
 
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 const DEFAULT_MODEL = "deepseek-chat";
+const DEFAULT_REASONER_MODEL = "deepseek-reasoner";
 const MAX_HISTORY = 12;
 const MAX_RETRIES = 2;
+const MAX_MESSAGE_LENGTH = 1500;
+const REQUEST_TIMEOUT_MS = 20000;
+const RATE_LIMIT_MAX_REQUESTS = 20;
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RETRYABLE_ERROR_CODES = new Set(["ETIMEDOUT", "ECONNRESET", "ENOTFOUND", "EAI_AGAIN"]);
+
+const inMemoryRateLimit = new Map<string, number[]>();
 
 export async function POST(req: Request) {
   try {
-    const body = (await req.json()) as RequestBody;
+    const body = (await safeReadJson(req)) as RequestBody;
     const userMessage = normalizeText(body.message);
     const history = sanitizeHistory(body.history);
     const locale = normalizeLocale(body.locale);
+    const clientIp = getClientIp(req);
 
     if (!userMessage) {
       return NextResponse.json(
-        { ok: false, error: "Mensagem invalida." },
+        { ok: false, error: localizedError("invalid_message", locale) },
         { status: 400 },
+      );
+    }
+    if (userMessage.length > MAX_MESSAGE_LENGTH) {
+      return NextResponse.json(
+        { ok: false, error: localizedError("message_too_long", locale) },
+        { status: 413 },
+      );
+    }
+    if (!allowRequest(clientIp)) {
+      return NextResponse.json(
+        { ok: false, error: localizedError("rate_limit", locale) },
+        { status: 429 },
       );
     }
 
@@ -57,9 +78,11 @@ export async function POST(req: Request) {
     }
 
     const model = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
+    const reasonerModel = process.env.DEEPSEEK_REASONER_MODEL?.trim() || DEFAULT_REASONER_MODEL;
+    const selectedModel = selectModel({ message: userMessage, history, chatModel: model, reasonerModel });
 
     const payload = {
-      model,
+      model: selectedModel,
       temperature: 0.3,
       messages: [
         { role: "system", content: LANY_SYSTEM_PROMPT },
@@ -97,6 +120,7 @@ export async function POST(req: Request) {
       stage,
       qualified,
       message: userMessage,
+      model: selectedModel,
     });
 
     return NextResponse.json({
@@ -113,10 +137,11 @@ export async function POST(req: Request) {
     console.error("[atendimento] route error", error);
     const stage: LeadStage = "descoberta";
     const qualified = false;
+    const locale = "pt";
     return NextResponse.json(
       {
         ok: false,
-        error: "Atendimento indisponivel no momento. Tente novamente em instantes.",
+        error: localizedError("unavailable", locale),
         source: "error",
         stage,
         qualified,
@@ -144,7 +169,7 @@ function sanitizeHistory(history?: ClientMessage[]): ClientMessage[] {
 
 function normalizeText(value: unknown): string {
   if (typeof value !== "string") return "";
-  return value.trim();
+  return value.trim().slice(0, MAX_MESSAGE_LENGTH);
 }
 
 async function safeReadText(res: Response): Promise<string> {
@@ -152,6 +177,14 @@ async function safeReadText(res: Response): Promise<string> {
     return await res.text();
   } catch {
     return "";
+  }
+}
+
+async function safeReadJson(req: Request): Promise<unknown> {
+  try {
+    return await req.json();
+  } catch {
+    return {};
   }
 }
 
@@ -170,36 +203,54 @@ async function requestDeepSeekWithRetry(
 ): Promise<unknown> {
   let lastStatus = 0;
   let lastBody = "";
+  let lastErrorCode = "";
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-    const res = await fetch(DEEPSEEK_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify(payload),
-      cache: "no-store",
-    });
+    try {
+      const res = await fetch(DEEPSEEK_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify(payload),
+        cache: "no-store",
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
 
-    if (res.ok) {
-      return res.json();
-    }
+      if (res.ok) {
+        return res.json();
+      }
 
-    lastStatus = res.status;
-    lastBody = await safeReadText(res);
-    if (!isRetriableStatus(res.status) || attempt === MAX_RETRIES) {
-      break;
+      lastStatus = res.status;
+      lastBody = (await safeReadText(res)).slice(0, 400);
+      if (!isRetriableStatus(res.status) || attempt === MAX_RETRIES) {
+        break;
+      }
+      await sleep(250 * attempt);
+    } catch (error) {
+      const code =
+        error instanceof Error && "code" in error
+          ? String((error as Error & { code?: string }).code ?? "")
+          : "";
+      lastErrorCode = code;
+      if (!isRetriableErrorCode(code) || attempt === MAX_RETRIES) {
+        break;
+      }
+      await sleep(250 * attempt);
     }
-    await sleep(250 * attempt);
   }
 
-  console.error("[atendimento] deepseek error", lastStatus, lastBody);
+  console.error("[atendimento] deepseek error", lastStatus, lastErrorCode, lastBody);
   throw new Error("deepseek_unavailable");
 }
 
 function isRetriableStatus(status: number): boolean {
   return status === 408 || status === 409 || status === 429 || status >= 500;
+}
+
+function isRetriableErrorCode(code: string): boolean {
+  return RETRYABLE_ERROR_CODES.has(code);
 }
 
 function sleep(ms: number): Promise<void> {
@@ -323,10 +374,11 @@ function logAtendimento(args: {
   stage: LeadStage;
   qualified: boolean;
   message: string;
+  model: string;
 }): void {
   const preview = args.message.replace(/\s+/g, " ").slice(0, 140);
   console.info(
-    `[atendimento] source=${args.source} locale=${args.locale} stage=${args.stage} qualified=${args.qualified} message="${preview}"`,
+    `[atendimento] source=${args.source} locale=${args.locale} stage=${args.stage} qualified=${args.qualified} model=${args.model} message="${preview}"`,
   );
 }
 
@@ -403,4 +455,77 @@ function buildNextQuestion(
   return assessment.division === "developer"
     ? "Qual resultado de negocio voce quer que essa solucao de IA entregue primeiro?"
     : "Qual e o primeiro marco de execucao que voce quer priorizar agora?";
+}
+
+function selectModel(args: {
+  message: string;
+  history: ClientMessage[];
+  chatModel: string;
+  reasonerModel: string;
+}): string {
+  const combined = `${args.history.map((item) => item.content).join(" ")} ${args.message}`.toLowerCase();
+  const isComplexReasoning = hasAny(combined, [
+    "arquitetura",
+    "planejamento",
+    "estrategia",
+    "trade-off",
+    "otimizacao",
+    "diagnostico",
+    "complexo",
+    "complexa",
+    "complex",
+    "strategy",
+    "plan",
+    "decision",
+    "decisao",
+    "comparar alternativas",
+    "multiagente",
+    "rag",
+    "workflow",
+    "fluxo",
+  ]);
+  return isComplexReasoning ? args.reasonerModel : args.chatModel;
+}
+
+function getClientIp(req: Request): string {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",")[0]?.trim() || "unknown";
+  }
+  return req.headers.get("x-real-ip")?.trim() || "unknown";
+}
+
+function allowRequest(clientIp: string): boolean {
+  const now = Date.now();
+  const existing = inMemoryRateLimit.get(clientIp) ?? [];
+  const valid = existing.filter((time) => now - time < RATE_LIMIT_WINDOW_MS);
+  if (valid.length >= RATE_LIMIT_MAX_REQUESTS) {
+    inMemoryRateLimit.set(clientIp, valid);
+    return false;
+  }
+  valid.push(now);
+  inMemoryRateLimit.set(clientIp, valid);
+  return true;
+}
+
+function localizedError(
+  kind: "invalid_message" | "message_too_long" | "rate_limit" | "unavailable",
+  locale: "pt" | "es" | "en",
+): string {
+  if (locale === "es") {
+    if (kind === "invalid_message") return "Mensaje invalido.";
+    if (kind === "message_too_long") return "El mensaje es demasiado largo. Resume y vuelve a intentar.";
+    if (kind === "rate_limit") return "Demasiadas solicitudes seguidas. Espera un momento e intenta de nuevo.";
+    return "Atencion no disponible en este momento. Intenta nuevamente en instantes.";
+  }
+  if (locale === "en") {
+    if (kind === "invalid_message") return "Invalid message.";
+    if (kind === "message_too_long") return "Message is too long. Please summarize and try again.";
+    if (kind === "rate_limit") return "Too many requests in a short period. Please wait and try again.";
+    return "Service is temporarily unavailable. Please try again shortly.";
+  }
+  if (kind === "invalid_message") return "Mensagem invalida.";
+  if (kind === "message_too_long") return "Mensagem muito longa. Resuma e tente novamente.";
+  if (kind === "rate_limit") return "Muitas solicitacoes em sequencia. Aguarde um momento e tente de novo.";
+  return "Atendimento indisponivel no momento. Tente novamente em instantes.";
 }
