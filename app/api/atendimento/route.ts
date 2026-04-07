@@ -170,77 +170,77 @@ function buildFallbackAnswer(
   const wantsCorporate = hasAny(lower, ["eas", "ruc", "paraguai", "paraguay", "societ", "corporat", "fiscal"]);
   const wantsPrice = hasAny(lower, ["preco", "precio", "price", "valor", "quanto", "cuanto", "cost"]);
   const wantsDeadline = hasAny(lower, ["prazo", "plazo", "deadline", "tempo", "time"]);
-  const variant = Math.abs(message.length) % 3;
   const qualified = isQualifiedLead(message, history);
+  const nextQuestion = nextQualificationQuestion(message, history, locale);
 
   if (locale === "es") {
     if (wantsTrade) {
-      return variant === 0
-        ? "En Import & Export operamos importacion, exportacion y redistribucion regional desde Paraguay. Ventaja: una operacion integrada para escalar con menos friccion. Si me comparte producto, destino y volumen estimado, le doy una recomendacion inicial."
-        : "Para este frente, la division Import & Export es la correcta. Ganancia principal: coordinacion comercial y logistica regional en una misma estructura. Si desea, preparo un encuadre rapido de su caso.";
+      return qualified
+        ? "En Import & Export de la holding estructuramos importacion, exportacion y redistribucion regional desde Paraguay con foco en eficiencia operativa y comercial. Tu caso ya tiene base para avanzar. Si quieres, te conecto con el equipo comercial para iniciar propuesta en WhatsApp: https://wa.me/595992799800"
+        : `En Import & Export de la holding te ayudamos a estructurar importacion, exportacion y redistribucion regional desde Paraguay, con coordinacion operativa y comercial integrada. ${nextQuestion}`;
     }
     if (wantsTech) {
-      return variant === 1
-        ? "Developer cubre IA, apps, plataformas web e integraciones empresariales. Beneficio: soluciones con foco en resultado de negocio y escalabilidad. Si me cuenta su objetivo tecnico, le propongo el mejor enfoque."
-        : "Para tecnologia, activamos la division Developer. Punto fuerte: implementaciones practicas con arquitectura preparada para crecer. Si quiere, definimos alcance en dos o tres bloques.";
+      return qualified
+        ? "La division Developer de la holding cubre IA, apps, plataformas web e integraciones empresariales con enfoque de resultado y escalabilidad. Tu escenario ya esta bien encaminado para ejecucion. Si quieres, te paso ahora con el equipo en WhatsApp: https://wa.me/595992799800"
+        : `La division Developer de la holding cubre IA, apps, plataformas web e integraciones empresariales. Enfoque: resolver problema de negocio con arquitectura escalable. ${nextQuestion}`;
     }
     if (wantsCorporate) {
       return qualified
-        ? "Enterprise Solution atiende estructuracion corporativa en Paraguay, incluyendo EAS y activacion operativa segun el caso. Su perfil ya esta bien encaminado para avanzar. Si quiere, lo conecto ahora con el equipo por WhatsApp: https://wa.me/595992799800"
-        : "Enterprise Solution atiende estructuracion corporativa en Paraguay, incluyendo EAS y activacion operativa segun el caso. Para orientarte con precision, dime tu pais de origen y la actividad principal del negocio.";
+        ? "Enterprise Solution de la holding cubre estructuracion corporativa en Paraguay (incluyendo EAS y activacion operativa segun el caso) con conduccion remota y segura. Tu caso ya esta listo para avance comercial. Si quieres, te conecto con el equipo en WhatsApp: https://wa.me/595992799800"
+        : `Enterprise Solution de la holding cubre estructuracion corporativa en Paraguay (incluyendo EAS y activacion operativa segun el caso), siempre con conduccion de nuestra equipe. ${nextQuestion}`;
     }
     if (wantsPrice || wantsDeadline) {
-      return "Precio final y plazo exacto dependen del alcance, documentacion y complejidad del caso. Ventaja: propuesta ajustada a su contexto real. Si desea, le ayudo a estructurar un brief corto para cotizacion.";
+      return `Precio final y plazo exacto dependen del alcance, documentacion y complejidad del caso; por eso trabajamos con estimacion guiada por la holding para evitar promesas irreales. ${nextQuestion}`;
     }
-    return variant === 2
-      ? "Puedo orientarte en Import & Export, Developer o Enterprise Solution con enfoque ejecutivo. Dime tu objetivo principal y te propongo el camino mas eficiente."
-      : "Estoy para ayudarte con una orientacion comercial directa en cualquiera de las divisiones. Si me dices tu meta, te doy recomendacion puntual.";
+    return `Puedo orientarte con criterio consultivo en Import & Export, Developer o Enterprise Solution, siempre por la holding. ${nextQuestion}`;
   }
 
   if (locale === "en") {
     if (wantsTrade) {
-      return "Import & Export handles importing, exporting, and regional redistribution from Paraguay. Main benefit: integrated operations with lower expansion friction. Share product, target market, and expected volume and I will map the best next move.";
+      return qualified
+        ? "Our holding's Import & Export division structures importing, exporting, and regional redistribution from Paraguay with integrated commercial and operational execution. Your case is already qualified to move forward. If you want, I can connect you to our team on WhatsApp now: https://wa.me/595992799800"
+        : `Our holding's Import & Export division structures importing, exporting, and regional redistribution from Paraguay with integrated commercial and operational execution. ${nextQuestion}`;
     }
     if (wantsTech) {
-      return "Developer covers AI solutions, apps, web platforms, and enterprise integrations. Benefit: scalable delivery tied to business outcomes. If you share your technical objective, I can outline scope quickly.";
+      return qualified
+        ? "Our Developer division handles AI solutions, apps, web platforms, and enterprise integrations with business-outcome focus. Your case is already qualified to proceed. If you want, I can connect you to our team on WhatsApp now: https://wa.me/595992799800"
+        : `Our Developer division handles AI solutions, apps, web platforms, and enterprise integrations with business-outcome focus. ${nextQuestion}`;
     }
     if (wantsCorporate) {
       return qualified
-        ? "Enterprise Solution supports corporate structuring in Paraguay, including EAS and operational activation when applicable. Your profile is already clear enough to move forward. If you want, I can connect you to our team on WhatsApp now: https://wa.me/595992799800"
-        : "Enterprise Solution supports corporate structuring in Paraguay, including EAS and operational activation when applicable. To guide you precisely, share your business activity and origin country.";
+        ? "Our Enterprise Solution division supports corporate structuring in Paraguay, including EAS and operational activation when applicable, led by our holding team. Your case is ready to move forward. If you want, I can connect you to our team on WhatsApp now: https://wa.me/595992799800"
+        : `Our Enterprise Solution division supports corporate structuring in Paraguay, including EAS and operational activation when applicable, led by our holding team. ${nextQuestion}`;
     }
     if (wantsPrice || wantsDeadline) {
-      return "Final pricing and exact timelines depend on scope complexity and documentation. Benefit: a proposal aligned with your real scenario. If you want, I can help structure a concise quote brief.";
+      return `Final pricing and exact timeline depend on scope complexity and documentation, so we provide a guided estimate through our holding team. ${nextQuestion}`;
     }
     return qualified
-      ? "I can take this forward now with our specialist team. If you want immediate follow-up, we can continue on WhatsApp: https://wa.me/595992799800"
-      : "I can support Import & Export, Developer, and Enterprise Solution with direct business guidance. Tell me your main goal and I will recommend the best path.";
+      ? "I can move this forward now with our specialist team. If you want immediate follow-up, we can continue on WhatsApp: https://wa.me/595992799800"
+      : `I can support you with consultative guidance across Import & Export, Developer, and Enterprise Solution through our holding team. ${nextQuestion}`;
   }
 
   if (wantsTrade) {
-    return variant === 0
-      ? "Na divisao Import & Export atuamos com importacao, exportacao e redistribuicao regional a partir do Paraguai. Beneficio principal: operacao integrada para acelerar expansao com menos friccao. Se me passar produto, destino e volume estimado, eu te direciono com precisao."
-      : "Esse tema entra em Import & Export. Valor para voce: coordenacao comercial e logistica regional no mesmo fluxo. Posso te dar um plano inicial se me contar o objetivo comercial.";
+    return qualified
+      ? "Na divisao Import & Export da holding estruturamos importacao, exportacao e redistribuicao regional a partir do Paraguai com coordenacao comercial e operacional integrada. Seu caso ja esta qualificado para avancar. Se quiser, te conecto agora ao time no WhatsApp: https://wa.me/595992799800"
+      : `Na divisao Import & Export da holding estruturamos importacao, exportacao e redistribuicao regional a partir do Paraguai, com condução direta da nossa equipe. ${nextQuestion}`;
   }
   if (wantsTech) {
-    return variant === 1
-      ? "Na divisao Developer trabalhamos com IA, apps, plataformas web e integracoes empresariais. Beneficio: solucao escalavel e orientada a resultado de negocio. Se voce me disser o problema principal, eu te proponho um escopo objetivo."
-      : "Para tecnologia, a frente correta e a Developer. Diferencial: arquitetura pratica para evolucao continua. Se quiser, estruturamos o projeto em etapas curtas agora.";
+    return qualified
+      ? "Na divisao Developer da holding atuamos com IA, apps, plataformas web e integracoes empresariais com foco em resultado real. Seu caso ja tem elementos para avancar com o time. Se quiser, te encaminho no WhatsApp: https://wa.me/595992799800"
+      : `Na divisao Developer da holding trabalhamos com IA, apps, plataformas web e integracoes empresariais para resolver problema de negocio com escalabilidade. ${nextQuestion}`;
   }
   if (wantsCorporate) {
     return qualified
-      ? "Na Enterprise Solution apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel. Seu perfil ja esta bem qualificado para avancarmos. Se quiser, te conecto agora ao time no WhatsApp: https://wa.me/595992799800"
-      : "Na Enterprise Solution apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel. Para te orientar com precisao, me diga sua atividade principal e pais de origem.";
+      ? "Na Enterprise Solution da holding apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel, com condução pela nossa equipe. Seu perfil esta qualificado para avancar. Se quiser, te conecto agora ao time no WhatsApp: https://wa.me/595992799800"
+      : `Na Enterprise Solution da holding apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel, sempre com orientacao da nossa equipe. ${nextQuestion}`;
   }
   if (wantsPrice || wantsDeadline) {
-    return "Preco final e prazo exato variam conforme escopo, documentacao e complexidade. Beneficio: proposta aderente ao seu cenario real. Se quiser, eu te ajudo a montar um briefing curto para orcamento.";
+    return `Preco final e prazo exato variam conforme escopo, documentacao e complexidade; por isso a orientacao e feita pela holding, com criterio tecnico-comercial. ${nextQuestion}`;
   }
   if (qualified) {
     return "Perfeito, seu caso ja esta qualificado para avancarmos com atendimento especializado. Se quiser continuidade imediata, te encaminho agora no WhatsApp: https://wa.me/595992799800";
   }
-  return variant === 2
-    ? "Posso te orientar em Import & Export, Developer ou Enterprise Solution com foco executivo e resposta direta. Para eu te direcionar com precisao, qual e seu objetivo principal neste momento?"
-    : "Consigo te apoiar com direcionamento comercial nas tres divisoes da holding. Me diga sua meta principal e o prazo que voce tem em mente.";
+  return `Consigo te orientar com criterio consultivo nas tres divisoes da holding e conduzir seu caso do inicio ao encaminhamento. ${nextQuestion}`;
 }
 
 function hasAny(text: string, terms: string[]): boolean {
@@ -405,4 +405,84 @@ function logAtendimento(args: {
   console.info(
     `[atendimento] source=${args.source} locale=${args.locale} stage=${args.stage} qualified=${args.qualified} message="${preview}"`,
   );
+}
+
+function nextQualificationQuestion(
+  message: string,
+  history: ClientMessage[],
+  locale: "pt" | "es" | "en",
+): string {
+  const text = `${history.map((h) => h.content).join(" ")} ${message}`.toLowerCase();
+  const missingObjective = !hasAny(text, [
+    "quero",
+    "preciso",
+    "objetivo",
+    "projeto",
+    "abrir",
+    "estruturar",
+    "implantar",
+    "expandir",
+    "i want",
+    "need",
+    "project",
+    "quiero",
+    "necesito",
+    "proyecto",
+  ]);
+  const missingScope = !hasAny(text, [
+    "import",
+    "export",
+    "developer",
+    "ia",
+    "app",
+    "eas",
+    "ruc",
+    "enterprise",
+    "maquila",
+    "logistica",
+  ]);
+  const missingTimeline = !hasAny(text, [
+    "prazo",
+    "urgente",
+    "mes",
+    "semana",
+    "quando",
+    "deadline",
+    "timeline",
+    "plazo",
+    "cuándo",
+  ]);
+  const missingProfile = !hasAny(text, [
+    "empresa",
+    "sou",
+    "represento",
+    "investidor",
+    "cfo",
+    "ceo",
+    "founder",
+    "company",
+    "inversor",
+  ]);
+
+  if (locale === "es") {
+    if (missingObjective) return "Para orientarte con precision, cual es tu objetivo principal con este proyecto?";
+    if (missingScope) return "Que frente quieres priorizar ahora: Import & Export, Developer o Enterprise Solution?";
+    if (missingTimeline) return "En que ventana quieres iniciar: inmediato, 30 dias o 60+ dias?";
+    if (missingProfile) return "Actuas como empresa, inversor o emprendedor individual?";
+    return "Si te parece, avanzamos con una propuesta inicial y te explico el siguiente hito de ejecucion.";
+  }
+
+  if (locale === "en") {
+    if (missingObjective) return "To guide you precisely, what is your primary objective with this project?";
+    if (missingScope) return "Which front should we prioritize now: Import & Export, Developer, or Enterprise Solution?";
+    if (missingTimeline) return "What is your target start window: immediate, 30 days, or 60+ days?";
+    if (missingProfile) return "Are you acting as a company, investor, or individual entrepreneur?";
+    return "If you agree, we can move to an initial proposal and I will map the next execution milestone.";
+  }
+
+  if (missingObjective) return "Para te orientar com precisao, qual e o objetivo principal deste projeto?";
+  if (missingScope) return "Qual frente voce quer priorizar agora: Import & Export, Developer ou Enterprise Solution?";
+  if (missingTimeline) return "Qual e sua janela de inicio: imediato, 30 dias ou acima de 60 dias?";
+  if (missingProfile) return "Voce esta conduzindo isso como empresa, investidor ou empreendedor individual?";
+  return "Se fizer sentido para voce, avancamos para uma proposta inicial e eu te explico o proximo marco de execucao.";
 }
