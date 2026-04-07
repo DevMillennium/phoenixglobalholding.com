@@ -1,6 +1,9 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { HeroCtas } from "@/components/hero-ctas";
 import { Reveal } from "@/components/reveal";
+
+const HERO_AMBIENT = "/brand/hero-ambient.png";
 
 export async function HeroSection() {
   const t = await getTranslations("Hero");
@@ -8,13 +11,24 @@ export async function HeroSection() {
 
   return (
     <section className="relative overflow-hidden radial-glow">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image
+          src={HERO_AMBIENT}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-[0.2]"
+        />
+      </div>
       {videoUrl ? (
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-25"
+          className="hero-video-media absolute inset-0 h-full w-full object-cover opacity-25"
           autoPlay
           muted
           loop
           playsInline
+          poster={HERO_AMBIENT}
           aria-hidden
           src={videoUrl}
         />

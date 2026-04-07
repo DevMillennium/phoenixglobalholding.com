@@ -68,3 +68,9 @@ body {
       rgba(232, 180, 79, 0.18),
       transparent 55%);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-media {
+    display: none;
+  }
+}
