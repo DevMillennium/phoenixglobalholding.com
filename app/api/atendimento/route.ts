@@ -39,18 +39,19 @@ const inMemoryRateLimit = new Map<string, number[]>();
 export async function POST(req: Request) {
   try {
     const body = (await safeReadJson(req)) as RequestBody;
-    const userMessage = normalizeText(body.message);
+    const rawUserMessage = normalizeTextNoTruncate(body.message);
+    const userMessage = truncateText(rawUserMessage, MAX_MESSAGE_LENGTH);
     const history = sanitizeHistory(body.history);
     const locale = normalizeLocale(body.locale);
     const clientIp = getClientIp(req);
 
-    if (!userMessage) {
+    if (!rawUserMessage) {
       return NextResponse.json(
         { ok: false, error: localizedError("invalid_message", locale) },
         { status: 400 },
       );
     }
-    if (userMessage.length > MAX_MESSAGE_LENGTH) {
+    if (rawUserMessage.length > MAX_MESSAGE_LENGTH) {
       return NextResponse.json(
         { ok: false, error: localizedError("message_too_long", locale) },
         { status: 413 },
@@ -94,7 +95,7 @@ export async function POST(req: Request) {
     const data = (await requestDeepSeekWithRetry(apiKey, payload)) as {
       choices?: Array<{ message?: { content?: string } }>;
     };
-    const answer = normalizeText(data.choices?.[0]?.message?.content);
+    const answer = normalizeTextNoTruncate(data.choices?.[0]?.message?.content);
 
     if (!answer) {
       return NextResponse.json({
@@ -167,9 +168,13 @@ function sanitizeHistory(history?: ClientMessage[]): ClientMessage[] {
     .filter((item) => item.content.length > 0);
 }
 
-function normalizeText(value: unknown): string {
+function normalizeTextNoTruncate(value: unknown): string {
   if (typeof value !== "string") return "";
-  return value.trim().slice(0, MAX_MESSAGE_LENGTH);
+  return value.trim();
+}
+
+function truncateText(value: string, max: number): string {
+  return value.slice(0, max);
 }
 
 async function safeReadText(res: Response): Promise<string> {
