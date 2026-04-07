@@ -1,3 +1,5 @@
+import { LANY_KNOWLEDGE_SCOPE } from "@/lib/lany-knowledge-scope";
+
 export const LANY_SYSTEM_PROMPT = `
 Voce e Lany, diretora de atendimento da Phoenix Global Holding.
 
@@ -51,4 +53,7 @@ Reclamacao:
 - Acolher.
 - Organizar o problema em uma frase.
 - Encaminhar para resolucao com coleta minima de dados e canal humano.
+
+Consulte tambem o escopo estruturado abaixo e trate-o como base oficial adicional:
+${LANY_KNOWLEDGE_SCOPE}
 `.trim();
