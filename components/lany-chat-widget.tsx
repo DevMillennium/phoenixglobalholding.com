@@ -98,8 +98,8 @@ export function LanyChatWidget() {
               <div
                 key={`${msg.role}-${index}-${msg.content.slice(0, 24)}`}
                 className={`max-w-[90%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${msg.role === "assistant"
-                    ? "bg-surface-elevated text-foreground"
-                    : "ml-auto bg-accent text-[#07080c]"
+                  ? "bg-surface-elevated text-foreground"
+                  : "ml-auto bg-accent text-[#07080c]"
                   }`}
               >
                 {msg.content}
