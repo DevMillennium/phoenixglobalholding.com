@@ -15,6 +15,17 @@ type AtendimentoResponse =
 
 const WHATSAPP_URL = "https://wa.me/595992799800";
 
+function normalizeAssistantText(content: string): string {
+  return content
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, "$1 ($2)")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/^\s*[-*]\s+/gm, "• ")
+    .trim();
+}
+
 export function LanyChatWidget() {
   const t = useTranslations("LanyChat");
   const locale = useLocale();
@@ -106,7 +117,9 @@ export function LanyChatWidget() {
                   : "ml-auto bg-accent text-[#07080c]"
                   }`}
               >
-                {msg.content}
+                {msg.role === "assistant"
+                  ? normalizeAssistantText(msg.content)
+                  : msg.content}
               </div>
             ))}
 
