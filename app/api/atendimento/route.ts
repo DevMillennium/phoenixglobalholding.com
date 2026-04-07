@@ -12,6 +12,8 @@ type RequestBody = {
   locale?: string;
 };
 
+type LeadStage = "descoberta" | "qualificacao" | "handoff";
+
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 const DEFAULT_MODEL = "deepseek-chat";
 const MAX_HISTORY = 12;
@@ -32,11 +34,22 @@ export async function POST(req: Request) {
     }
 
     const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+    const stage = detectLeadStage(userMessage, history);
+    const qualified = isQualifiedLead(userMessage, history);
     if (!apiKey) {
+      logAtendimento({
+        source: "fallback",
+        locale,
+        stage,
+        qualified,
+        message: userMessage,
+      });
       return NextResponse.json({
         ok: true,
-        answer: buildFallbackAnswer(userMessage, locale),
+        answer: buildFallbackAnswer(userMessage, history, locale),
         source: "fallback",
+        stage,
+        qualified,
       });
     }
 
@@ -58,21 +71,55 @@ export async function POST(req: Request) {
     const answer = normalizeText(data.choices?.[0]?.message?.content);
 
     if (!answer) {
+      logAtendimento({
+        source: "fallback",
+        locale,
+        stage,
+        qualified,
+        message: userMessage,
+      });
       return NextResponse.json({
         ok: true,
-        answer: buildFallbackAnswer(userMessage, locale),
+        answer: buildFallbackAnswer(userMessage, history, locale),
         source: "fallback",
+        stage,
+        qualified,
       });
     }
 
-    return NextResponse.json({ ok: true, answer });
+    logAtendimento({
+      source: "deepseek",
+      locale,
+      stage,
+      qualified,
+      message: userMessage,
+    });
+
+    return NextResponse.json({
+      ok: true,
+      answer,
+      source: "deepseek",
+      stage,
+      qualified,
+    });
   } catch (error) {
     console.error("[atendimento] route error", error);
+    const stage: LeadStage = "descoberta";
+    const qualified = false;
+    logAtendimento({
+      source: "fallback",
+      locale: "pt",
+      stage,
+      qualified,
+      message: "",
+    });
     return NextResponse.json(
       {
         ok: true,
-        answer: buildFallbackAnswer("", "pt"),
+        answer: buildFallbackAnswer("", [], "pt"),
         source: "fallback",
+        stage,
+        qualified,
       },
     );
   }
@@ -112,7 +159,11 @@ function normalizeLocale(locale?: string): "pt" | "es" | "en" {
   return "pt";
 }
 
-function buildFallbackAnswer(message: string, locale: "pt" | "es" | "en"): string {
+function buildFallbackAnswer(
+  message: string,
+  history: ClientMessage[],
+  locale: "pt" | "es" | "en",
+): string {
   const lower = message.toLowerCase();
   const wantsTech = hasAny(lower, ["tech", "ia", "ai", "app", "plataforma", "developer", "software", "api"]);
   const wantsTrade = hasAny(lower, ["import", "export", "comercio", "trade", "logistica", "marketplace"]);
@@ -120,6 +171,7 @@ function buildFallbackAnswer(message: string, locale: "pt" | "es" | "en"): strin
   const wantsPrice = hasAny(lower, ["preco", "precio", "price", "valor", "quanto", "cuanto", "cost"]);
   const wantsDeadline = hasAny(lower, ["prazo", "plazo", "deadline", "tempo", "time"]);
   const variant = Math.abs(message.length) % 3;
+  const qualified = isQualifiedLead(message, history);
 
   if (locale === "es") {
     if (wantsTrade) {
@@ -133,7 +185,9 @@ function buildFallbackAnswer(message: string, locale: "pt" | "es" | "en"): strin
         : "Para tecnologia, activamos la division Developer. Punto fuerte: implementaciones practicas con arquitectura preparada para crecer. Si quiere, definimos alcance en dos o tres bloques.";
     }
     if (wantsCorporate) {
-      return "Enterprise Solution atiende estructuracion corporativa en Paraguay, incluyendo EAS y activacion operativa segun el caso. Beneficio: ruta remota y organizada para iniciar operacion regional. Si me indica su pais de origen y actividad, le doy el siguiente paso.";
+      return qualified
+        ? "Enterprise Solution atiende estructuracion corporativa en Paraguay, incluyendo EAS y activacion operativa segun el caso. Su perfil ya esta bien encaminado para avanzar. Si quiere, lo conecto ahora con el equipo por WhatsApp: https://wa.me/595992799800"
+        : "Enterprise Solution atiende estructuracion corporativa en Paraguay, incluyendo EAS y activacion operativa segun el caso. Para orientarte con precision, dime tu pais de origen y la actividad principal del negocio.";
     }
     if (wantsPrice || wantsDeadline) {
       return "Precio final y plazo exacto dependen del alcance, documentacion y complejidad del caso. Ventaja: propuesta ajustada a su contexto real. Si desea, le ayudo a estructurar un brief corto para cotizacion.";
@@ -151,12 +205,16 @@ function buildFallbackAnswer(message: string, locale: "pt" | "es" | "en"): strin
       return "Developer covers AI solutions, apps, web platforms, and enterprise integrations. Benefit: scalable delivery tied to business outcomes. If you share your technical objective, I can outline scope quickly.";
     }
     if (wantsCorporate) {
-      return "Enterprise Solution supports corporate structuring in Paraguay, including EAS and operational activation when applicable. Benefit: a structured remote path to start regional operations. Share your business activity and origin country for a practical next step.";
+      return qualified
+        ? "Enterprise Solution supports corporate structuring in Paraguay, including EAS and operational activation when applicable. Your profile is already clear enough to move forward. If you want, I can connect you to our team on WhatsApp now: https://wa.me/595992799800"
+        : "Enterprise Solution supports corporate structuring in Paraguay, including EAS and operational activation when applicable. To guide you precisely, share your business activity and origin country.";
     }
     if (wantsPrice || wantsDeadline) {
       return "Final pricing and exact timelines depend on scope complexity and documentation. Benefit: a proposal aligned with your real scenario. If you want, I can help structure a concise quote brief.";
     }
-    return "I can support Import & Export, Developer, and Enterprise Solution with direct business guidance. Tell me your main goal and I will recommend the best path.";
+    return qualified
+      ? "I can take this forward now with our specialist team. If you want immediate follow-up, we can continue on WhatsApp: https://wa.me/595992799800"
+      : "I can support Import & Export, Developer, and Enterprise Solution with direct business guidance. Tell me your main goal and I will recommend the best path.";
   }
 
   if (wantsTrade) {
@@ -170,14 +228,19 @@ function buildFallbackAnswer(message: string, locale: "pt" | "es" | "en"): strin
       : "Para tecnologia, a frente correta e a Developer. Diferencial: arquitetura pratica para evolucao continua. Se quiser, estruturamos o projeto em etapas curtas agora.";
   }
   if (wantsCorporate) {
-    return "Na Enterprise Solution apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel. Beneficio: processo remoto e organizado para operar na regiao. Se me informar atividade e pais de origem, eu te passo o proximo passo.";
+    return qualified
+      ? "Na Enterprise Solution apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel. Seu perfil ja esta bem qualificado para avancarmos. Se quiser, te conecto agora ao time no WhatsApp: https://wa.me/595992799800"
+      : "Na Enterprise Solution apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel. Para te orientar com precisao, me diga sua atividade principal e pais de origem.";
   }
   if (wantsPrice || wantsDeadline) {
     return "Preco final e prazo exato variam conforme escopo, documentacao e complexidade. Beneficio: proposta aderente ao seu cenario real. Se quiser, eu te ajudo a montar um briefing curto para orcamento.";
   }
+  if (qualified) {
+    return "Perfeito, seu caso ja esta qualificado para avancarmos com atendimento especializado. Se quiser continuidade imediata, te encaminho agora no WhatsApp: https://wa.me/595992799800";
+  }
   return variant === 2
-    ? "Posso te orientar em Import & Export, Developer ou Enterprise Solution com foco executivo e resposta direta. Me diga seu objetivo principal e eu te dou o caminho."
-    : "Consigo te apoiar com direcionamento comercial nas tres divisoes da holding. Compartilha a meta principal que eu te entrego uma recomendacao objetiva.";
+    ? "Posso te orientar em Import & Export, Developer ou Enterprise Solution com foco executivo e resposta direta. Para eu te direcionar com precisao, qual e seu objetivo principal neste momento?"
+    : "Consigo te apoiar com direcionamento comercial nas tres divisoes da holding. Me diga sua meta principal e o prazo que voce tem em mente.";
 }
 
 function hasAny(text: string, terms: string[]): boolean {
@@ -224,4 +287,122 @@ function isRetriableStatus(status: number): boolean {
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isQualifiedLead(message: string, history: ClientMessage[]): boolean {
+  const text = `${history.map((h) => h.content).join(" ")} ${message}`.toLowerCase();
+  let score = 0;
+
+  const hasObjective = hasAny(text, [
+    "quero",
+    "preciso",
+    "objetivo",
+    "projeto",
+    "abrir",
+    "estruturar",
+    "implantar",
+    "expandir",
+    "i want",
+    "need",
+    "project",
+    "quiero",
+    "necesito",
+    "proyecto",
+  ]);
+  if (hasObjective) score++;
+
+  const hasScope = hasAny(text, [
+    "import",
+    "export",
+    "developer",
+    "ia",
+    "app",
+    "eas",
+    "ruc",
+    "enterprise",
+    "maquila",
+    "logistica",
+  ]);
+  if (hasScope) score++;
+
+  const hasTimeline = hasAny(text, [
+    "prazo",
+    "urgente",
+    "mes",
+    "semana",
+    "quando",
+    "deadline",
+    "timeline",
+    "plazo",
+    "urgente",
+    "cuándo",
+  ]);
+  if (hasTimeline) score++;
+
+  const hasBusinessProfile = hasAny(text, [
+    "empresa",
+    "sou",
+    "represento",
+    "investidor",
+    "cfo",
+    "ceo",
+    "founder",
+    "company",
+    "empresa",
+    "inversor",
+  ]);
+  if (hasBusinessProfile) score++;
+
+  const hasReadinessSignal = hasAny(text, [
+    "orcamento",
+    "proposta",
+    "reuniao",
+    "chamada",
+    "whatsapp",
+    "email",
+    "quote",
+    "proposal",
+    "meeting",
+    "presupuesto",
+    "propuesta",
+    "reunion",
+  ]);
+  if (hasReadinessSignal) score++;
+
+  return score >= 2;
+}
+
+function detectLeadStage(message: string, history: ClientMessage[]): LeadStage {
+  const text = `${history.map((h) => h.content).join(" ")} ${message}`.toLowerCase();
+  const qualified = isQualifiedLead(message, history);
+  const asksHandoff = hasAny(text, [
+    "whatsapp",
+    "zap",
+    "falar com humano",
+    "atendente",
+    "ligacao",
+    "reuniao",
+    "agendar",
+    "chamada",
+    "speak to team",
+    "human support",
+    "hablar con humano",
+  ]);
+
+  if (qualified && asksHandoff) return "handoff";
+  if (qualified) return "qualificacao";
+  return "descoberta";
+}
+
+function logAtendimento(args: {
+  source: "deepseek" | "fallback";
+  locale: "pt" | "es" | "en";
+  stage: LeadStage;
+  qualified: boolean;
+  message: string;
+}): void {
+  const preview = args.message.replace(/\s+/g, " ").slice(0, 140);
+  console.info(
+    `[atendimento] source=${args.source} locale=${args.locale} stage=${args.stage} qualified=${args.qualified} message="${preview}"`,
+  );
 }
