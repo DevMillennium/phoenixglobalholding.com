@@ -15,6 +15,7 @@ type RequestBody = {
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 const DEFAULT_MODEL = "deepseek-chat";
 const MAX_HISTORY = 12;
+const MAX_RETRIES = 2;
 
 export async function POST(req: Request) {
   try {
@@ -51,27 +52,7 @@ export async function POST(req: Request) {
       ],
     };
 
-    const upstream = await fetch(DEEPSEEK_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify(payload),
-      cache: "no-store",
-    });
-
-    if (!upstream.ok) {
-      const fallback = await safeReadText(upstream);
-      console.error("[atendimento] deepseek error", upstream.status, fallback);
-      return NextResponse.json({
-        ok: true,
-        answer: buildFallbackAnswer(userMessage, locale),
-        source: "fallback",
-      });
-    }
-
-    const data = (await upstream.json()) as {
+    const data = (await requestDeepSeekWithRetry(apiKey, payload)) as {
       choices?: Array<{ message?: { content?: string } }>;
     };
     const answer = normalizeText(data.choices?.[0]?.message?.content);
@@ -138,54 +119,109 @@ function buildFallbackAnswer(message: string, locale: "pt" | "es" | "en"): strin
   const wantsCorporate = hasAny(lower, ["eas", "ruc", "paraguai", "paraguay", "societ", "corporat", "fiscal"]);
   const wantsPrice = hasAny(lower, ["preco", "precio", "price", "valor", "quanto", "cuanto", "cost"]);
   const wantsDeadline = hasAny(lower, ["prazo", "plazo", "deadline", "tempo", "time"]);
+  const variant = Math.abs(message.length) % 3;
 
   if (locale === "es") {
     if (wantsTrade) {
-      return "Claro. En Import & Export apoyamos importacion, exportacion y redistribucion regional desde Paraguay. Beneficio: integracion operativa para reducir friccion en la expansion. Si quiere, le guio con su caso y luego lo derivo al equipo humano por WhatsApp: https://wa.me/595992799800";
+      return variant === 0
+        ? "En Import & Export operamos importacion, exportacion y redistribucion regional desde Paraguay. Ventaja: una operacion integrada para escalar con menos friccion. Si me comparte producto, destino y volumen estimado, le doy una recomendacion inicial."
+        : "Para este frente, la division Import & Export es la correcta. Ganancia principal: coordinacion comercial y logistica regional en una misma estructura. Si desea, preparo un encuadre rapido de su caso.";
     }
     if (wantsTech) {
-      return "Claro. En Developer trabajamos con IA, apps, plataformas web e integraciones para operaciones empresariales. Beneficio: soluciones alineadas al negocio y escalables. Si quiere, le ayudo a definir alcance y lo paso al equipo por WhatsApp: https://wa.me/595992799800";
+      return variant === 1
+        ? "Developer cubre IA, apps, plataformas web e integraciones empresariales. Beneficio: soluciones con foco en resultado de negocio y escalabilidad. Si me cuenta su objetivo tecnico, le propongo el mejor enfoque."
+        : "Para tecnologia, activamos la division Developer. Punto fuerte: implementaciones practicas con arquitectura preparada para crecer. Si quiere, definimos alcance en dos o tres bloques.";
     }
     if (wantsCorporate) {
-      return "Claro. En Enterprise Solution apoyamos estructuracion corporativa en Paraguay (incluyendo EAS y activacion operativa segun el caso), con gestion remota. Beneficio: proceso mas organizado para operar en la region. Si quiere, compartame su objetivo y lo derivo al equipo por WhatsApp: https://wa.me/595992799800";
+      return "Enterprise Solution atiende estructuracion corporativa en Paraguay, incluyendo EAS y activacion operativa segun el caso. Beneficio: ruta remota y organizada para iniciar operacion regional. Si me indica su pais de origen y actividad, le doy el siguiente paso.";
     }
     if (wantsPrice || wantsDeadline) {
-      return "Entiendo. En el sitio institucional no publicamos precio final ni plazo exacto porque dependen de la complejidad de cada caso. Beneficio: propuesta ajustada a su necesidad real. Si quiere, le ayudo a preparar un resumen para cotizacion por WhatsApp: https://wa.me/595992799800";
+      return "Precio final y plazo exacto dependen del alcance, documentacion y complejidad del caso. Ventaja: propuesta ajustada a su contexto real. Si desea, le ayudo a estructurar un brief corto para cotizacion.";
     }
-    return "Puedo ayudarte con dudas de Import & Export, Developer y Enterprise Solution. Beneficio: orientacion comercial rapida y clara para avanzar. Si quieres, empecemos por tu objetivo principal y te guio al siguiente paso por WhatsApp: https://wa.me/595992799800";
+    return variant === 2
+      ? "Puedo orientarte en Import & Export, Developer o Enterprise Solution con enfoque ejecutivo. Dime tu objetivo principal y te propongo el camino mas eficiente."
+      : "Estoy para ayudarte con una orientacion comercial directa en cualquiera de las divisiones. Si me dices tu meta, te doy recomendacion puntual.";
   }
 
   if (locale === "en") {
     if (wantsTrade) {
-      return "Sure. In Import & Export we support importing, exporting, and regional redistribution from Paraguay. Benefit: integrated operations to reduce expansion friction. If you want, I can guide your case and then route you to our team on WhatsApp: https://wa.me/595992799800";
+      return "Import & Export handles importing, exporting, and regional redistribution from Paraguay. Main benefit: integrated operations with lower expansion friction. Share product, target market, and expected volume and I will map the best next move.";
     }
     if (wantsTech) {
-      return "Sure. In Developer we build AI solutions, apps, web platforms, and integrations for business operations. Benefit: scalable delivery aligned with business goals. If you want, I can help define scope and route you to our team on WhatsApp: https://wa.me/595992799800";
+      return "Developer covers AI solutions, apps, web platforms, and enterprise integrations. Benefit: scalable delivery tied to business outcomes. If you share your technical objective, I can outline scope quickly.";
     }
     if (wantsCorporate) {
-      return "Sure. In Enterprise Solution we support corporate structuring in Paraguay (including EAS and operational activation when applicable), with remote management. Benefit: a more structured path to operate in the region. If you want, share your objective and I will route you to our team on WhatsApp: https://wa.me/595992799800";
+      return "Enterprise Solution supports corporate structuring in Paraguay, including EAS and operational activation when applicable. Benefit: a structured remote path to start regional operations. Share your business activity and origin country for a practical next step.";
     }
     if (wantsPrice || wantsDeadline) {
-      return "Understood. We do not publish final prices or exact timelines on the institutional site because they depend on case complexity. Benefit: proposal tailored to your real scope. If you want, I can help you prepare a quote request for WhatsApp: https://wa.me/595992799800";
+      return "Final pricing and exact timelines depend on scope complexity and documentation. Benefit: a proposal aligned with your real scenario. If you want, I can help structure a concise quote brief.";
     }
-    return "I can help with Import & Export, Developer, and Enterprise Solution questions. Benefit: clear commercial guidance so you can move forward quickly. If you want, tell me your main objective and I will guide your next step via WhatsApp: https://wa.me/595992799800";
+    return "I can support Import & Export, Developer, and Enterprise Solution with direct business guidance. Tell me your main goal and I will recommend the best path.";
   }
 
   if (wantsTrade) {
-    return "Claro. Na divisao Import & Export apoiamos importacao, exportacao e redistribuicao regional a partir do Paraguai. Beneficio: integracao operacional para reduzir friccao na expansao. Se quiser, eu ja te ajudo com seu caso e encaminho para o time no WhatsApp: https://wa.me/595992799800";
+    return variant === 0
+      ? "Na divisao Import & Export atuamos com importacao, exportacao e redistribuicao regional a partir do Paraguai. Beneficio principal: operacao integrada para acelerar expansao com menos friccao. Se me passar produto, destino e volume estimado, eu te direciono com precisao."
+      : "Esse tema entra em Import & Export. Valor para voce: coordenacao comercial e logistica regional no mesmo fluxo. Posso te dar um plano inicial se me contar o objetivo comercial.";
   }
   if (wantsTech) {
-    return "Claro. Na divisao Developer atuamos com IA, apps, plataformas web e integracoes para operacoes empresariais. Beneficio: solucoes escalaveis alinhadas ao negocio. Se quiser, te ajudo a definir o escopo e encaminho para o time no WhatsApp: https://wa.me/595992799800";
+    return variant === 1
+      ? "Na divisao Developer trabalhamos com IA, apps, plataformas web e integracoes empresariais. Beneficio: solucao escalavel e orientada a resultado de negocio. Se voce me disser o problema principal, eu te proponho um escopo objetivo."
+      : "Para tecnologia, a frente correta e a Developer. Diferencial: arquitetura pratica para evolucao continua. Se quiser, estruturamos o projeto em etapas curtas agora.";
   }
   if (wantsCorporate) {
-    return "Claro. Na Enterprise Solution apoiamos estruturacao corporativa no Paraguai (incluindo EAS e ativacao operacional quando aplicavel), com gestao remota. Beneficio: processo mais organizado para operar na regiao. Se quiser, me passe seu objetivo e eu te encaminho para o time no WhatsApp: https://wa.me/595992799800";
+    return "Na Enterprise Solution apoiamos estruturacao corporativa no Paraguai, incluindo EAS e ativacao operacional quando aplicavel. Beneficio: processo remoto e organizado para operar na regiao. Se me informar atividade e pais de origem, eu te passo o proximo passo.";
   }
   if (wantsPrice || wantsDeadline) {
-    return "Entendi. No site institucional nao publicamos preco final nem prazo exato porque isso depende da complexidade de cada caso. Beneficio: proposta aderente ao seu cenario real. Se quiser, eu te ajudo agora a montar o pedido de orcamento no WhatsApp: https://wa.me/595992799800";
+    return "Preco final e prazo exato variam conforme escopo, documentacao e complexidade. Beneficio: proposta aderente ao seu cenario real. Se quiser, eu te ajudo a montar um briefing curto para orcamento.";
   }
-  return "Posso te orientar sobre Import & Export, Developer e Enterprise Solution. Beneficio: direcionamento comercial claro para avancar mais rapido. Se quiser, me diga seu objetivo principal e eu te conduzo para o proximo passo no WhatsApp: https://wa.me/595992799800";
+  return variant === 2
+    ? "Posso te orientar em Import & Export, Developer ou Enterprise Solution com foco executivo e resposta direta. Me diga seu objetivo principal e eu te dou o caminho."
+    : "Consigo te apoiar com direcionamento comercial nas tres divisoes da holding. Compartilha a meta principal que eu te entrego uma recomendacao objetiva.";
 }
 
 function hasAny(text: string, terms: string[]): boolean {
   return terms.some((term) => text.includes(term));
+}
+
+async function requestDeepSeekWithRetry(
+  apiKey: string,
+  payload: object,
+): Promise<unknown> {
+  let lastStatus = 0;
+  let lastBody = "";
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    const res = await fetch(DEEPSEEK_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify(payload),
+      cache: "no-store",
+    });
+
+    if (res.ok) {
+      return res.json();
+    }
+
+    lastStatus = res.status;
+    lastBody = await safeReadText(res);
+    if (!isRetriableStatus(res.status) || attempt === MAX_RETRIES) {
+      break;
+    }
+    await sleep(250 * attempt);
+  }
+
+  console.error("[atendimento] deepseek error", lastStatus, lastBody);
+  throw new Error("deepseek_unavailable");
+}
+
+function isRetriableStatus(status: number): boolean {
+  return status === 408 || status === 409 || status === 429 || status >= 500;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
