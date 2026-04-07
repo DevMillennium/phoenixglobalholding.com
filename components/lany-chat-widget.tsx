@@ -64,12 +64,12 @@ export function LanyChatWidget() {
         ...prev,
         { role: "assistant", content: data.answer },
       ]);
-    } catch (err) {
-      const fallback =
-        err instanceof Error && err.message.trim()
-          ? err.message
-          : t("genericError");
-      setError(fallback);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: localFallbackAnswer(locale) },
+      ]);
+      setError("");
     } finally {
       setIsSending(false);
     }
@@ -101,11 +101,10 @@ export function LanyChatWidget() {
             {visibleMessages.map((msg, index) => (
               <div
                 key={`${msg.role}-${index}-${msg.content.slice(0, 24)}`}
-                className={`max-w-[90%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
-                  msg.role === "assistant"
+                className={`max-w-[90%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${msg.role === "assistant"
                     ? "bg-surface-elevated text-foreground"
                     : "ml-auto bg-accent text-[#07080c]"
-                }`}
+                  }`}
               >
                 {msg.content}
               </div>
@@ -173,4 +172,14 @@ export function LanyChatWidget() {
       </button>
     </>
   );
+}
+
+function localFallbackAnswer(locale: string): string {
+  if (locale === "es") {
+    return "Sigo disponible para ayudarte. Puedo orientarte sobre Import & Export, Developer o Enterprise Solution. Si prefieres atencion humana inmediata, aqui esta el WhatsApp oficial: https://wa.me/595992799800";
+  }
+  if (locale === "en") {
+    return "I am still here to help. I can guide you on Import & Export, Developer, or Enterprise Solution. If you prefer immediate human support, here is our official WhatsApp: https://wa.me/595992799800";
+  }
+  return "Sigo disponivel para te ajudar. Posso te orientar sobre Import & Export, Developer ou Enterprise Solution. Se preferir atendimento humano imediato, aqui esta o WhatsApp oficial: https://wa.me/595992799800";
 }
