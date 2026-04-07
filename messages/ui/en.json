@@ -73,12 +73,12 @@
     "close": "Close chat",
     "title": "Lany · Support",
     "subtitle": "Phoenix client service director",
-    "welcome": "Hi! I am Lany. I can guide you on Import & Export, Developer, or Enterprise Solution.",
+    "welcome": "Hi! I am Lany. I will understand your goal, advise with Phoenix criteria, and guide you to the next step.",
     "thinking": "Reviewing your request...",
-    "inputPlaceholder": "Type your question",
+    "inputPlaceholder": "Describe your primary goal",
     "send": "Send message",
-    "hint": "If you prefer, I can direct you to our human team on WhatsApp.",
-    "genericError": "I could not complete this here right now.",
+    "hint": "Start with your objective. I will ask the right questions to qualify.",
+    "genericError": "I could not respond right now. Please try again shortly.",
     "whatsappCta": "Chat on WhatsApp"
   }
 }

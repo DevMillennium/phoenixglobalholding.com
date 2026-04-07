@@ -73,12 +73,12 @@
     "close": "Fechar chat",
     "title": "Lany · Atendimento",
     "subtitle": "Diretora de atendimento da Phoenix",
-    "welcome": "Olá! Sou a Lany. Posso te orientar sobre Import & Export, Developer ou Enterprise Solution.",
+    "welcome": "Olá! Sou a Lany. Vou entender seu objetivo, orientar com critério da Phoenix e te guiar até o próximo passo.",
     "thinking": "Analisando sua solicitação...",
-    "inputPlaceholder": "Escreva sua dúvida",
+    "inputPlaceholder": "Descreva seu objetivo principal",
     "send": "Enviar mensagem",
-    "hint": "Se preferir, eu te direciono para atendimento humano no WhatsApp.",
-    "genericError": "Não consegui concluir por aqui agora.",
+    "hint": "Comece pelo objetivo e, em seguida, eu faço as perguntas certas para qualificar.",
+    "genericError": "Não consegui responder agora. Tente novamente em instantes.",
     "whatsappCta": "Falar no WhatsApp"
   }
 }
