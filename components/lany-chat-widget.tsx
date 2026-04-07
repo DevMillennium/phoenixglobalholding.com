@@ -64,8 +64,12 @@ export function LanyChatWidget() {
         ...prev,
         { role: "assistant", content: data.answer },
       ]);
-    } catch {
-      setError(t("genericError"));
+    } catch (err) {
+      const messageError =
+        err instanceof Error && err.message.trim().length > 0
+          ? err.message
+          : t("genericError");
+      setError(messageError);
     } finally {
       setIsSending(false);
     }
