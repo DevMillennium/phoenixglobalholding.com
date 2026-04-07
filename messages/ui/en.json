@@ -65,5 +65,20 @@
   },
   "LanguageSwitcher": {
     "aria": "Choose site language"
+  },
+  "LanyChat": {
+    "aria": "Lany support chat",
+    "button": "Talk to Lany",
+    "open": "Open chat with Lany",
+    "close": "Close chat",
+    "title": "Lany · Support",
+    "subtitle": "Phoenix client service director",
+    "welcome": "Hi! I am Lany. I can guide you on Import & Export, Developer, or Enterprise Solution.",
+    "thinking": "Reviewing your request...",
+    "inputPlaceholder": "Type your question",
+    "send": "Send message",
+    "hint": "If you prefer, I can direct you to our human team on WhatsApp.",
+    "genericError": "I could not complete this here right now.",
+    "whatsappCta": "Chat on WhatsApp"
   }
 }

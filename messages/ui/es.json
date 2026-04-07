@@ -65,5 +65,20 @@
   },
   "LanguageSwitcher": {
     "aria": "Seleccionar idioma del sitio"
+  },
+  "LanyChat": {
+    "aria": "Chat de atención de Lany",
+    "button": "Hablar con Lany",
+    "open": "Abrir chat con Lany",
+    "close": "Cerrar chat",
+    "title": "Lany · Atención",
+    "subtitle": "Directora de atención de Phoenix",
+    "welcome": "¡Hola! Soy Lany. Puedo orientarte sobre Import & Export, Developer o Enterprise Solution.",
+    "thinking": "Revisando tu solicitud...",
+    "inputPlaceholder": "Escribe tu consulta",
+    "send": "Enviar mensaje",
+    "hint": "Si prefieres, te derivo al equipo humano por WhatsApp.",
+    "genericError": "No pude completar esto por aquí ahora.",
+    "whatsappCta": "Hablar por WhatsApp"
   }
 }
