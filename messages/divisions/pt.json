@@ -288,48 +288,127 @@
     }
   },
   "DivisionEnterprise": {
-    "metaTitle": "Phoenix Global Enterprise Solution | Phoenix Global Holding",
-    "metaDescription": "Estruturação societária no Paraguai para investidores estrangeiros: EAS, RUC, ativação operacional e suporte remoto.",
+    "metaTitle": "EAS Paraguai · Sócios estrangeiros · Enterprise | Phoenix Global Holding",
+    "metaDescription": "Constituição de empresas no Paraguai: Lei 6480 (EAS), sócios estrangeiros, EAS unipersonal, representação legal, RUC/DNIT e regime constitucional.",
+    "heroEyebrow": "Societário · Paraguai · Investimento estrangeiro",
     "title": "Phoenix Global Enterprise Solution",
-    "subtitle": "Porta de entrada corporativa ao Paraguai — sem necessidade de residir no país.",
-    "intro": "Acompanhamos investidores e empresários internacionais na constituição e ativação de empresas no Paraguai, com gestão remota e foco em eficiência jurídica e operativa. O conteúdo desta página é informativo; cada caso exige análise profissional.",
+    "subtitle": "Estruturação corporativa de nível institucional — EAS, governance e ativação fiscal com rigor documental.",
+    "intro": "A divisão orienta investidores e sociedades estrangeiras na constituição e operação de veículos no Paraguai, com foco na Empresa por Ações Simplificadas (EAS), enquadramento para sócios não residentes e coordenação com representação local quando o sistema digital e a legislação assim o exigirem. Cada operação é única: tratamos o processo com critérios de banco de investimento, sem substituir advogados, contabilistas ou auditores.",
+    "disclaimer": "Informação institucional sobre ordenamento geral. Não constitui assessoria jurídica, fiscal, migratória nem contabilística; prazos e requisitos oficiais mudam com diplomas e circulares.",
+    "trustItems": [
+      "Lei 6480 · EAS",
+      "MIC / SUACE",
+      "DNIT · RUC",
+      "Sócios · RL"
+    ],
+    "pillarsTitle": "Pilares societários e regulatórios",
+    "pillarsLead": "Da Constituição à Lei 6480: como o Paraguai acolhe iniciativa privada e simplifica a personificação empresarial.",
+    "pillars": [
+      {
+        "title": "Ordem económica e iniciativa privada",
+        "body": "A Constituição paraguaia organiza a ordem económica em torno da livre iniciativa, da função social da propriedade e da liberdade de trabalho e empresa, dentro das leis que disciplinam cada sector. Esse pano de fundo sustenta a criação de sociedades comerciais e a atividade de investidores estrangeiros, sempre com regras sectoriais específicas quando aplicável."
+      },
+      {
+        "title": "Lei 6480 e a EAS",
+        "body": "A Empresa por Ações Simplificadas foi instituída pela Lei 6480/2020 e complementada por normas regulamentares. É uma forma societária moderna, com forte ênfase em tramitação digital junto do Ministério da Indústria e Comércio (MIC), através do sistema SUACE e do portal EAS — reduzindo fricção burocrática face a modelos mais tradicionais."
+      },
+      {
+        "title": "Sócios estrangeiros (pessoa física ou jurídica)",
+        "body": "A EAS admite como titular de ações pessoas singulares ou colectivas, nacionais ou estrangeiras. A qualificação documental, traduções, apostilas e poderes deve estar alinhada ao caso concreto. A titularidade estrangeira não dispensa o cumprimento das regras de representação perante a administração tributária e os sistemas de identidade electrónica exigidos para actos societários digitais."
+      },
+      {
+        "title": "EAS unipersonal e limites de participação",
+        "body": "A estrutura pode ser unipersonal — um único accionista — com governança simplificada e actas que documentam deliberações. O regime prevê restrições quanto à participação cruzada entre certas figuras unipessoais (por exemplo, não participar noutra EAS unipersonal na qualidade prevista na lei). O enquadramento exacto deve ser confirmado no texto legal vigente e na orientação do MIC."
+      },
+      {
+        "title": "Representante legal e identidade electrónica",
+        "body": "Para trâmites digitais perante órgãos paraguaios, incluindo constituição e alterações em SUACE, costuma exigir-se representante com identidade paraguaia válida e, em muitos fluxos, identidade electrónica. Investidores sem cédula paraguaia frequentemente estruturam poderes especiais e mandatos para representantes habilitados — sempre conforme o caso e a banca escolhida."
+      },
+      {
+        "title": "RUC, tributação e disciplina contabilística",
+        "body": "Após a personalidade jurídica, a empresa necessita de RUC perante a DNIT, regime tributário adequado ao objecto social, obrigações de facturação electrónica quando aplicável e contabilidade conforme normas gerais. Sociedades com comércio exterior ou zonas especiais podem ter registos adicionais (alfândega, licenças sectoriais)."
+      }
+    ],
+    "frameworkTitle": "Lei 6480 / EAS — enquadramento operativo",
+    "frameworkLead": "A EAS foi desenhada para reduzir custos de conformidade e acelerar a constituição; ainda assim integra requisitos formais de estatuto, registo de accionistas e publicidade societária compatível com o MIC.",
+    "frameworkPoints": [
+      "Tramitação preferencialmente digital: formulários, assinaturas e acompanhamento no ecossistema SUACE / eas.mic.gov.py, conforme instructivos oficiais.",
+      "Flexibilidade de capital e estrutura accionista em relação a várias formas clássicas; o estatuto deve refletir quotas, administração e objeto social com clareza.",
+      "Transparência documental: identificação de accionistas, representação, domicílio e integração de capital seguem padrões definidos pelo MIC e legislação complementar.",
+      "Prazos indicativos divulgados pela autoridade (ex.: fluxos com estatuto tipo) não substituem a verificação em tempo real no sistema; filas e exigências podem variar.",
+      "Alterações societárias posteriores (aumento de capital, mudança de administradores, fusões) exigem disciplina processual própria e assessoria técnica."
+    ],
+    "legalGroundTitle": "Constituição, investimento estrangeiro e correlatos",
+    "legalGroundLead": "Além da forma EAS, o investidor estrangeiro cruza normas gerais de direito societário, tributário e, quando necessário, migratório e cambial.",
+    "legalGroundPoints": [
+      "O ordenamento prevê regimes de promoção e fiscalização de investimentos; sectores sensíveis podem exigir autorizações ou condicionantes específicas — nunca inferidas apenas a partir de uma página institucional.",
+      "Trabalho remunerado, residência e vistos são matérias distintas da mera titularidade de quotas: actividades no território podem exigir permissões perante a Direção General de Migraciones e outras entidades.",
+      "Contas bancárias, compliance AML/KYC e políticas de risco são definidas por cada instituição financeira; a constituição da sociedade não garante por si só linhas de crédito ou cartões.",
+      "Licenças sectoriais (saúde, ambiente, infraestruturas críticas) são independentes da existência jurídica da empresa e devem ser mapeadas no plano de negócio.",
+      "Matrizes e filiais estrangeiras, transfer pricing e convenções internacionais podem intersectar a estrutura paraguaia — exigem coordenação entre consultores nos vários países."
+    ],
+    "correlationTitle": "Assuntos correlatos e sinergias Phoenix",
+    "correlationLead": "Depois do veículo constituído, o grupo alinha operações com outras divisões sem misturar papéis jurídicos.",
+    "correlationBullets": [
+      "Import and Export: quando o objecto social envolve comércio exterior, articulamos com a divisão que domina NCM, DNA e logística regional.",
+      "Developer: sistemas internos, dados e automação para escalar operações com controlos de acesso e auditoria.",
+      "Governança: atas digitais, arquivo de poderes e trilhos de aprovação podem ser desenhados para conselhos e investidores internacionais.",
+      "Continuidade: alterações societárias, novos investidores e rondas de capital mantêm a mesma exigência de documentação e timing coordenado."
+    ],
     "processTitle": "Fluxo típico (referencial)",
     "processSteps": [
       {
         "title": "Diagnóstico e plano",
-        "body": "Entendimento do objeto social, sócios, necessidades fiscais e operacionais antes de constituir."
+        "body": "Mapeamento do objecto social, perfil de sócios (residentes ou não), necessidade de representante legal, projeção fiscal preliminar e licenças sectoriais antes de abrir o processo no MIC."
       },
       {
         "title": "Constituição EAS",
-        "body": "Estatuto, registro de acionistas e documentação societária conforme o ordenamento paraguaio."
+        "body": "Elaboração ou adopção de estatuto, definição de accionistas, capital e administradores; submissão no circuito digital com documentação validada (traduções, apostilas, poderes)."
       },
       {
         "title": "Ativação fiscal e operacional",
-        "body": "RUC (DNIT), faturação eletrónica quando aplicável, registros alfandegários se necessário, e base contábil."
+        "body": "RUC na DNIT, credenciais de facturação electrónica quando aplicável, filiações obrigatórias e abertura de base contábil; registos alfandegários ou sectoriais se o negócio exigir."
       },
       {
         "title": "Suporte contínuo",
-        "body": "Representação local, documentação digital, compliance operacional e coordenação com outros braços do grupo quando couber."
+        "body": "Representação local, actualização de atas, rotinas de compliance societário e coordenação com Import and Export ou Developer quando a operação escalar."
       }
     ],
     "faqTitle": "Perguntas frequentes",
     "faqs": [
       {
-        "q": "É obrigatório morar no Paraguai?",
-        "a": "Não: o modelo prevê constituição e operação com acompanhamento remoto e representação local, no âmbito legal aplicável."
+        "q": "É obrigatório morar no Paraguai para ser sócio?",
+        "a": "Não necessariamente para deter quotas; já a assinatura digital plena em certos fluxos e a gestão quotidiana podem exigir representação local ou deslocações, conforme o caso."
       },
       {
-        "q": "Quanto tempo leva o processo?",
-        "a": "Depende da complexidade, documentação e órgãos envolvidos. Indicamos prazos realistas após o diagnóstico inicial."
+        "q": "Um estrangeiro pode ser único accionista de uma EAS?",
+        "a": "Sim, a forma unipersonal existe; contudo, regras sobre participação em múltiplas EAS unipessoais e representação perante o Estado devem ser validadas na lei vigente e no plano concreto."
+      },
+      {
+        "q": "Qual o prazo médio de constituição?",
+        "a": "O MIC divulga metas para processos com estatuto padrão, mas prazos reais dependem de completeza documental, antecedentes e filas. Fornecemos cronograma após o diagnóstico."
+      },
+      {
+        "q": "Existe capital mínimo obrigatório para a EAS?",
+        "a": "A legislação da EAS foi pensada para reduzir barreiras de capital face a formas antigas; o montante integrado deve ser coerente com o objecto social e com exigências bancárias ou sectoriais, não apenas com o mínimo legal."
+      },
+      {
+        "q": "O representante legal tem de ser paraguaio?",
+        "a": "Para múltiplos trâmites digitais exige-se identidade paraguaia e, frequentemente, identidade electrónica. Por isso, investidores sem cédula local recorrem a representantes habilitados mediante poderes — sempre formalizados com assessoria."
+      },
+      {
+        "q": "A Phoenix substitui um escritório de advocacia?",
+        "a": "Não. Coordenamos o plano de negócio e a operação integrada com o grupo; pareceres, escrituras e defesas processuais ficam com profissionais inscritos."
       },
       {
         "q": "Oferecem parecer fiscal vinculante?",
-        "a": "Publicamos informação geral. Opiniões vinculantes são de profissionais habilitados conforme o caso."
+        "a": "Publicamos visão geral. Vinculação perante a DNIT ou tribunais exige consulta formal a contabilistas e advogados certificados."
       },
       {
         "q": "Integra com Import and Export ou Developer?",
-        "a": "Sim: após a constituição do veículo, as outras divisões podem apoiar operação comercial, plataformas e automação."
+        "a": "Sim: após a constituição, as outras divisões podem assumir comércio exterior, plataformas e automação, mantendo separação clara de competências."
       }
-    ]
+    ],
+    "ctaLead": "Estruture o veículo certo, com documentação e timing alinhados a investidores internacionais. Fale com a equipa Enterprise."
   }
 }

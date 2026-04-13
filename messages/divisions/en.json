@@ -288,48 +288,127 @@
     }
   },
   "DivisionEnterprise": {
-    "metaTitle": "Phoenix Global Enterprise Solution | Phoenix Global Holding",
-    "metaDescription": "Paraguay corporate structuring for foreign investors: EAS, RUC, operational activation and remote support.",
+    "metaTitle": "EAS Paraguay · Foreign shareholders · Enterprise | Phoenix Global Holding",
+    "metaDescription": "Paraguay company formation: Law 6480 (EAS), foreign shareholders, single-shareholder EAS, legal representation, RUC/DNIT and constitutional framework.",
+    "heroEyebrow": "Corporate · Paraguay · Foreign investment",
     "title": "Phoenix Global Enterprise Solution",
-    "subtitle": "Corporate gateway to Paraguay—without relocating.",
-    "intro": "We support international investors and entrepreneurs in incorporating and activating companies in Paraguay, with remote-first management and focus on legal and operational efficiency. This page is informational; each matter needs professional review.",
+    "subtitle": "Institutional-grade corporate structuring—EAS, governance and tax activation with documentary rigour.",
+    "intro": "The division guides foreign investors and companies in incorporating and operating vehicles in Paraguay, focusing on the Empresa por Acciones Simplificadas (EAS), framing for non-resident shareholders and coordination with local representation when digital systems and legislation require it. Every deal is unique: we run the process with investment-bank-style discipline without replacing lawyers, accountants or auditors.",
+    "disclaimer": "Institutional overview of the general legal framework. It is not legal, tax, immigration or accounting advice; official deadlines and requirements change with laws and circulars.",
+    "trustItems": [
+      "Law 6480 · EAS",
+      "MIC / SUACE",
+      "DNIT · RUC",
+      "Shareholders · RL"
+    ],
+    "pillarsTitle": "Corporate and regulatory pillars",
+    "pillarsLead": "From the Constitution to Law 6480: how Paraguay hosts private initiative and streamlines incorporation.",
+    "pillars": [
+      {
+        "title": "Economic order and free enterprise",
+        "body": "The Paraguayan Constitution structures the economic order around free initiative, the social function of property and freedom of work and enterprise, subject to sector laws. That backdrop supports commercial companies and foreign investors, with sector-specific rules where applicable."
+      },
+      {
+        "title": "Law 6480 and the EAS",
+        "body": "The Empresa por Acciones Simplificadas was created by Law 6480/2020 and supplemented by regulations. It is a modern corporate form with strong emphasis on digital filing with the Ministry of Industry and Commerce (MIC) through SUACE and the EAS portal—reducing friction versus older models."
+      },
+      {
+        "title": "Foreign shareholders (natural or legal persons)",
+        "body": "The EAS may have national or foreign individuals or entities as shareholders. Document qualification, translations, apostilles and powers of attorney must fit the case. Foreign ownership does not waive compliance with tax administration rules and electronic identity requirements for digital corporate acts."
+      },
+      {
+        "title": "Single-shareholder EAS and participation limits",
+        "body": "The structure can be single-shareholder—with simplified governance and minutes documenting resolutions. The regime sets limits on cross-participation between certain single-person vehicles (for example, not participating in another single-shareholder EAS as provided by law). The exact rule must be confirmed in current law and MIC guidance."
+      },
+      {
+        "title": "Legal representative and electronic identity",
+        "body": "For digital procedures with Paraguayan authorities, including SUACE incorporation and changes, a representative with valid Paraguayan ID and, in many flows, electronic identity is usually required. Investors without a local ID often structure special powers for qualified representatives—always case-specific."
+      },
+      {
+        "title": "RUC, taxation and accounting discipline",
+        "body": "After incorporation, the company needs a RUC with DNIT, an appropriate tax regime for its corporate purpose, electronic invoicing obligations where applicable and accounting under general rules. Cross-border trade or special zones may require additional registrations (customs, sector licences)."
+      }
+    ],
+    "frameworkTitle": "Law 6480 / EAS—operational framework",
+    "frameworkLead": "The EAS was designed to lower compliance costs and speed incorporation; it still requires formal bylaws, shareholder records and corporate publicity compatible with MIC rules.",
+    "frameworkPoints": [
+      "Preferably digital processing: forms, signatures and tracking in the SUACE / eas.mic.gov.py ecosystem, per official instructions.",
+      "Flexible capital and shareholder structure versus many classic forms; bylaws must clearly state quotas, management and corporate purpose.",
+      "Documentary transparency: shareholder identification, representation, address and capital contributions follow MIC standards and complementary legislation.",
+      "Indicative timelines published by the authority (e.g. standard-bylaw flows) do not replace real-time verification in the system; queues and requirements may vary.",
+      "Later corporate changes (capital increases, manager changes, mergers) follow their own procedural discipline and technical advice."
+    ],
+    "legalGroundTitle": "Constitution, foreign investment and related matters",
+    "legalGroundLead": "Beyond the EAS form, foreign investors intersect general corporate and tax law and, when needed, immigration and foreign-exchange rules.",
+    "legalGroundPoints": [
+      "The legal system provides investment promotion and oversight regimes; sensitive sectors may require authorisations or conditions—they cannot be inferred from a marketing page alone.",
+      "Paid work, residence and visas are distinct from merely holding shares: on-the-ground activities may require permits from Migraciones and other agencies.",
+      "Bank accounts, AML/KYC compliance and risk policies are set by each financial institution; incorporating the company does not by itself guarantee credit lines or cards.",
+      "Sector licences (health, environment, critical infrastructure) are independent of corporate existence and must be mapped in the business plan.",
+      "Foreign parents and subsidiaries, transfer pricing and international treaties may intersect with the Paraguayan structure—requiring coordinated advisers across countries."
+    ],
+    "correlationTitle": "Related matters and Phoenix synergies",
+    "correlationLead": "After incorporation, the group aligns operations with other divisions without blurring legal roles.",
+    "correlationBullets": [
+      "Import and Export: when the corporate purpose involves foreign trade, we align with the division that masters NCM, DNA and regional logistics.",
+      "Developer: internal systems, data and automation to scale operations with access controls and audit trails.",
+      "Governance: digital minutes, powers of attorney vaults and approval workflows for boards and international investors.",
+      "Continuity: corporate changes, new investors and capital rounds keep the same documentation standards and coordinated timing."
+    ],
     "processTitle": "Typical flow (indicative)",
     "processSteps": [
       {
         "title": "Diagnosis and plan",
-        "body": "Corporate purpose, shareholders, tax and operational needs before incorporation."
+        "body": "Mapping corporate purpose, shareholder profile (resident or not), need for legal representative, preliminary tax projection and sector licences before opening the MIC process."
       },
       {
         "title": "EAS incorporation",
-        "body": "Bylaws, shareholder registry and corporate documentation under Paraguayan law."
+        "body": "Drafting or adopting bylaws, defining shareholders, capital and officers; digital filing with validated documentation (translations, apostilles, powers of attorney)."
       },
       {
         "title": "Tax and operational activation",
-        "body": "RUC (DNIT), electronic invoicing where applicable, customs registrations if required, and accounting baseline."
+        "body": "RUC with DNIT, electronic invoicing credentials where applicable, mandatory affiliations and accounting baseline; customs or sector registrations if the business requires them."
       },
       {
         "title": "Ongoing support",
-        "body": "Local representation, digital documentation, operational compliance and coordination with other group divisions when appropriate."
+        "body": "Local representation, minute updates, corporate compliance routines and coordination with Import and Export or Developer as operations scale."
       }
     ],
     "faqTitle": "Frequently asked questions",
     "faqs": [
       {
-        "q": "Is Paraguay residency mandatory?",
-        "a": "No—the model is designed for remote execution and local representation within applicable law."
+        "q": "Must I live in Paraguay to be a shareholder?",
+        "a": "Not necessarily to hold shares; full digital signing in some flows and day-to-day management may still require local representation or travel, depending on the case."
       },
       {
-        "q": "How long does it take?",
-        "a": "It depends on complexity, documentation and agency timelines. We share realistic estimates after initial diagnosis."
+        "q": "Can a foreigner be the sole shareholder of an EAS?",
+        "a": "Yes, the single-shareholder form exists; rules on multiple single-shareholder EAS and representation before the State must be validated against current law and your plan."
+      },
+      {
+        "q": "What is the typical incorporation timeline?",
+        "a": "The MIC publishes targets for standard-bylaw processes, but real timelines depend on complete documentation, background checks and queues. We provide a schedule after diagnosis."
+      },
+      {
+        "q": "Is there a mandatory minimum capital for an EAS?",
+        "a": "EAS legislation aimed to lower capital barriers versus older forms; the subscribed amount must still be coherent with corporate purpose and bank or sector requirements—not only the legal minimum."
+      },
+      {
+        "q": "Must the legal representative be Paraguayan?",
+        "a": "Many digital procedures require Paraguayan identity and, often, electronic ID. Investors without a local ID therefore use qualified representatives under powers of attorney—always formalised with counsel."
+      },
+      {
+        "q": "Does Phoenix replace a law firm?",
+        "a": "No. We coordinate business planning and integrated operations; opinions, deeds and litigation stay with licensed professionals."
       },
       {
         "q": "Do you provide binding tax advice?",
-        "a": "We publish general information; binding opinions come from licensed professionals for each case."
+        "a": "We publish a general view. Binding positions before DNIT or courts require formal advice from licensed accountants and lawyers."
       },
       {
         "q": "Does this integrate with Import and Export or Developer?",
-        "a": "Yes—once the vehicle exists, other divisions can support trade operations, platforms and automation."
+        "a": "Yes—after incorporation, other divisions can own foreign trade, platforms and automation with a clear separation of roles."
       }
-    ]
+    ],
+    "ctaLead": "Structure the right vehicle with documentation and timing aligned to international investors. Speak with the Enterprise team."
   }
 }

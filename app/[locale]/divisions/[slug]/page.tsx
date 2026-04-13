@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DivisionDetail } from "@/components/division-detail";
 import { DeveloperDivisionPage } from "@/components/divisions/developer/developer-division-page";
 import { ImportExportDivisionPage } from "@/components/divisions/import-export/import-export-division-page";
+import { EnterpriseDivisionPage } from "@/components/divisions/enterprise/enterprise-division-page";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { routing } from "@/i18n/routing";
@@ -101,6 +102,8 @@ export default async function DivisionPage({ params }: Props) {
           <DeveloperDivisionPage />
         ) : slug === "import-export" ? (
           <ImportExportDivisionPage />
+        ) : slug === "enterprise-solution" ? (
+          <EnterpriseDivisionPage />
         ) : (
           <DivisionDetail namespace={ns} />
         )}
