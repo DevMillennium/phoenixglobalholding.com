@@ -26,6 +26,7 @@ jobs:
 
     env:
       DATABASE_URL: postgresql://phoenix:phoenix@localhost:5432/phoenix
+      DIRECT_URL: postgresql://phoenix:phoenix@localhost:5432/phoenix
 
     steps:
       - uses: actions/checkout@v4

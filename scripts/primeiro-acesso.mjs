@@ -48,11 +48,12 @@ function ensureEnvLocal() {
   const has = (key) => lines.some((l) => l.startsWith(`${key}=`));
 
   const toAdd = [];
+  const localPg = "postgresql://phoenix:phoenix@localhost:5432/phoenix";
   if (!has("DATABASE_URL")) {
-    // Alinhado com docker-compose.yml (Postgres local). Em produção use Neon/Vercel Postgres.
-    toAdd.push(
-      'DATABASE_URL="postgresql://phoenix:phoenix@localhost:5432/phoenix"',
-    );
+    toAdd.push(`DATABASE_URL="${localPg}"`);
+  }
+  if (!has("DIRECT_URL")) {
+    toAdd.push(`DIRECT_URL="${localPg}"`);
   }
   if (!has("ADMIN_JWT_SECRET")) {
     const jwtSecret = crypto.randomBytes(32).toString("hex");
@@ -62,9 +63,9 @@ function ensureEnvLocal() {
   if (toAdd.length) {
     const block = `\n# Primeiro acesso (gerado por scripts/primeiro-acesso.mjs)\n${toAdd.join("\n")}\n`;
     fs.appendFileSync(envLocal, (existing.endsWith("\n") || !existing ? "" : "\n") + block, "utf8");
-    console.log("Atualizado .env.local (DATABASE_URL e/ou ADMIN_JWT_SECRET).");
+    console.log("Atualizado .env.local (DATABASE_URL, DIRECT_URL e/ou ADMIN_JWT_SECRET).");
   } else {
-    console.log(".env.local já tinha DATABASE_URL e ADMIN_JWT_SECRET.");
+    console.log(".env.local já continha as chaves necessárias (nada acrescentado).");
   }
 }
 
