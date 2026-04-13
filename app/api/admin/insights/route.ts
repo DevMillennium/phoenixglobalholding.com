@@ -60,10 +60,15 @@ export async function GET() {
   }
 
   const periodKey = new Date().toISOString().slice(0, 7);
-  const row = await prisma.insightReport.findUnique({ where: { periodKey } });
-  return NextResponse.json({
-    ok: true,
-    periodKey,
-    content: row?.contentMd ?? null,
-  });
+  try {
+    const row = await prisma.insightReport.findUnique({ where: { periodKey } });
+    return NextResponse.json({
+      ok: true,
+      periodKey,
+      content: row?.contentMd ?? null,
+    });
+  } catch (e) {
+    console.error("[admin/insights GET]", e);
+    return NextResponse.json({ ok: false, error: "db" }, { status: 503 });
+  }
 }

@@ -16,11 +16,15 @@ export async function GET(req: Request) {
     ? { status: status as "NEW" | "CONTACTED" | "QUALIFIED" | "WON" | "LOST" }
     : {};
 
-  const leads = await prisma.lead.findMany({
-    where,
-    orderBy: { createdAt: "desc" },
-    take,
-  });
-
-  return NextResponse.json({ ok: true, leads });
+  try {
+    const leads = await prisma.lead.findMany({
+      where,
+      orderBy: { createdAt: "desc" },
+      take,
+    });
+    return NextResponse.json({ ok: true, leads });
+  } catch (e) {
+    console.error("[admin/leads GET]", e);
+    return NextResponse.json({ ok: false, error: "db" }, { status: 503 });
+  }
 }
