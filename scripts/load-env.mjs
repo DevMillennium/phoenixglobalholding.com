@@ -1,5 +1,6 @@
 /**
- * Carrega .env.local e .env (sem sobrescrever variáveis já definidas).
+ * Alinhado ao Next.js: .env primeiro, depois .env.local com prioridade (override).
+ * Assim chaves só em .env (ex.: DEEPSEEK) não ficam bloqueadas por .env.local parcial.
  * Replica DATABASE_URL → DIRECT_URL se DIRECT_URL estiver vazio.
  */
 import { config } from "dotenv";
@@ -12,14 +13,16 @@ export const projectRoot = path.resolve(__dirname, "..");
 
 export function loadProjectEnv() {
   process.chdir(projectRoot);
-  const local = path.join(projectRoot, ".env.local");
   const envFile = path.join(projectRoot, ".env");
-  if (fs.existsSync(local)) {
-    config({ path: local, override: false });
-  }
+  const local = path.join(projectRoot, ".env.local");
+
   if (fs.existsSync(envFile)) {
     config({ path: envFile, override: false });
   }
+  if (fs.existsSync(local)) {
+    config({ path: local, override: true });
+  }
+
   const u = process.env.DATABASE_URL?.trim();
   if (u && !process.env.DIRECT_URL?.trim()) {
     process.env.DIRECT_URL = u;

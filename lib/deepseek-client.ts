@@ -1,3 +1,5 @@
+import { getDeepseekApiKey } from "@/lib/deepseek-env";
+
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 
 export async function deepseekChat(params: {
@@ -6,7 +8,7 @@ export async function deepseekChat(params: {
   model?: string;
   temperature?: number;
 }): Promise<string> {
-  const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+  const apiKey = getDeepseekApiKey();
   if (!apiKey) throw new Error("DEEPSEEK_API_KEY ausente");
 
   const model = params.model?.trim() || "deepseek-chat";

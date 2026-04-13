@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getDeepseekApiKey } from "@/lib/deepseek-env";
 import { getLanySystemPrompt } from "@/lib/lany-system-prompt";
 
 type ClientMessage = {
@@ -64,7 +65,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
+    const apiKey = getDeepseekApiKey();
     const assessment = assessLead(userMessage, history);
     const stage = detectLeadStage(assessment);
     const qualified = assessment.qualified;
