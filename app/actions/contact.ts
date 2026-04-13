@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { prisma } from "@/lib/prisma";
 import { contactFormSchema } from "@/lib/validations/contact";
 import { getContactEmail } from "@/lib/site-config";
 
@@ -67,6 +68,22 @@ export async function submitContact(
       if (error) {
         console.error("[contact] Resend:", error);
         return { ok: false, errorKey: "sendFailed" };
+      }
+      try {
+        await prisma.lead.create({
+          data: {
+            name: data.name,
+            email: data.email,
+            company: data.company,
+            phone: data.phone || undefined,
+            intent: data.intent,
+            message: data.message,
+            consent: data.consent,
+            sourcePath: "/contact",
+          },
+        });
+      } catch (e) {
+        console.error("[contact] lead persist", e);
       }
       return { ok: true, intent: data.intent };
     } catch (e) {
