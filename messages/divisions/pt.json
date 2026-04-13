@@ -1,38 +1,92 @@
 {
   "DivisionImportExport": {
-    "metaTitle": "Phoenix Global Import and Export | Phoenix Global Holding",
-    "metaDescription": "Importação, exportação e venda direta no Paraguai com integração regional e logística otimizada.",
+    "metaTitle": "Import & Export Paraguai · MERCOSUL | Phoenix Global Holding",
+    "metaDescription": "Comércio exterior com base no Paraguai: NCM, Arancel Externo Común, integração MERCOSUL, conformidade aduaneira e logística regional.",
+    "heroEyebrow": "Comércio exterior · Paraguai · MERCOSUL",
     "title": "Phoenix Global Import and Export",
-    "subtitle": "Comércio internacional com base no Paraguai para conectar mercados globais à região.",
-    "intro": "A divisão de comércio internacional do grupo articula importação de alto valor agregado, exportação e redistribuição regional, e canais de venda direta. A operação busca eficiência logística, compliance e escalabilidade.",
+    "subtitle": "Infraestrutura de comércio internacional com governança, classificação fiscal correta e integração regional.",
+    "intro": "Estruturamos importação de alto valor agregado, exportação, redistribuição na América do Sul e canais de venda direta — com foco em compliance documental, rastreabilidade e eficiência logística. Cada linha é tratada com critérios de auditoria e encaixe no marco normativo vigente.",
+    "disclaimer": "Informação de caráter institucional. Não substitui parecer jurídico, fiscal ou aduaneiro para operações, NCM ou regimes específicos.",
+    "trustItems": [
+      "NCM / HS",
+      "AEC MERCOSUL",
+      "DNA · despacho",
+      "Origem · triangulação"
+    ],
+    "pillarsTitle": "Pilares da operação",
+    "pillarsLead": "Transparência na classificação, consistência documental e alinhamento ao bloco e ao ordenamento nacional paraguaio.",
+    "pillars": [
+      {
+        "title": "Nomenclatura e tributação",
+        "body": "Uso disciplinado da NCM (Nomenclatura Comum do MERCOSUL), alinhada ao Sistema Harmonizado (HS), como base para tributação aduaneira e estatística — com revisão quando a mercadoria ou o uso mudam o enquadramento."
+      },
+      {
+        "title": "Arancel Externo Común (AEC)",
+        "body": "Referência ao AEC para origens fora do bloco, conforme tratados e decisões do MERCOSUL (GMC/CMC). O ordenamento nacional articula o arancel vigente com exigências locais; alíquotas e benefícios evoluem — o plano comercial deve acompanhar o diploma em vigor."
+      },
+      {
+        "title": "Despacho e órgãos competentes",
+        "body": "No Paraguai, a Dirección Nacional de Aduanas (DNA) concentra o controle aduaneiro. Exportadores e importadores devem observar declarações, canais e regimes compatíveis com a natureza da operação e com documentação de origem quando aplicável."
+      },
+      {
+        "title": "Integração regional",
+        "body": "Fluxos intra-MERCOSUL e com terceiros exigem regras distintas de origem, benefícios e logística. Modelamos rotas e parceiros para reduzir atrito em fronteira e em armazenagem, sempre respeitando o marco aplicável a cada corredor."
+      },
+      {
+        "title": "Tecnologia e dados",
+        "body": "Quando o volume exige, integramos sistemas, rastreio e automação com a Phoenix Global Developer — sem diluir controles de compliance."
+      },
+      {
+        "title": "Escalabilidade societária",
+        "body": "Operações maiores podem alinhar-se a veículos e governança corporativa via Enterprise Solution, mantendo separação clara entre comércio, tecnologia e holding."
+      }
+    ],
+    "frameworkTitle": "Enquadramento MERCOSUL e Paraguai (visão institucional)",
+    "frameworkLead": "O MERCOSUL organiza o comércio entre os Estados Partes a partir do Tratado de Assunção (1991) e instrumentos posteriores. A política comercial combina regras comuns — em especial a NCM e o AEC para terceiros — com normas nacionais de execução.",
+    "frameworkPoints": [
+      "NCM: nomenclatura de oito dígitos compartilhada, base estatística e aduaneira para classificar mercadorias em todo o bloco.",
+      "AEC: pauta de referência para importações originárias de fora do MERCOSUL; decisões do Conselho do Mercado Comum (CMC) podem alterar alíquotas e benefícios ao longo do tempo.",
+      "Paraguai aplica o ordenamento nacional sobre a NCM (arancel nacional vigente), com atualizações periódicas alinhadas ao HS e a compromissos do bloco.",
+      "Reduções ou ajustes de AEC (ex.: decisões tipo CMC com implementação por decreto nacional) podem abranger milhares de posições — impacto direto em custo de landed cost.",
+      "Origem MERCOSUL: documentação e regras específicas para acesso a benefícios intrabloco; fundamental em cadeias regionais.",
+      "Exportação paraguaia: observância de requisitos sanitários, de valor adicionado e de destino conforme o mercado alvo."
+    ],
+    "mercosulTitle": "Pactos, bloco e operação prática",
+    "mercosulLead": "O Paraguai é Estado Parte do MERCOSUL: isso define preferências comerciais intrabloco, coordenação macroeconómica e instrumentos comuns, sem substituir o assessoramento profissional em cada despacho.",
+    "mercosulBullets": [
+      "Acordos com terceiros países ou grupos (além do AEC) complementam a pauta: cada operação deve confrontar o tratado aplicável à mercadoria e ao parceiro.",
+      "Zonas francas e regimes especiais existem no espaço aduaneiro paraguaio — admissibilidade depende de produto, investimento e norma específica.",
+      "Contencioso e consultas bilaterais fazem parte do ecossistema; empresas de grande volume mantêm compliance contínuo e monitorização de mudanças.",
+      "Logística terrestre (hidrovias e rodovias) posiciona o Paraguai como hub de redistribuição quando combinada com classificação correta e lead time contratual."
+    ],
     "processTitle": "Como trabalhamos",
     "processSteps": [
       {
         "title": "Origem e abastecimento",
-        "body": "Seleção de categorias e fornecedores alinhados à demanda regional: tecnologia, lifestyle, cosmética e consumo."
+        "body": "Seleção de categorias e fornecedores com fit fiscal preliminar: tecnologia, lifestyle, cosmética e consumo — sempre com NCM e custo aduaneiro estimado."
       },
       {
         "title": "Integração logística",
-        "body": "Coordenação de fluxos transfronteiriços e redistribuição na América do Sul com foco em prazos e custos."
+        "body": "Coordenação de fluxos transfronteiriços e redistribuição na América do Sul: prazos, seguros e documentação alinhados ao canal (marítimo, aéreo, rodoviário)."
       },
       {
         "title": "Canais de saída",
-        "body": "Distribuição local, DTC, e-commerce e marketplaces conforme a estratégia de cada linha."
+        "body": "Distribuição local, DTC, e-commerce e marketplaces conforme a estratégia de cada linha e requisitos de marketplace para origem e compliance."
       },
       {
         "title": "Suporte ao crescimento",
-        "body": "Escala operacional com apoio tecnológico do grupo (Developer) quando volume e complexidade exigirem."
+        "body": "Escala com apoio tecnológico do grupo (Developer) quando volume, integrações e dados exigirem plataforma e automação."
       }
     ],
     "faqTitle": "Perguntas frequentes",
     "faqs": [
       {
         "q": "Em quais categorias a importação foca?",
-        "a": "Priorizamos eletrônicos e tecnologia, dispositivos digitais, cosméticos e dermocosméticos, e consumo e lifestyle com demanda regional comprovada."
+        "a": "Priorizamos eletrônicos e tecnologia, dispositivos digitais, cosméticos e dermocosméticos, e consumo e lifestyle com demanda regional comprovada — sempre com NCM e tributação mapeadas para o caso."
       },
       {
         "q": "Há exportação fora do Paraguai?",
-        "a": "Sim: exportação, redistribuição regional e integração logística entre países da América do Sul fazem parte do modelo."
+        "a": "Sim: exportação, redistribuição regional e integração logística entre países da América do Sul fazem parte do modelo, respeitando origem e requisitos do destino."
       },
       {
         "q": "Como essa divisão se relaciona com o restante do grupo?",
@@ -41,8 +95,17 @@
       {
         "q": "Atendem consumidor final?",
         "a": "Existem canais de venda direta e marketplace; consultas institucionais do site são voltadas a negócios, distribuidores e parceiros."
+      },
+      {
+        "q": "O AEC e o arancel nacional são a mesma coisa?",
+        "a": "O AEC é a pauta comum do MERCOSUL para terceiros; o Paraguai publica o arancel nacional que articula a NCM com as alíquotas e regras em vigor no país. Para cada NCM, usa-se a tabela e os diplomas aplicáveis na data do despacho."
+      },
+      {
+        "q": "Como acompanham mudanças de alíquotas ou decisões do bloco?",
+        "a": "Grandes operações exigem monitorização contínua de decisões GMC/CMC e decretos nacionais. Trabalhamos com premissas documentadas e revisão quando o diploma ou a classificação mudam."
       }
-    ]
+    ],
+    "ctaLead": "Operações internacionais com governança. Fale com a equipa para alinhar produto, documentação e estratégia regional."
   },
   "DivisionDeveloper": {
     "metaTitle": "Phoenix Global Developer | Phoenix Global Holding",

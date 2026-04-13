@@ -1,38 +1,92 @@
 {
   "DivisionImportExport": {
-    "metaTitle": "Phoenix Global Import and Export | Phoenix Global Holding",
-    "metaDescription": "Import, export and direct retail from Paraguay with regional integration and optimised logistics.",
+    "metaTitle": "Import & Export Paraguay · Mercosur | Phoenix Global Holding",
+    "metaDescription": "International trade from Paraguay: NCM, Common External Tariff, Mercosur integration, customs compliance and regional logistics.",
+    "heroEyebrow": "International trade · Paraguay · Mercosur",
     "title": "Phoenix Global Import and Export",
-    "subtitle": "International trade anchored in Paraguay to connect global markets with the region.",
-    "intro": "The group’s international trade division orchestrates high value-added imports, exports and regional redistribution, plus direct sales channels. Operations are designed for logistics efficiency, compliance and scale.",
+    "subtitle": "International trade infrastructure with governance, correct tariff classification and regional integration.",
+    "intro": "We structure high value-added imports, exports, South American redistribution and direct sales channels — with a focus on documentary compliance, traceability and logistics efficiency. Each line is run with audit-grade criteria and alignment to the prevailing regulatory framework.",
+    "disclaimer": "Institutional information only. It does not replace legal, tax or customs advice for specific operations, NCM positions or special regimes.",
+    "trustItems": [
+      "NCM / HS",
+      "Mercosur CET",
+      "DNA clearance",
+      "Origin · triangulation"
+    ],
+    "pillarsTitle": "Operating pillars",
+    "pillarsLead": "Transparency in classification, documentary consistency and alignment with the bloc and Paraguayan national law.",
+    "pillars": [
+      {
+        "title": "Nomenclature and taxation",
+        "body": "Disciplined use of the NCM (Mercosur Common Nomenclature), aligned with the Harmonized System (HS), as the basis for customs and statistical treatment — with review when the good or its use changes classification."
+      },
+      {
+        "title": "Common External Tariff (CET)",
+        "body": "Reference CET for non-bloc origins under Mercosur treaties and GMC/CMC decisions. National law maps the current tariff with local requirements; rates and benefits evolve — commercial plans must track the instruments in force."
+      },
+      {
+        "title": "Clearance and competent authorities",
+        "body": "In Paraguay, the National Customs Directorate (DNA) leads customs control. Exporters and importers must follow declarations, channels and regimes suited to each operation, including origin documentation where applicable."
+      },
+      {
+        "title": "Regional integration",
+        "body": "Intra-Mercosur and third-country flows involve different rules of origin, benefits and logistics. We model routes and partners to reduce friction at borders and in warehousing, always respecting the framework for each corridor."
+      },
+      {
+        "title": "Technology and data",
+        "body": "When volume requires it, we integrate systems, tracking and automation with Phoenix Global Developer — without diluting compliance controls."
+      },
+      {
+        "title": "Corporate scalability",
+        "body": "Larger operations may align with vehicles and governance via Enterprise Solution, keeping trade, technology and the holding clearly separated."
+      }
+    ],
+    "frameworkTitle": "Mercosur and Paraguay framework (institutional overview)",
+    "frameworkLead": "Mercosur organises trade among State Parties from the Treaty of Asunción (1991) and subsequent instruments. Commercial policy combines common rules — especially the NCM and the CET for third countries — with national implementing law.",
+    "frameworkPoints": [
+      "NCM: shared eight-digit nomenclature, the statistical and customs basis for classifying goods across the bloc.",
+      "CET: reference schedule for imports originating outside Mercosur; Mercosur Common Market Council (CMC) decisions may change rates and benefits over time.",
+      "Paraguay applies national law on top of the NCM (current national tariff), periodically updated with HS amendments and bloc commitments.",
+      "CET reductions or adjustments (e.g. CMC-style decisions implemented by national decree) can cover thousands of lines — direct impact on landed cost.",
+      "Mercosur origin: specific documentation and rules to access intra-bloc benefits; essential in regional supply chains.",
+      "Paraguayan exports: sanitary, value-added and destination requirements must match each target market."
+    ],
+    "mercosulTitle": "Treaties, the bloc and day-to-day operations",
+    "mercosulLead": "Paraguay is a Mercosur State Party: that shapes intra-bloc preferences, macroeconomic coordination and common instruments — it does not replace professional advice on each customs clearance.",
+    "mercosulBullets": [
+      "Agreements with third countries or groups (beyond the CET) complement the schedule: every shipment must match the treaty applicable to the good and the counterparty.",
+      "Free zones and special regimes exist in Paraguay’s customs space — eligibility depends on product, investment and specific regulation.",
+      "Disputes and bilateral consultations are part of the ecosystem; high-volume firms maintain continuous compliance and change monitoring.",
+      "Land logistics (waterways and roads) can position Paraguay as a redistribution hub when combined with correct classification and contractual lead times."
+    ],
     "processTitle": "How we work",
     "processSteps": [
       {
         "title": "Sourcing and supply",
-        "body": "Category and supplier selection aligned with regional demand: technology, lifestyle, cosmetics and consumer goods."
+        "body": "Category and supplier selection with preliminary fiscal fit: technology, lifestyle, cosmetics and consumer goods — always with NCM and estimated customs cost."
       },
       {
         "title": "Logistics integration",
-        "body": "Cross-border flows and South American redistribution with focus on time and cost."
+        "body": "Cross-border flows and South American redistribution: timelines, insurance and documentation aligned to the mode (ocean, air, road)."
       },
       {
         "title": "Go-to-market channels",
-        "body": "Local distribution, DTC, e-commerce and marketplaces according to each line’s strategy."
+        "body": "Local distribution, DTC, e-commerce and marketplaces per line strategy and marketplace rules for origin and compliance."
       },
       {
         "title": "Growth support",
-        "body": "Scaling with group technology (Developer) when volume and complexity require it."
+        "body": "Scale with group technology (Developer) when volume, integrations and data require platforms and automation."
       }
     ],
     "faqTitle": "Frequently asked questions",
     "faqs": [
       {
         "q": "Which import categories do you prioritise?",
-        "a": "Electronics and technology, digital devices, cosmetics and dermocosmetics, and consumer & lifestyle with proven regional demand."
+        "a": "Electronics and technology, digital devices, cosmetics and dermocosmetics, and consumer & lifestyle with proven regional demand — always with NCM and tax mapping for the case."
       },
       {
         "q": "Do you export beyond Paraguay?",
-        "a": "Yes—exports, regional redistribution and logistics integration across South America are part of the model."
+        "a": "Yes—exports, regional redistribution and logistics integration across South America are part of the model, respecting origin and destination requirements."
       },
       {
         "q": "How does this division connect to the rest of the group?",
@@ -41,8 +95,17 @@
       {
         "q": "Do you serve end consumers?",
         "a": "Direct and marketplace channels exist; institutional enquiries on this site target businesses, distributors and partners."
+      },
+      {
+        "q": "Is the CET the same as the national tariff?",
+        "a": "The CET is Mercosur’s common schedule for third countries; Paraguay publishes the national tariff that maps the NCM to rates and rules in force. For each NCM, use the table and instruments applicable on the clearance date."
+      },
+      {
+        "q": "How do you track tariff changes or bloc decisions?",
+        "a": "Large operations need continuous monitoring of GMC/CMC decisions and national decrees. We work from documented assumptions and review when the instrument or classification changes."
       }
-    ]
+    ],
+    "ctaLead": "International trade with governance. Contact the team to align product, documentation and regional strategy."
   },
   "DivisionDeveloper": {
     "metaTitle": "Phoenix Global Developer | Phoenix Global Holding",

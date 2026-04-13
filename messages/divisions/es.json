@@ -1,38 +1,92 @@
 {
   "DivisionImportExport": {
-    "metaTitle": "Phoenix Global Import and Export | Phoenix Global Holding",
-    "metaDescription": "Importación, exportación y venta directa en Paraguay con integración regional y logística optimizada.",
+    "metaTitle": "Import & Export Paraguay · MERCOSUR | Phoenix Global Holding",
+    "metaDescription": "Comercio exterior con base en Paraguay: NCM, Arancel Externo Común, integración MERCOSUR, cumplimiento aduanero y logística regional.",
+    "heroEyebrow": "Comercio exterior · Paraguay · MERCOSUR",
     "title": "Phoenix Global Import and Export",
-    "subtitle": "Comercio internacional con base en Paraguay para conectar mercados globales con la región.",
-    "intro": "La división de comercio internacional del grupo articula importación de alto valor agregado, exportación y redistribución regional, y canales de venta directa. La operación está diseñada para eficiencia logística, cumplimiento y escalabilidad.",
+    "subtitle": "Infraestructura de comercio internacional con gobernanza, clasificación fiscal correcta e integración regional.",
+    "intro": "Estructuramos importación de alto valor agregado, exportación, redistribución en Sudamérica y canales de venta directa — con foco en cumplimiento documental, trazabilidad y eficiencia logística. Cada línea se gestiona con criterios de auditoría y encaje en el marco normativo vigente.",
+    "disclaimer": "Información de carácter institucional. No reemplaza asesoramiento jurídico, fiscal o aduanero para operaciones, NCM o regímenes específicos.",
+    "trustItems": [
+      "NCM / HS",
+      "AEC MERCOSUR",
+      "DNA · despacho",
+      "Origen · triangulación"
+    ],
+    "pillarsTitle": "Pilares de la operación",
+    "pillarsLead": "Transparencia en la clasificación, consistencia documental y alineación al bloque y al ordenamiento nacional paraguayo.",
+    "pillars": [
+      {
+        "title": "Nomenclatura y tributación",
+        "body": "Uso disciplinado de la NCM (Nomenclatura Común del MERCOSUR), alineada al Sistema Armonizado (HS), como base para la tributación aduanera y estadística — con revisión cuando la mercancía o el uso cambian el encuadre."
+      },
+      {
+        "title": "Arancel Externo Común (AEC)",
+        "body": "Referencia al AEC para orígenes fuera del bloque, conforme a tratados y decisiones del MERCOSUR (GMC/CMC). El ordenamiento nacional articula el arancel vigente con exigencias locales; las alícuotas y beneficios evolucionan — el plan comercial debe seguir el diploma vigente."
+      },
+      {
+        "title": "Despacho y organismos competentes",
+        "body": "En Paraguay, la Dirección Nacional de Aduanas (DNA) concentra el control aduanero. Exportadores e importadores deben observar declaraciones, canales y regímenes compatibles con la naturaleza de la operación y con documentación de origen cuando aplique."
+      },
+      {
+        "title": "Integración regional",
+        "body": "Los flujos intra-MERCOSUR y con terceros exigen reglas distintas de origen, beneficios y logística. Modelamos rutas y socios para reducir fricción en frontera y en almacenaje, respetando siempre el marco aplicable a cada corredor."
+      },
+      {
+        "title": "Tecnología y datos",
+        "body": "Cuando el volumen lo exige, integramos sistemas, trazabilidad y automatización con Phoenix Global Developer — sin diluir controles de cumplimiento."
+      },
+      {
+        "title": "Escalabilidad societaria",
+        "body": "Las operaciones de mayor envergadura pueden alinearse a vehículos y gobernanza corporativa vía Enterprise Solution, manteniendo separación clara entre comercio, tecnología y holding."
+      }
+    ],
+    "frameworkTitle": "Marco MERCOSUR y Paraguay (visión institucional)",
+    "frameworkLead": "El MERCOSUR organiza el comercio entre Estados Parte a partir del Tratado de Asunción (1991) e instrumentos posteriores. La política comercial combina reglas comunes — en especial la NCM y el AEC para terceros — con normas nacionales de ejecución.",
+    "frameworkPoints": [
+      "NCM: nomenclatura de ocho dígitos compartida, base estadística y aduanera para clasificar mercancías en todo el bloque.",
+      "AEC: pauta de referencia para importaciones originarias de fuera del MERCOSUR; decisiones del Consejo del Mercado Común (CMC) pueden alterar alícuotas y beneficios en el tiempo.",
+      "Paraguay aplica el ordenamiento nacional sobre la NCM (arancel vigente), con actualizaciones periódicas al HS y a compromisos del bloque.",
+      "Reducciones o ajustes del AEC (p. ej. decisiones tipo CMC con implementación por decreto nacional) pueden abarcar miles de posiciones — impacto directo en el costo a tierra.",
+      "Origen MERCOSUR: documentación y reglas específicas para acceder a beneficios intrabloque; fundamental en cadenas regionales.",
+      "Exportación paraguaya: observancia de requisitos sanitarios, de valor agregado y de destino conforme el mercado objetivo."
+    ],
+    "mercosulTitle": "Pactos, bloque y operación práctica",
+    "mercosulLead": "Paraguay es Estado Parte del MERCOSUR: define preferencias comerciales intrabloque, coordinación macroeconómica e instrumentos comunes, sin sustituir el asesoramiento profesional en cada despacho.",
+    "mercosulBullets": [
+      "Acuerdos con terceros países o grupos (además del AEC) complementan la pauta: cada operación debe contrastar el tratado aplicable a la mercancía y al socio.",
+      "Zonas francas y regímenes especiales existen en el espacio aduanero paraguayo — la admisibilidad depende de producto, inversión y norma específica.",
+      "Contencioso y consultas bilaterales forman parte del ecosistema; empresas de gran volumen mantienen cumplimiento continuo y monitoreo de cambios.",
+      "La logística terrestre (hidrovías y rutas) posiciona a Paraguay como hub de redistribución cuando se combina con clasificación correcta y lead time contractual."
+    ],
     "processTitle": "Cómo trabajamos",
     "processSteps": [
       {
         "title": "Origen y abastecimiento",
-        "body": "Selección de categorías y proveedores alineados con demanda regional: tecnología, lifestyle, cosmética y consumo."
+        "body": "Selección de categorías y proveedores con ajuste fiscal preliminar: tecnología, lifestyle, cosmética y consumo — siempre con NCM y costo aduanero estimado."
       },
       {
         "title": "Integración logística",
-        "body": "Coordinación de flujos transfronterizos y redistribución en Sudamérica con foco en tiempos y costos."
+        "body": "Coordinación de flujos transfronterizos y redistribución en Sudamérica: plazos, seguros y documentación alineados al canal (marítimo, aéreo, terrestre)."
       },
       {
         "title": "Canales de salida",
-        "body": "Distribución local, DTC, e-commerce y marketplaces según la estrategia de cada línea."
+        "body": "Distribución local, DTC, e-commerce y marketplaces según la estrategia de cada línea y requisitos del marketplace para origen y cumplimiento."
       },
       {
         "title": "Soporte al crecimiento",
-        "body": "Escalado de operaciones con apoyo tecnológico del grupo (Developer) cuando el volumen y la complejidad lo requieren."
+        "body": "Escala con apoyo tecnológico del grupo (Developer) cuando volumen, integraciones y datos exijan plataforma y automatización."
       }
     ],
     "faqTitle": "Preguntas frecuentes",
     "faqs": [
       {
         "q": "¿En qué categorías se enfoca la importación?",
-        "a": "Priorizamos electrónica y tecnología, dispositivos digitales, cosméticos y dermocosméticos, y productos de consumo y lifestyle con demanda regional comprobada."
+        "a": "Priorizamos electrónica y tecnología, dispositivos digitales, cosméticos y dermocosméticos, y consumo y lifestyle con demanda regional comprobada — siempre con NCM y tributación mapeadas al caso."
       },
       {
         "q": "¿Operan exportación fuera del Paraguay?",
-        "a": "Sí: exportación, redistribución regional e integración logística entre países de Sudamérica forman parte del modelo."
+        "a": "Sí: exportación, redistribución regional e integración logística entre países de Sudamérica forman parte del modelo, respetando origen y requisitos del destino."
       },
       {
         "q": "¿Cómo se relaciona esta división con el resto del grupo?",
@@ -41,8 +95,17 @@
       {
         "q": "¿Atienden al consumidor final?",
         "a": "Hay canales de venta directa y marketplace; las consultas institucionales del sitio están orientadas a negocios, distribuidores y partners."
+      },
+      {
+        "q": "¿El AEC y el arancel nacional son lo mismo?",
+        "a": "El AEC es la pauta común del MERCOSUR para terceros; Paraguay publica el arancel nacional que articula la NCM con las alícuotas y reglas vigentes en el país. Para cada NCM se usa la tabla y los diplomas aplicables en la fecha del despacho."
+      },
+      {
+        "q": "¿Cómo siguen cambios de alícuotas o decisiones del bloque?",
+        "a": "Las grandes operaciones exigen monitoreo continuo de decisiones GMC/CMC y decretos nacionales. Trabajamos con premisas documentadas y revisión cuando cambia el diploma o la clasificación."
       }
-    ]
+    ],
+    "ctaLead": "Comercio internacional con gobernanza. Hable con el equipo para alinear producto, documentación y estrategia regional."
   },
   "DivisionDeveloper": {
     "metaTitle": "Phoenix Global Developer | Phoenix Global Holding",
