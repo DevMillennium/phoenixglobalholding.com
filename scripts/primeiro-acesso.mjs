@@ -49,7 +49,10 @@ function ensureEnvLocal() {
 
   const toAdd = [];
   if (!has("DATABASE_URL")) {
-    toAdd.push('DATABASE_URL="file:./dev.db"');
+    // Alinhado com docker-compose.yml (Postgres local). Em produção use Neon/Vercel Postgres.
+    toAdd.push(
+      'DATABASE_URL="postgresql://phoenix:phoenix@localhost:5432/phoenix"',
+    );
   }
   if (!has("ADMIN_JWT_SECRET")) {
     const jwtSecret = crypto.randomBytes(32).toString("hex");

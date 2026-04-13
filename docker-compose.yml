@@ -1,6 +1,7 @@
-# PostgreSQL local para o painel admin (Prisma).
+# PostgreSQL local (obrigatório para Prisma — o projeto usa provider postgresql).
 # Uso: docker compose up -d
-# DATABASE_URL=postgresql://phoenix:phoenix@localhost:5432/phoenix
+# Em .env.local: DATABASE_URL="postgresql://phoenix:phoenix@localhost:5432/phoenix"
+# Depois: npx prisma migrate deploy && npm run dev
 
 services:
   db:

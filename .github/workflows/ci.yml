@@ -9,6 +9,24 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: phoenix
+          POSTGRES_PASSWORD: phoenix
+          POSTGRES_DB: phoenix
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U phoenix -d phoenix"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgresql://phoenix:phoenix@localhost:5432/phoenix
+
     steps:
       - uses: actions/checkout@v4
 
@@ -23,16 +41,8 @@ jobs:
       - name: ESLint
         run: npm run lint
 
-      # Mesmo provider SQLite do schema: aplica migrações antes do build (paridade com Vercel se usar migrate deploy no deploy).
-      - name: Prisma migrate deploy (SQLite CI)
-        run: npx prisma migrate deploy
-        env:
-          DATABASE_URL: "file:./dev.db"
-
-      - name: Build Next.js
+      - name: Build Next.js (migrate deploy + next build)
         run: npm run build
-        env:
-          DATABASE_URL: "file:./dev.db"
 
       - name: Instalar Chromium (Playwright)
         run: npx playwright install --with-deps chromium
