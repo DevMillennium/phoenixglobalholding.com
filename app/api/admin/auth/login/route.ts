@@ -25,6 +25,19 @@ function allowLogin(ip: string): boolean {
   return true;
 }
 
+function isDbConnectionError(e: unknown): boolean {
+  const msg = e instanceof Error ? e.message : String(e);
+  return (
+    msg.includes("Can't reach database") ||
+    msg.includes("P1001") ||
+    msg.includes("P1017") ||
+    msg.includes("SQLITE_CANTOPEN") ||
+    msg.includes("ENOENT") ||
+    msg.includes("PrismaClientInitializationError") ||
+    msg.includes("Server has closed the connection")
+  );
+}
+
 export async function POST(req: Request) {
   try {
     const ip =
@@ -38,16 +51,40 @@ export async function POST(req: Request) {
       );
     }
 
-    const json = (await req.json()) as unknown;
+    let json: unknown;
+    try {
+      json = await req.json();
+    } catch {
+      return NextResponse.json({ ok: false, error: "Pedido inválido." }, { status: 400 });
+    }
+
     const parsed = bodySchema.safeParse(json);
     if (!parsed.success) {
       return NextResponse.json({ ok: false, error: "Dados inválidos." }, { status: 400 });
     }
 
     const { email, password } = parsed.data;
-    const user = await prisma.adminUser.findUnique({
-      where: { email: email.toLowerCase().trim() },
-    });
+
+    let user: Awaited<ReturnType<typeof prisma.adminUser.findUnique>>;
+    try {
+      user = await prisma.adminUser.findUnique({
+        where: { email: email.toLowerCase().trim() },
+      });
+    } catch (e) {
+      console.error("[admin login] prisma findUnique", e);
+      if (isDbConnectionError(e)) {
+        return NextResponse.json(
+          {
+            ok: false,
+            error:
+              "Base de dados indisponível. Confirme DATABASE_URL, migrações (prisma migrate deploy) e rede.",
+          },
+          { status: 503 },
+        );
+      }
+      throw e;
+    }
+
     if (!user || !user.active) {
       return NextResponse.json({ ok: false, error: "Credenciais inválidas." }, { status: 401 });
     }
@@ -71,14 +108,18 @@ export async function POST(req: Request) {
       );
     }
 
-    await prisma.auditLog.create({
-      data: {
-        userId: user.id,
-        action: "login",
-        resource: "session",
-        ipMasked: ip.slice(0, 12) + "…",
-      },
-    });
+    try {
+      await prisma.auditLog.create({
+        data: {
+          userId: user.id,
+          action: "login",
+          resource: "session",
+          ipMasked: ip.slice(0, 12) + "…",
+        },
+      });
+    } catch (e) {
+      console.error("[admin login] auditLog (login continua)", e);
+    }
 
     const res = NextResponse.json({
       ok: true,
@@ -94,6 +135,13 @@ export async function POST(req: Request) {
     return res;
   } catch (e) {
     console.error("[admin login]", e);
-    return NextResponse.json({ ok: false, error: "Erro no servidor." }, { status: 500 });
+    const hint =
+      process.env.NODE_ENV === "development" && e instanceof Error
+        ? ` ${e.message}`
+        : "";
+    return NextResponse.json(
+      { ok: false, error: `Erro no servidor.${hint ? ` (${hint.slice(0, 200)})` : ""}` },
+      { status: 500 },
+    );
   }
 }

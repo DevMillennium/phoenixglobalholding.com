@@ -1,11 +1,10 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 
 export function AdminLoginForm() {
-  const router = useRouter();
   const params = useSearchParams();
   const setup = params.get("setup") === "1";
 
@@ -22,6 +21,7 @@ export function AdminLoginForm() {
       const res = await fetch("/api/admin/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ email, password }),
       });
       const data = (await res.json()) as { ok?: boolean; error?: string };
@@ -29,8 +29,9 @@ export function AdminLoginForm() {
         setError(data.error ?? "Falha no login");
         return;
       }
-      router.push("/admin");
-      router.refresh();
+      // Navegação completa garante que o cookie httpOnly definido na resposta é enviado no GET /admin
+      // (router.push cliente por vezes corre antes do cookie ficar disponível para o próximo pedido).
+      window.location.assign("/admin");
     } catch {
       setError("Erro de rede");
     } finally {
