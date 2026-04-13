@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { AppShell } from "@/components/app-shell";
+import { LocaleHtmlLang } from "@/components/locale-html-lang";
 import { getSiteUrl } from "@/lib/site-config";
 import type { Viewport } from "next";
 
@@ -49,18 +50,17 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
+    <div
       className={`${outfit.variable} ${playfair.variable} h-full antialiased`}
-      suppressHydrationWarning
     >
-      <body
-        className={`${outfit.className} min-h-full flex flex-col bg-background pb-24 text-foreground md:pb-0`}
+      <div
+        className={`${outfit.className} flex min-h-full flex-col bg-background pb-24 text-foreground md:pb-0`}
       >
         <NextIntlClientProvider messages={messages}>
+          <LocaleHtmlLang />
           <AppShell>{children}</AppShell>
         </NextIntlClientProvider>
-      </body>
-    </html>
+      </div>
+    </div>
   );
 }

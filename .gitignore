@@ -46,3 +46,6 @@ next-env.d.ts
 # prisma local sqlite (produção: PostgreSQL na Vercel)
 /prisma/*.db
 /prisma/*.db-journal
+
+# credenciais locais do script primeiro-acesso (nunca commitar)
+.admin-primeiro-acesso.txt

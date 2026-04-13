@@ -1,8 +1,14 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
+import { canExport, getAdminSession } from "@/lib/admin-session";
+import { canCreateUsers } from "@/lib/admin-guards";
 
-export default function AdminDashboardLayout({ children }: { children: ReactNode }) {
+export default async function AdminDashboardLayout({ children }: { children: ReactNode }) {
+  const ctx = await getAdminSession();
+  const showUsers = ctx ? canCreateUsers(ctx.user.role) : false;
+  const showExportLeads = ctx ? canExport(ctx.user.role) : false;
+
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#050608]/95 backdrop-blur-md">
@@ -21,9 +27,23 @@ export default function AdminDashboardLayout({ children }: { children: ReactNode
               <Link href="/admin/leads" className="hover:text-white">
                 Leads
               </Link>
+              {showExportLeads ? (
+                <a
+                  href="/api/admin/leads/export"
+                  className="hover:text-white"
+                  download
+                >
+                  Exportar CSV
+                </a>
+              ) : null}
               <Link href="/admin/insights" className="hover:text-white">
                 Insights IA
               </Link>
+              {showUsers ? (
+                <Link href="/admin/users" className="hover:text-white">
+                  Utilizadores
+                </Link>
+              ) : null}
             </nav>
           </div>
           <div className="flex items-center gap-3">

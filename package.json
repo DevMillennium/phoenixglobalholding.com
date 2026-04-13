@@ -11,7 +11,8 @@
     "postinstall": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
-    "db:seed": "node scripts/seed-admin.mjs"
+    "db:seed": "node scripts/seed-admin.mjs",
+    "db:primeiro-acesso": "node scripts/primeiro-acesso.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -8,8 +8,8 @@ import bcrypt from "bcryptjs";
 const email = process.env.ADMIN_EMAIL?.trim().toLowerCase();
 const password = process.env.ADMIN_PASSWORD?.trim();
 
-if (!email || !password || password.length < 10) {
-  console.error("Defina ADMIN_EMAIL e ADMIN_PASSWORD (mín. 10 caracteres).");
+if (!email || !password || password.length < 8) {
+  console.error("Defina ADMIN_EMAIL e ADMIN_PASSWORD (mín. 8 caracteres, alinhado ao login).");
   process.exit(1);
 }
 

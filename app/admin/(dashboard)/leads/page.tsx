@@ -1,10 +1,12 @@
 import { getAdminSession } from "@/lib/admin-session";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { LeadStatusSelect } from "@/components/admin/lead-status-select";
 
 export default async function AdminLeadsPage() {
   const ctx = await getAdminSession();
   if (!ctx) redirect("/admin/login");
+  const readOnly = ctx.user.role === "VIEWER";
 
   let leads: Awaited<ReturnType<typeof prisma.lead.findMany>> = [];
   try {
@@ -50,7 +52,13 @@ export default async function AdminLeadsPage() {
                     </a>
                   </td>
                   <td className="px-4 py-3 text-[#c4c8d4]">{l.intent}</td>
-                  <td className="px-4 py-3 font-mono text-xs text-[#e8b44f]">{l.status}</td>
+                  <td className="px-4 py-3">
+                    <LeadStatusSelect
+                      leadId={l.id}
+                      status={l.status}
+                      readOnly={readOnly}
+                    />
+                  </td>
                 </tr>
               ))
             )}
