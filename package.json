@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "setup": "node scripts/setup-all.mjs",
     "dev": "next dev",
     "build": "node scripts/run-build.mjs",
     "build:next": "next build",
@@ -11,8 +12,8 @@
     "test:e2e": "playwright test",
     "postinstall": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "db:deploy": "prisma migrate deploy",
-    "db:seed": "node scripts/seed-admin.mjs",
+    "db:deploy": "node scripts/db-deploy.mjs",
+    "db:seed": "node scripts/seed-with-env.mjs",
     "db:primeiro-acesso": "node scripts/primeiro-acesso.mjs"
   },
   "dependencies": {

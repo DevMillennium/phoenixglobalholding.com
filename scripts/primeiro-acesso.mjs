@@ -10,6 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { PrismaClient } from "@prisma/client";
+import { loadProjectEnv } from "./load-env.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -17,26 +18,6 @@ const envLocal = path.join(root, ".env.local");
 const credFile = path.join(root, ".admin-primeiro-acesso.txt");
 
 const defaultEmail = "admin@phoenixglobalholding.com";
-
-function parseEnvFile(filePath) {
-  if (!fs.existsSync(filePath)) return;
-  const text = fs.readFileSync(filePath, "utf8");
-  for (const line of text.split(/\r?\n/)) {
-    const t = line.trim();
-    if (!t || t.startsWith("#")) continue;
-    const eq = t.indexOf("=");
-    if (eq <= 0) continue;
-    const key = t.slice(0, eq).trim();
-    let val = t.slice(eq + 1).trim();
-    if (
-      (val.startsWith('"') && val.endsWith('"')) ||
-      (val.startsWith("'") && val.endsWith("'"))
-    ) {
-      val = val.slice(1, -1);
-    }
-    if (!process.env[key]) process.env[key] = val;
-  }
-}
 
 function ensureEnvLocal() {
   let existing = "";
@@ -72,7 +53,7 @@ function ensureEnvLocal() {
 async function main() {
   process.chdir(root);
   ensureEnvLocal();
-  parseEnvFile(envLocal);
+  loadProjectEnv();
 
   console.log("A executar prisma migrate deploy…");
   execSync("npx prisma migrate deploy", { stdio: "inherit", env: { ...process.env } });
