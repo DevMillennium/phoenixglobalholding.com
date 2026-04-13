@@ -5,6 +5,7 @@ import {
   PrismaClientKnownRequestError,
   PrismaClientRustPanicError,
   PrismaClientUnknownRequestError,
+  PrismaClientValidationError,
 } from "@prisma/client/runtime/library";
 import { prisma } from "@/lib/prisma";
 import { signAdminToken, adminCookieName } from "@/lib/admin-jwt";
@@ -36,24 +37,45 @@ function isPrismaClientError(e: unknown): boolean {
     e instanceof PrismaClientInitializationError ||
     e instanceof PrismaClientKnownRequestError ||
     e instanceof PrismaClientUnknownRequestError ||
-    e instanceof PrismaClientRustPanicError
+    e instanceof PrismaClientRustPanicError ||
+    e instanceof PrismaClientValidationError
   );
 }
 
-/** Resposta HTTP para falhas de Prisma (nunca deixa cair no catch genérico). */
+/** Erros do driver pg / rede que por vezes não vêm como subclasses Prisma. */
+function isLikelyConnectionLayerError(e: unknown): boolean {
+  const msg = e instanceof Error ? e.message : String(e);
+  return (
+    /P1001|P1017|P1000|P1011|Can't reach database|Server has closed|connection refused|ECONNREFUSED|ETIMEDOUT|ENOTFOUND|password authentication failed|no pg_hba|SSL|self signed certificate|timeout|Tenant or user not found|Environment variable not found|directUrl|DIRECT_URL/i.test(
+      msg,
+    ) || /PrismaClient/i.test(msg)
+  );
+}
+
+const DB_HINT =
+  "Ligação à base falhou. Supabase/Vercel: DATABASE_URL (pooler), DIRECT_URL (non-pooling), ssl se necessário, redeploy após migrate. Crie o admin com npm run db:seed na mesma BD.";
+
+/** Resposta HTTP para falhas de Prisma / Postgres. */
 function responseForDbError(e: unknown, context: string) {
   const dev = process.env.NODE_ENV === "development";
+  const debug =
+    process.env.ADMIN_LOGIN_DEBUG === "1" || process.env.ADMIN_LOGIN_DEBUG === "true";
   console.error(`[admin login] ${context}`, e);
 
-  if (isPrismaClientError(e)) {
+  const prismaErr = isPrismaClientError(e);
+  const layerErr = isLikelyConnectionLayerError(e);
+  const detail =
+    dev || debug
+      ? ` ${e instanceof Error ? e.message.slice(0, 320) : String(e).slice(0, 200)}`
+      : "";
+
+  if (prismaErr || layerErr) {
     const code = e instanceof PrismaClientKnownRequestError ? e.code : "";
-    const suffix = dev ? ` (${e instanceof Error ? e.name : "?"}${code ? ` ${code}` : ""})` : "";
+    const codeBit = code ? ` [${code}]` : "";
     return NextResponse.json(
       {
         ok: false,
-        error:
-          "Base de dados: ligação ou consulta falhou. Na Vercel use Postgres em DATABASE_URL, defina variáveis e execute prisma migrate deploy no deploy." +
-          suffix,
+        error: `${DB_HINT}${codeBit}${detail ? ` —${detail}` : ""}`,
       },
       { status: 503 },
     );
@@ -63,9 +85,7 @@ function responseForDbError(e: unknown, context: string) {
   return NextResponse.json(
     {
       ok: false,
-      error: dev
-        ? `Base de dados: ${msg.slice(0, 400)}`
-        : "Não foi possível aceder à base de dados. Confirme DATABASE_URL e migrações.",
+      error: dev || debug ? `${DB_HINT} — ${msg.slice(0, 400)}` : `${DB_HINT} Veja logs.`,
     },
     { status: 503 },
   );

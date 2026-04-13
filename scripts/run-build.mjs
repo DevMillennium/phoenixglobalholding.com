@@ -14,5 +14,10 @@ if (fs.existsSync(".env")) {
   config({ path: ".env", override: false });
 }
 
+const dbUrl = process.env.DATABASE_URL?.trim();
+if (dbUrl && !process.env.DIRECT_URL?.trim()) {
+  process.env.DIRECT_URL = dbUrl;
+}
+
 execSync("npx prisma migrate deploy", { stdio: "inherit", env: process.env });
 execSync("npx next build", { stdio: "inherit", env: process.env });
