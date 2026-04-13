@@ -87,7 +87,142 @@
         "q": "¿Cómo se conecta con Import and Export?",
         "a": "Automatización de procesos, plataformas de comercio digital y analítica operacional son ejemplos típicos de sinergia."
       }
-    ]
+    ],
+    "matrixContent": {
+      "matrixEyebrow": "Desarrollo · Matrix verde",
+      "detailHeadline": "División de desarrollo pensada para ejecutar, no para decorar",
+      "detailLead": "Donde otros listan ítems genéricos, Phoenix estructura líneas de negocio, entregables medibles y criterios de aceptación antes de firmar.",
+      "videoCaption": "Video de la división · capa técnica Matrix",
+      "superiorityTitle": "Por encima del estándar de “desarrollo a medida” en una landing",
+      "superiorityItems": [
+        "Propiedad y repositorio desde el contrato — sin sorpresas al cierre",
+        "Fases con checklist firmable — sabés qué recibís en cada sprint",
+        "Calidad mínima negociada — seguridad, backups y observabilidad",
+        "Transferencia real — documentación y handover, no solo el ZIP"
+      ],
+      "comparisonHeading": "Criterio Phoenix frente al patrón típico del mercado",
+      "patternLabel": "Patrón frecuente",
+      "phoenixLabel": "Phoenix Global Developer",
+      "patternBullets": [
+        "Un solo bloque “sistemas, apps, e-commerce” sin alcance",
+        "Stack como decoración (logos en carrusel)",
+        "Contacto opaco o datos placeholder"
+      ],
+      "phoenixBullets": [
+        "Líneas de producto con alcance y riesgos nombrados",
+        "Stack por capa explicado en descubrimiento",
+        "Propuesta alineada a entregables y datos"
+      ],
+      "servicesTitle": "Líneas de entrega",
+      "serviceCards": [
+        {
+          "title": "Plataformas y sistemas web",
+          "body": "Backoffice, portales y reglas de negocio con permisos y auditoría.",
+          "points": [
+            "Modelado de dominio y roles",
+            "APIs internas estables",
+            "Integración CRM / ERP"
+          ]
+        },
+        {
+          "title": "Experiencia web y PWA",
+          "body": "Interfaces rápidas, accesibles y SEO técnico de base.",
+          "points": [
+            "Core Web Vitals",
+            "Responsive real",
+            "i18n cuando aplique"
+          ]
+        },
+        {
+          "title": "Comercio y pagos",
+          "body": "Tiendas y checkout con pasarelas alineadas a tu contexto.",
+          "points": [
+            "Catálogo y stock",
+            "Stripe / Mercado Pago",
+            "Posventa automatizada"
+          ]
+        },
+        {
+          "title": "APIs e integraciones",
+          "body": "Puentes entre tu stack actual y nuevas herramientas.",
+          "points": [
+            "Contratos versionados",
+            "Reintentos e idempotencia",
+            "Alertas y monitoreo"
+          ]
+        },
+        {
+          "title": "Modernización y mantenimiento",
+          "body": "Código legado con plan de migración y riesgo controlado.",
+          "points": [
+            "Auditoría inicial",
+            "Refactor por métricas",
+            "SLA opcional"
+          ]
+        },
+        {
+          "title": "Producto y datos",
+          "body": "Instrumentación y tableros para decidir con números.",
+          "points": [
+            "Eventos y privacidad",
+            "BI / dashboards",
+            "Feature flags"
+          ]
+        }
+      ],
+      "deliverTitle": "Qué entregamos en cada proyecto",
+      "deliverItems": [
+        {
+          "strong": "Descubrimiento y arquitectura",
+          "text": "Requisitos priorizados, integraciones y riesgos — documento vivo."
+        },
+        {
+          "strong": "Código y repositorio",
+          "text": "Git, ramas y revisiones — propiedad intelectual en contrato."
+        },
+        {
+          "strong": "Ambientes y deploy",
+          "text": "Pipeline, variables seguras y staging / producción."
+        },
+        {
+          "strong": "Documentación y transferencia",
+          "text": "README, diagramas y sesión de handover."
+        }
+      ],
+      "qualityTitle": "Barrera de calidad",
+      "qualityLead": "Transparente en lo que está dentro y fuera de alcance.",
+      "qualityChips": [
+        "Validación de inputs",
+        "HTTPS y cabeceras",
+        "Secretos fuera del código",
+        "Backups y rollback",
+        "Pruebas en lo crítico",
+        "Observabilidad mínima"
+      ],
+      "stackTitle": "Stack por capa (ejemplo)",
+      "stackLead": "Tecnología estable y equipo contratable; el stack final sale del descubrimiento.",
+      "stackRows": [
+        {
+          "label": "Interfaz",
+          "text": "React, Next.js o HTML/CSS/JS cuando pida simplicidad."
+        },
+        {
+          "label": "Servidor",
+          "text": "Node.js, Python o .NET según integraciones."
+        },
+        {
+          "label": "Datos",
+          "text": "PostgreSQL, Redis; migraciones versionadas."
+        },
+        {
+          "label": "Infra",
+          "text": "AWS, GCP, Vercel, Railway; IaC cuando justifique."
+        }
+      ],
+      "ctaStrong": "Siguiente nivel",
+      "ctaText": "Brief o llamada corta: estimación por rangos, alcance por fases y riesgos explícitos.",
+      "ctaButton": "Solicitar propuesta técnica"
+    }
   },
   "DivisionEnterprise": {
     "metaTitle": "Phoenix Global Enterprise Solution | Phoenix Global Holding",

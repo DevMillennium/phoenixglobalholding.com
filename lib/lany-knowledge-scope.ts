@@ -1,4 +1,10 @@
-export const LANY_KNOWLEDGE_SCOPE = `
+import { getContactEmail, getSiteUrl, getWhatsAppHref } from "@/lib/site-config";
+
+export function buildLanyKnowledgeScope(): string {
+  const wa = getWhatsAppHref();
+  const email = getContactEmail();
+  const site = getSiteUrl();
+  return `
 ESCOPO_DE_CONHECIMENTO_LANY
 Ultima atualizacao interna: 2026-04-07
 
@@ -32,9 +38,9 @@ Politica comercial do site
 - Nao ha tabela publica de precos.
 - Prazo exato depende da complexidade e da documentacao do caso.
 - Canais oficiais:
-  - WhatsApp: https://wa.me/595992799800
-  - E-mail: diretoria@phoenixglobalholding.com
-  - Site: https://www.phoenixglobalholding.com
+  - WhatsApp: ${wa}
+  - E-mail: ${email}
+  - Site: ${site}
 
 2) METODO DE CONSULTORIA DA LANY (OBRIGATORIO)
 - A cada interacao:
@@ -108,3 +114,4 @@ Pontos centrais para atendimento (sem substituir assessoria legal/fiscal):
 - Sempre finalizar com proximo passo pratico (CTA): WhatsApp, e-mail ou formulario /contact.
 - Antes do CTA, entregar valor consultivo real na resposta atual.
 `.trim();
+}

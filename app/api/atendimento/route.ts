@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { LANY_SYSTEM_PROMPT } from "@/lib/lany-system-prompt";
+import { getLanySystemPrompt } from "@/lib/lany-system-prompt";
 
 type ClientMessage = {
   role: "user" | "assistant";
@@ -69,13 +69,27 @@ export async function POST(req: Request) {
     const stage = detectLeadStage(assessment);
     const qualified = assessment.qualified;
     if (!apiKey) {
-      return NextResponse.json({
-        ok: false,
-        error: "Atendimento indisponivel no momento. Tente novamente em instantes.",
-        source: "error",
-        stage,
-        qualified,
-      }, { status: 503 });
+      if (process.env.NODE_ENV === "development") {
+        console.warn(
+          "[atendimento] DEEPSEEK_API_KEY ausente — adicione em .env.local e reinicie o servidor (npm run dev).",
+        );
+      }
+      const errorDev =
+        "Assistente sem chave da API: crie o ficheiro .env.local na raiz do projeto com DEEPSEEK_API_KEY=sua_chave e reinicie o servidor. Em produção (Vercel), defina a mesma variável em Settings → Environment Variables.";
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            process.env.NODE_ENV === "development"
+              ? errorDev
+              : "Atendimento indisponivel no momento. Tente novamente em instantes.",
+          source: "error",
+          stage,
+          qualified,
+          reason: "missing_api_key",
+        },
+        { status: 503 },
+      );
     }
 
     const model = process.env.DEEPSEEK_MODEL?.trim() || DEFAULT_MODEL;
@@ -86,7 +100,7 @@ export async function POST(req: Request) {
       model: selectedModel,
       temperature: 0.3,
       messages: [
-        { role: "system", content: LANY_SYSTEM_PROMPT },
+        { role: "system", content: getLanySystemPrompt() },
         ...history,
         { role: "user", content: userMessage },
       ],

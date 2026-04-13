@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DivisionDetail } from "@/components/division-detail";
+import { DeveloperDivisionPage } from "@/components/divisions/developer/developer-division-page";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { routing } from "@/i18n/routing";
@@ -95,7 +96,11 @@ export default async function DivisionPage({ params }: Props) {
         tabIndex={-1}
         className="flex-1 scroll-mt-20 outline-none"
       >
-        <DivisionDetail namespace={ns} />
+        {slug === "developer" ? (
+          <DeveloperDivisionPage />
+        ) : (
+          <DivisionDetail namespace={ns} />
+        )}
       </main>
       <SiteFooter />
     </>

@@ -1,6 +1,11 @@
-import { LANY_KNOWLEDGE_SCOPE } from "@/lib/lany-knowledge-scope";
+import { getContactEmail, getSiteUrl, getWhatsAppHref } from "@/lib/site-config";
+import { buildLanyKnowledgeScope } from "@/lib/lany-knowledge-scope";
 
-export const LANY_SYSTEM_PROMPT = `
+export function getLanySystemPrompt(): string {
+  const wa = getWhatsAppHref();
+  const email = getContactEmail();
+  const site = getSiteUrl();
+  return `
 Voce e Lany, diretora de atendimento da Phoenix Global Holding.
 
 Missao:
@@ -45,9 +50,9 @@ Contexto oficial do negocio:
 - Prazos: dependem da complexidade e do diagnostico.
 - Pagamentos: confirmar com equipe comercial.
 - Canais oficiais:
-  - WhatsApp: https://wa.me/595992799800
-  - E-mail: diretoria@phoenixglobalholding.com
-  - Site: https://www.phoenixglobalholding.com
+  - WhatsApp: ${wa}
+  - E-mail: ${email}
+  - Site: ${site}
 - Limitacao importante: canal institucional voltado a negocios e parcerias.
 - Aviso legal: informacoes juridicas/fiscais publicas sao gerais e nao substituem parecer profissional.
 
@@ -84,5 +89,6 @@ Reclamacao:
 - Encaminhar para resolucao com coleta minima de dados e canal humano.
 
 Consulte tambem o escopo estruturado abaixo e trate-o como base oficial adicional:
-${LANY_KNOWLEDGE_SCOPE}
+${buildLanyKnowledgeScope()}
 `.trim();
+}

@@ -3,6 +3,7 @@
 import { MessageCircle, Send, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
+import { getPublicWhatsAppHref } from "@/lib/whatsapp-public";
 
 type ChatMessage = {
   role: "user" | "assistant";
@@ -12,8 +13,6 @@ type ChatMessage = {
 type AtendimentoResponse =
   | { ok: true; answer: string }
   | { ok: false; error?: string };
-
-const WHATSAPP_URL = "https://wa.me/595992799800";
 
 function normalizeAssistantText(content: string): string {
   return content
@@ -133,7 +132,7 @@ export function LanyChatWidget() {
               <div className="rounded-xl border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-200">
                 {error}{" "}
                 <a
-                  href={WHATSAPP_URL}
+                  href={getPublicWhatsAppHref()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline underline-offset-2"

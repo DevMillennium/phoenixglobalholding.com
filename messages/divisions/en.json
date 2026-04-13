@@ -87,7 +87,142 @@
         "q": "How does this connect to Import and Export?",
         "a": "Operational automation, digital commerce platforms and analytics are typical synergy areas."
       }
-    ]
+    ],
+    "matrixContent": {
+      "matrixEyebrow": "Development · Matrix green",
+      "detailHeadline": "A development division built to ship, not to decorate",
+      "detailLead": "Where others list generic bullets, Phoenix structures business lines, measurable deliverables and acceptance criteria before you sign.",
+      "videoCaption": "Division video · Matrix technical layer",
+      "superiorityTitle": "Above the usual “custom dev” landing bar",
+      "superiorityItems": [
+        "Ownership and repo from the contract — no end-of-project surprises",
+        "Phased checklists you can sign off — you know what you get each sprint",
+        "Negotiated quality floor — security, backups and observability",
+        "Real handover — documentation and session, not just a ZIP"
+      ],
+      "comparisonHeading": "Phoenix vs. a typical market pattern",
+      "patternLabel": "Common pattern",
+      "phoenixLabel": "Phoenix Global Developer",
+      "patternBullets": [
+        "One block “systems, apps, e-commerce” with no real scope",
+        "Stack as decoration (logo carousel)",
+        "Opaque contact or placeholder numbers"
+      ],
+      "phoenixBullets": [
+        "Product lines with scope and risks named",
+        "Layered stack explained in discovery",
+        "Proposal aligned to deliverables and data"
+      ],
+      "servicesTitle": "Delivery lines",
+      "serviceCards": [
+        {
+          "title": "Web platforms & systems",
+          "body": "Backoffice, portals and business rules with permissions and audit.",
+          "points": [
+            "Domain modelling & roles",
+            "Stable internal APIs",
+            "CRM / ERP integration"
+          ]
+        },
+        {
+          "title": "Web experience & PWA",
+          "body": "Fast, accessible UIs with solid technical SEO.",
+          "points": [
+            "Core Web Vitals",
+            "Truly responsive",
+            "i18n when needed"
+          ]
+        },
+        {
+          "title": "Commerce & payments",
+          "body": "Stores and checkout with gateways aligned to your context.",
+          "points": [
+            "Catalogue & stock",
+            "Stripe / Mercado Pago",
+            "Automated post-sales"
+          ]
+        },
+        {
+          "title": "APIs & integrations",
+          "body": "Bridges between your stack and new tools.",
+          "points": [
+            "Versioned contracts",
+            "Retries & idempotency",
+            "Monitoring & alerts"
+          ]
+        },
+        {
+          "title": "Modernisation & maintenance",
+          "body": "Legacy with a migration plan and controlled risk.",
+          "points": [
+            "Initial audit",
+            "Metric-driven refactor",
+            "Optional SLA"
+          ]
+        },
+        {
+          "title": "Product & data",
+          "body": "Instrumentation and dashboards to decide with numbers.",
+          "points": [
+            "Events & privacy",
+            "BI / dashboards",
+            "Feature flags"
+          ]
+        }
+      ],
+      "deliverTitle": "What we deliver on every project",
+      "deliverItems": [
+        {
+          "strong": "Discovery & architecture",
+          "text": "Prioritised requirements, integrations and risks — living doc."
+        },
+        {
+          "strong": "Code & repository",
+          "text": "Git, branches, reviews — IP defined in contract."
+        },
+        {
+          "strong": "Environments & deploy",
+          "text": "Pipeline, secure env vars and staging / production."
+        },
+        {
+          "strong": "Documentation & handover",
+          "text": "README, diagrams and handover session."
+        }
+      ],
+      "qualityTitle": "Quality bar",
+      "qualityLead": "Clear on what is in and out of scope.",
+      "qualityChips": [
+        "Input validation",
+        "HTTPS & headers",
+        "Secrets outside code",
+        "Backups & rollback",
+        "Tests on critical paths",
+        "Minimum observability"
+      ],
+      "stackTitle": "Stack by layer (example)",
+      "stackLead": "Stable tech and hireable talent; final stack comes from discovery.",
+      "stackRows": [
+        {
+          "label": "UI",
+          "text": "React, Next.js or HTML/CSS/JS when simplicity wins."
+        },
+        {
+          "label": "Server",
+          "text": "Node.js, Python or .NET depending on integrations."
+        },
+        {
+          "label": "Data",
+          "text": "PostgreSQL, Redis; versioned migrations."
+        },
+        {
+          "label": "Infra",
+          "text": "AWS, GCP, Vercel, Railway; IaC when justified."
+        }
+      ],
+      "ctaStrong": "Next level",
+      "ctaText": "Short brief or call: range estimates, phased scope and explicit risks.",
+      "ctaButton": "Request a technical proposal"
+    }
   },
   "DivisionEnterprise": {
     "metaTitle": "Phoenix Global Enterprise Solution | Phoenix Global Holding",
